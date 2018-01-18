@@ -4,12 +4,13 @@ import PropTypes from 'prop-types'
 import Grid from 'material-ui/Grid'
 import Typography from 'material-ui/Typography'
 import withStyles from 'material-ui/styles/withStyles'
+
 import Logo from '../Logo'
 
 import styles from './styles'
 
 const Intro = ({ classes }) => (
-  <Grid container component="header" alignItems="center">
+  <Grid container component="header" alignItems="center" className={classes.container}>
     <Grid item xs={12} sm={2}>
       <Logo size="small" />
     </Grid>

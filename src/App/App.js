@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import './App.css';
+
+import Divider from 'material-ui/Divider'
+
 import Intro from '../components/Intro'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <React.Fragment>
         <Intro />
-      </div>
+        <Divider light />
+      </React.Fragment>
     );
   }
 }
