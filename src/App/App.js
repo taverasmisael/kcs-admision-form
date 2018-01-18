@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 
-import Divider from 'material-ui/Divider'
-
 import Intro from '../components/Intro'
+import Footer from '../components/Footer'
 
 class App extends Component {
   render() {
     return (
       <React.Fragment>
         <Intro />
-        <Divider light />
+        <Footer />
       </React.Fragment>
     );
   }

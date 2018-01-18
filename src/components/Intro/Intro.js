@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Grid from 'material-ui/Grid'
+import Divider from 'material-ui/Divider'
 import Typography from 'material-ui/Typography'
 import withStyles from 'material-ui/styles/withStyles'
 
@@ -22,6 +23,9 @@ const Intro = ({ classes }) => (
         Welcome to The Place to Learn’s website. We pride ourselves in delivering the best education possible to our
         students, which is demonstrated through our Outstanding Ofsted inspection
       </Typography>
+    </Grid>
+    <Grid item xs={12}>
+      <Divider light />
     </Grid>
   </Grid>
 )
