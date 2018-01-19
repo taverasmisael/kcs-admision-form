@@ -15,7 +15,6 @@ import StepsLabels from './StepsLabels.json'
 class AdmisionForm extends Component {
   static propTypes = {
     classes: PropTypes.object.isRequired,
-    onSubmit: PropTypes.func.isRequired
   }
 
   state = {

@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <Intro />
-        <AdmisionForm onSubmit={() => false} />
+        <AdmisionForm />
         <Footer />
       </React.Fragment>
     );
