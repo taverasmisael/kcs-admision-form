@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const ChildrenInfo = () => <div />
+const ChildrenInfo = () => <h1>ChildrenInfo</h1>
 
 ChildrenInfo.propTypes = {}
 
