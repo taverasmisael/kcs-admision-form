@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 import Button from 'material-ui/Button'
 import withStyles from 'material-ui/styles/withStyles'
 import styles from './styles'
-const StepActions = ({ step, classes, isStepOptional, isLastStep, handleBack, handleSkip, handleNext }) => (
+const StepActions = ({ classes, isFirstStep, isStepOptional, isLastStep, handleBack, handleSkip, handleNext }) => (
   <React.Fragment>
-    <Button disabled={step === 0} onClick={handleBack} className={classes.button}>
+    <Button disabled={isFirstStep} onClick={handleBack} className={classes.button}>
       Atrás
     </Button>
     {isStepOptional && (
@@ -21,8 +21,8 @@ const StepActions = ({ step, classes, isStepOptional, isLastStep, handleBack, ha
 )
 
 StepActions.propTypes = {
-  step: PropTypes.number.isRequired,
   classes: PropTypes.object.isRequired,
+  isFirstStep: PropTypes.bool.isRequired,
   isStepOptional: PropTypes.bool.isRequired,
   isLastStep: PropTypes.bool.isRequired,
   handleBack: PropTypes.func.isRequired,
