@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import Stepper, { Step, StepLabel, StepContent } from 'material-ui/Stepper'
-import Typography from 'material-ui/Typography/Typography'
+import Stepper from 'material-ui/Stepper'
 
-import { ChildrenInfo, ExtraInfo, FamilyInfo, ICEInfo, MedicalCondition, TutorInfo } from '../steps'
+import LocalStep from './LocalStep'
 
 import AdmisionFinished from '../components/AdmisionFinished'
-import StepActions from '../components/StepActions'
 
 import withStyles from 'material-ui/styles/withStyles'
 import styles from './styles'
@@ -30,31 +28,19 @@ class AdmisionForm extends Component {
 
   isStepSkipped = step => this.state.skipped.has(step)
   mapSteps = stepsLabels =>
-    stepsLabels.map((step, index) => (
-      <Step key={index}>
-        <StepLabel
-          {...(this.isStepSkipped(index) ? { completed: false } : {})}
-          optional={step.optional && <Typography type="caption">Si aplica (opcional)</Typography>}
-        >
-          {step.label}
-        </StepLabel>
-        <StepContent>{this.renderStep(index)}</StepContent>
-      </Step>
-    ))
-
-  renderStep = step => (
-    <React.Fragment>
-      <this.renderStepContent step={step} />
-      <StepActions
-        step={step}
-        isLastStep={step === StepsLabels.length - 1}
-        isStepOptional={this.isStepOptional(step)}
-        handleBack={this.handleBack}
-        handleSkip={this.handleSkip}
-        handleNext={this.handleNext}
-      />
-    </React.Fragment>
-  )
+    stepsLabels.map((step, index) =>
+      LocalStep({
+        key: index,
+        index,
+        isFirst: index === 0,
+        isLast: index === stepsLabels.length - 1,
+        isSkipped: this.isStepSkipped(index),
+        stepLabel: step,
+        onNext: this.handleNext,
+        onPrev: this.handlePrev,
+        onSkip: this.handleSkip
+      })
+    )
   handleFormSubmit = () => console.log('Finished')
 
   handleNext = () => {
@@ -69,7 +55,7 @@ class AdmisionForm extends Component {
     })
   }
 
-  handleBack = () => {
+  handlePrev = () => {
     this.setState({
       currentStep: this.state.currentStep - 1
     })
@@ -86,27 +72,6 @@ class AdmisionForm extends Component {
       currentStep: currentStep + 1,
       skipped
     })
-  }
-
-  renderStepContent = ({ step }) => {
-    switch (step) {
-      case 0:
-        return <ChildrenInfo />
-      case 1:
-        return <FamilyInfo />
-      case 2:
-        return <TutorInfo />
-      case 3:
-        return <ICEInfo />
-      case 4:
-        return <ExtraInfo />
-      default:
-        return (
-          <Typography type="caption" color="error">
-            Error: Paso desconocido
-          </Typography>
-        )
-    }
   }
   render() {
     const { classes } = this.props
