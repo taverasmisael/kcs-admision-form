@@ -6,7 +6,7 @@ import Typography from 'material-ui/Typography'
 import Logo from '../Logo'
 
 const Footer = () => (
-  <Grid container component="footer" alignItems="center" justify="center">
+  <Grid container spacing={0} component="footer" alignItems="center" justify="center">
     <Grid item xs={2}>
       <Logo size="tiny" />
     </Grid>
