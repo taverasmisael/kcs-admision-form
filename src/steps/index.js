@@ -1,8 +1,17 @@
-import ChildrenInfo from './ChildrenInfo'
-import ExtraInfo from './ExtraInfo'
-import FamilyInfo from './FamilyInfo'
-import ICEInfo from './ICEInfo'
+import Children from './ChildrenInfo'
+import Extra from './ExtraInfo'
+import Family from './FamilyInfo'
+import ICE from './ICEInfo'
 import MedicalCondition from './MedicalCondition'
-import TutorInfo from './TutorInfo'
+import Tutor from './TutorInfo'
 
-export { ChildrenInfo, ExtraInfo, FamilyInfo, ICEInfo, MedicalCondition, TutorInfo }
+import StepWrapper from './StepWrapper'
+
+const ChildrenInfo = StepWrapper(Children)
+const ExtraInfo = StepWrapper(Extra)
+const FamilyInfo = StepWrapper(Family)
+const ICEInfo = StepWrapper(ICE)
+const TutorInfo = StepWrapper(Tutor)
+const MedicalConditionInfo = StepWrapper(MedicalCondition)
+
+export { StepWrapper, ChildrenInfo, ExtraInfo, FamilyInfo, ICEInfo, MedicalConditionInfo, TutorInfo }
