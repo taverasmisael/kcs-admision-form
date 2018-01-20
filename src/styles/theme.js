@@ -9,13 +9,15 @@ export default createMuiTheme({
       light: Palette.primary[300],
       main: Palette.primary[500],
       dark: Palette.primary[700],
-      contrastText: DefaultTheme.palette.getContrastText(Palette.primary[500])
+      contrastText: DefaultTheme.palette.getContrastText(Palette.primary[500]),
+      ...Palette.primary
     },
     secondary: {
       light: Palette.accent.A200,
       main: Palette.accent.A400,
       dark: Palette.accent.A700,
-      contrastText: DefaultTheme.palette.getContrastText(Palette.accent.A400)
+      contrastText: DefaultTheme.palette.getContrastText(Palette.accent.A400),
+      ...Palette.accent
     },
     error: Palette.error
   }
