@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const ChildrenInfo = () => <h1>ChildrenInfo</h1>
+import ChildForm from '../../forms/ChildForm'
+
+const ChildrenInfo = () => <ChildForm />
 
 ChildrenInfo.propTypes = {}
 
