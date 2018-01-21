@@ -2,10 +2,9 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
 import TextField from 'material-ui/TextField/TextField'
-import Select from 'material-ui/Select/Select'
-import FormControl from 'material-ui/Form/FormControl'
 import MenuItem from 'material-ui/Menu/MenuItem'
-import Input, { InputLabel } from 'material-ui/Input'
+
+import DatePicker from '../../components/DatePicker'
 
 import withStyles from 'material-ui/styles/withStyles'
 import styles from './styles'
@@ -16,7 +15,7 @@ import Typography from 'material-ui/Typography/Typography'
 class ChildForm extends PureComponent {
   state = {
     name: '',
-    birthdate: '',
+    birthdate: '2002-01-01T04:00:00.000Z',
     grade: 0,
     age: 0,
     sonNumber: 0
@@ -27,6 +26,11 @@ class ChildForm extends PureComponent {
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value })
+  }
+
+  handleDateChange = birthdate => {
+    const age = new Date().getFullYear() - birthdate.year()
+    this.setState({ birthdate , age })
   }
 
   renderGrades = grades =>
@@ -64,14 +68,14 @@ class ChildForm extends PureComponent {
             >
               {this.renderGrades(GRADES)}
             </TextField>
-            <TextField
+            <DatePicker
               id="birthdate"
               name="birthdate"
               label="Fecha de nacimiento"
               margin="normal"
               className={classes.textField}
               value={birthdate}
-              onChange={this.handleChange}
+              onChange={this.handleDateChange}
             />
             <TextField
               id="age"
