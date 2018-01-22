@@ -8,6 +8,7 @@ import Switch from 'material-ui/Switch'
 import MenuItem from 'material-ui/Menu/MenuItem'
 
 import TextField from '../TextField'
+import TelField from '../TelField'
 
 import withStyles from 'material-ui/styles/withStyles'
 import styles from './styles'
@@ -101,7 +102,7 @@ const ParentForm = ({ parent, state, classes, onChange }) => {
           />
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
-          <TextField
+          <TelField
             id={`${parent}Phone`}
             name="phone"
             label="Teléfono Casa"
@@ -112,7 +113,7 @@ const ParentForm = ({ parent, state, classes, onChange }) => {
           />
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
-          <TextField
+          <TelField
             id={`${parent}Cellphone`}
             name="cellphone"
             label="Celular"
@@ -148,7 +149,7 @@ const ParentForm = ({ parent, state, classes, onChange }) => {
           />
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
-          <TextField
+          <TelField
             id={`${parent}WorkPhone`}
             name="workPhone"
             label="Teléfono Oficina"
