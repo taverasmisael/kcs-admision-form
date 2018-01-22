@@ -19,7 +19,7 @@ const DatePicker = ({ onChange, disableFuture = true, value, ...props }) => (
     onChange={onChange}
     disableFuture={disableFuture}
     cancelLabel="Cancelar"
-    format="DD MMM YYYY"
+    format="DD MMMM YYYY"
     leftArrowIcon={<KeyboardArrowLeft />}
     rightArrowIcon={<KeyboardArrowRight />}
     keyboardIcon={<Event />}
