@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import TextField from 'material-ui/TextField/TextField'
 import MenuItem from 'material-ui/Menu/MenuItem'
+import Grid from 'material-ui/Grid'
 
 import DatePicker from '../../components/DatePicker'
 
@@ -30,7 +31,7 @@ class ChildForm extends PureComponent {
 
   handleDateChange = birthdate => {
     const age = new Date().getFullYear() - birthdate.year()
-    this.setState({ birthdate , age })
+    this.setState({ birthdate, age })
   }
 
   renderGrades = grades =>
@@ -44,50 +45,58 @@ class ChildForm extends PureComponent {
     const { classes } = this.props
     return (
       <form autoComplete="off" noValidate>
-        <div className={classes.formGroup}>
+        <div className={classes.container}>
           <Typography type="headline">Información del niño</Typography>
-          <div className={classes.container}>
-            <TextField
-              id="name"
-              name="name"
-              label="Nombre(s)"
-              margin="normal"
-              className={classes.textField}
-              value={name}
-              onChange={this.handleChange}
-            />
-            <TextField
-              id="grade"
-              name="grade"
-              label="Grado solicitado"
-              margin="normal"
-              className={classes.textField}
-              value={grade}
-              onChange={this.handleChange}
-              select
-            >
-              {this.renderGrades(GRADES)}
-            </TextField>
-            <DatePicker
-              id="birthdate"
-              name="birthdate"
-              label="Fecha de nacimiento"
-              margin="normal"
-              className={classes.textField}
-              value={birthdate}
-              onChange={this.handleDateChange}
-            />
-            <TextField
-              id="age"
-              name="age"
-              label="Edad"
-              margin="normal"
-              className={classes.textField}
-              value={age}
-              onChange={this.handleChange}
-              disabled
-            />
-          </div>
+          <Grid container>
+            <Grid item xs={12} sm={6} md={3}>
+              <TextField
+                id="name"
+                name="name"
+                label="Nombre(s)"
+                margin="normal"
+                className={classes.textField}
+                value={name}
+                onChange={this.handleChange}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6} md={3}>
+              <TextField
+                id="grade"
+                name="grade"
+                label="Grado solicitado"
+                margin="normal"
+                className={classes.textField}
+                value={grade}
+                onChange={this.handleChange}
+                select
+              >
+                {this.renderGrades(GRADES)}
+              </TextField>
+            </Grid>
+            <Grid item xs={12} sm={6} md={3}>
+              <DatePicker
+                id="birthdate"
+                name="birthdate"
+                label="Fecha de nacimiento"
+                margin="normal"
+                className={classes.textField}
+                value={birthdate}
+                onChange={this.handleDateChange}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6} md={3}>
+              <TextField
+                id="age"
+                name="age"
+                label="Edad"
+                margin="normal"
+                className={classes.textField}
+                value={age}
+                onChange={this.handleChange}
+                disabled
+              />
+            </Grid>
+          </Grid>
         </div>
       </form>
     )
