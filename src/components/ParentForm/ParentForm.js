@@ -3,15 +3,16 @@ import PropTypes from 'prop-types'
 
 import Typography from 'material-ui/Typography'
 import Grid from 'material-ui/Grid'
-import TextField from 'material-ui/TextField'
 import FormControlLabel from 'material-ui/Form/FormControlLabel'
 import Switch from 'material-ui/Switch'
+import MenuItem from 'material-ui/Menu/MenuItem'
 
-import { AcademicLevels, CivilStatus } from './Data.json'
+import TextField from '../TextField'
 
 import withStyles from 'material-ui/styles/withStyles'
 import styles from './styles'
-import MenuItem from 'material-ui/Menu/MenuItem'
+
+import { AcademicLevels, CivilStatus } from './Data.json'
 
 const ParentForm = ({ parent, state, classes, onChange }) => {
   return (
@@ -20,24 +21,22 @@ const ParentForm = ({ parent, state, classes, onChange }) => {
       <Grid container spacing={16} className={classes.inputContainer}>
         <Grid item xs={12} sm={6} md={3}>
           <TextField
-            id={`${parent}Lastname`}
-            name="lastname"
-            label="Apellidos"
-            margin="normal"
+            id={`${parent}Name`}
+            name="name"
+            label="Nombres"
             className={classes.textField}
-            value={state.lastname}
+            value={state.name}
             onChange={onChange}
             required
           />
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
           <TextField
-            id={`${parent}Name`}
-            name="name"
-            label="Nombres"
-            margin="normal"
+            id={`${parent}Lastname`}
+            name="lastname"
+            label="Apellidos"
             className={classes.textField}
-            value={state.name}
+            value={state.lastname}
             onChange={onChange}
             required
           />
@@ -47,7 +46,6 @@ const ParentForm = ({ parent, state, classes, onChange }) => {
             id={`${parent}CivilStatus`}
             name="civilStatus"
             label="Estado Civil"
-            margin="normal"
             className={classes.textField}
             value={state.civilStatus}
             onChange={onChange}
@@ -66,7 +64,6 @@ const ParentForm = ({ parent, state, classes, onChange }) => {
             id={`${parent}EducativeLevel`}
             name="educativeLevel"
             label="Nivel Educativo"
-            margin="normal"
             className={classes.textField}
             value={state.educativeLevel}
             onChange={onChange}
@@ -87,7 +84,6 @@ const ParentForm = ({ parent, state, classes, onChange }) => {
             id={`${parent}Address`}
             name="address"
             label="Dirección"
-            margin="normal"
             className={classes.textField}
             value={state.address}
             onChange={onChange}
@@ -99,7 +95,6 @@ const ParentForm = ({ parent, state, classes, onChange }) => {
             id={`${parent}Sector`}
             name="sector"
             label="Sector"
-            margin="normal"
             className={classes.textField}
             value={state.sector}
             onChange={onChange}
@@ -109,9 +104,8 @@ const ParentForm = ({ parent, state, classes, onChange }) => {
           <TextField
             id={`${parent}Phone`}
             name="phone"
-            label="Tel. Casa"
+            label="Teléfono Casa"
             type="tel"
-            margin="normal"
             className={classes.textField}
             value={state.phone}
             onChange={onChange}
@@ -123,7 +117,6 @@ const ParentForm = ({ parent, state, classes, onChange }) => {
             name="cellphone"
             label="Celular"
             type="tel"
-            margin="normal"
             className={classes.textField}
             value={state.cellphone}
             onChange={onChange}
@@ -137,7 +130,6 @@ const ParentForm = ({ parent, state, classes, onChange }) => {
             id={`${parent}WorkName`}
             name="workName"
             label="Lugar de trabajo"
-            margin="normal"
             className={classes.textField}
             value={state.workName}
             onChange={onChange}
@@ -149,7 +141,6 @@ const ParentForm = ({ parent, state, classes, onChange }) => {
             id={`${parent}WorkPosition`}
             name="workPosition"
             label="Puesto que ocupa"
-            margin="normal"
             className={classes.textField}
             value={state.workPosition}
             onChange={onChange}
@@ -160,9 +151,8 @@ const ParentForm = ({ parent, state, classes, onChange }) => {
           <TextField
             id={`${parent}WorkPhone`}
             name="workPhone"
-            label="Tel. Oficina"
+            label="Teléfono Oficina"
             type="tel"
-            margin="normal"
             className={classes.textField}
             value={state.workPhone}
             onChange={onChange}
@@ -174,7 +164,6 @@ const ParentForm = ({ parent, state, classes, onChange }) => {
             name="workPhoneExt"
             label="Ext."
             type="tel"
-            margin="normal"
             className={classes.textField}
             value={state.workPhoneExt}
             onChange={onChange}
@@ -209,7 +198,6 @@ function christianInfo(parent, state, handleChange, classes) {
           id={`${parent}ChurchName`}
           name="churchName"
           label="Iglesia a la que asiste"
-          margin="normal"
           className={classes.textField}
           value={state.churchName}
           onChange={handleChange}
@@ -221,7 +209,6 @@ function christianInfo(parent, state, handleChange, classes) {
           id={`${parent}PastorName`}
           name="pastorName"
           label="Nombre del pastor"
-          margin="normal"
           className={classes.textField}
           value={state.pastorName}
           onChange={handleChange}
@@ -233,7 +220,6 @@ function christianInfo(parent, state, handleChange, classes) {
           id={`${parent}ChurchService`}
           name="churchService"
           label="Area de servicio en la iglesia"
-          margin="normal"
           className={classes.textField}
           value={state.churchService}
           onChange={handleChange}
