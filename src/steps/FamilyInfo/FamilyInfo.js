@@ -1,9 +1,18 @@
 import React, { Fragment, PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
+import AppBar from 'material-ui/AppBar/AppBar'
+import Tabs from 'material-ui/Tabs/Tabs'
+import Tab from 'material-ui/Tabs/Tab'
+
+import ParentForm, { ParentModel } from '../../components/ParentForm'
+import TabContainer from '../../components/TabContainer'
+
 import withStyles from 'material-ui/styles/withStyles'
 import styles from './styles'
-import ParentForm, { ParentModel } from '../../components/ParentForm'
+
+const FATHER = 'FATHER'
+const MOTHER = 'MOTHER'
 export class FamilyInfo extends PureComponent {
   static propTypes = {
     classes: PropTypes.object.isRequired
@@ -11,7 +20,8 @@ export class FamilyInfo extends PureComponent {
 
   state = {
     father: ParentModel,
-    mother: ParentModel
+    mother: ParentModel,
+    selectedParent: FATHER
   }
   handleChange = parent => ({ target }) => {
     const { name, value: v } = target
@@ -24,12 +34,31 @@ export class FamilyInfo extends PureComponent {
       }
     })
   }
+
+  selectParent = (e, selectedParent) => {
+    console.log(selectedParent)
+    this.setState({ selectedParent })
+  }
   render() {
-    const { father, mother } = this.state
+    const { father, mother, selectedParent } = this.state
     return (
       <Fragment>
-        <ParentForm parent="Padre" state={father} onChange={this.handleChange('father')} />
-        <ParentForm parent="Madre" state={mother} onChange={this.handleChange('mother')} />
+        <AppBar color="default" position="static">
+          <Tabs indicatorColor="primary" textColor="primary" value={selectedParent} onChange={this.selectParent}>
+            <Tab value={FATHER} label="Padre" />
+            <Tab value={MOTHER} label="Madre" />
+          </Tabs>
+        </AppBar>
+        {selectedParent === FATHER && (
+          <TabContainer>
+            <ParentForm parent="Padre" state={father} onChange={this.handleChange('father')} />
+          </TabContainer>
+        )}
+        {selectedParent === MOTHER && (
+          <TabContainer>
+            <ParentForm parent="Madre" state={mother} onChange={this.handleChange('mother')} />
+          </TabContainer>
+        )}
       </Fragment>
     )
   }
