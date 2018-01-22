@@ -1,6 +1,7 @@
 import React, { Fragment, PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
+import SwipeableViews from 'react-swipeable-views'
 import AppBar from 'material-ui/AppBar/AppBar'
 import Tabs from 'material-ui/Tabs/Tabs'
 import Tab from 'material-ui/Tabs/Tab'
@@ -11,8 +12,6 @@ import TabContainer from '../../components/TabContainer'
 import withStyles from 'material-ui/styles/withStyles'
 import styles from './styles'
 
-const FATHER = 'FATHER'
-const MOTHER = 'MOTHER'
 export class FamilyInfo extends PureComponent {
   static propTypes = {
     classes: PropTypes.object.isRequired
@@ -21,7 +20,7 @@ export class FamilyInfo extends PureComponent {
   state = {
     father: ParentModel,
     mother: ParentModel,
-    selectedParent: FATHER
+    selectedParent: 0
   }
   handleChange = parent => ({ target }) => {
     const { name, value: v } = target
@@ -36,7 +35,6 @@ export class FamilyInfo extends PureComponent {
   }
 
   selectParent = (e, selectedParent) => {
-    console.log(selectedParent)
     this.setState({ selectedParent })
   }
   render() {
@@ -45,20 +43,18 @@ export class FamilyInfo extends PureComponent {
       <Fragment>
         <AppBar color="default" position="static">
           <Tabs indicatorColor="primary" textColor="primary" value={selectedParent} onChange={this.selectParent}>
-            <Tab value={FATHER} label="Padre" />
-            <Tab value={MOTHER} label="Madre" />
+            <Tab label="Padre" />
+            <Tab label="Madre" />
           </Tabs>
         </AppBar>
-        {selectedParent === FATHER && (
+        <SwipeableViews index={selectedParent} onChangeIndex={this.selectParent}>
           <TabContainer>
             <ParentForm parent="Padre" state={father} onChange={this.handleChange('father')} />
           </TabContainer>
-        )}
-        {selectedParent === MOTHER && (
           <TabContainer>
             <ParentForm parent="Madre" state={mother} onChange={this.handleChange('mother')} />
           </TabContainer>
-        )}
+        </SwipeableViews>
       </Fragment>
     )
   }
