@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 
 import Typography from 'material-ui/Typography'
 
-import { ChildrenInfo, ExtraInfo, FamilyInfo, ICEInfo, TutorInfo, StepWrapper } from '../steps'
+import { ChildInfo, ExtraInfo, FamilyInfo, ICEInfo, TutorInfo, StepWrapper } from '../steps'
 
 const LocalStep = ({ index, ...props }) => {
   switch (index) {
     case 0:
-      return <ChildrenInfo stepIndex={index} {...props} />
+      return <ChildInfo stepIndex={index} {...props} />
     case 1:
       return <FamilyInfo stepIndex={index} {...props} />
     case 2:
