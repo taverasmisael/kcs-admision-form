@@ -20,5 +20,8 @@ export default theme => ({
   },
   inputContainer: {
     width: '100%'
+  },
+  textarea: {
+    minHeight: `${theme.spacing.unit / 2}rem`
   }
 })

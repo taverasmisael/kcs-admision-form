@@ -3,7 +3,10 @@ export default theme => ({
   textFieldRoot: {
     padding: 0,
     'label + &': {
-      marginTop: theme.spacing.unit * 3
+      marginTop: theme.spacing.unit * 3,
+      '& > *': {
+        height: '100%!important'
+      }
     }
   },
   textFieldInput: {

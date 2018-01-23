@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import ExtraForm from '../../forms/ExtraForm/ExtraForm';
 
-const ExtraInfo = () => <h1>ExtraInfo</h1>
+class ExtraInfo extends PureComponent {
+  static propTypes = {}
+  state = { aditionalInfo: '' }
+  onChange = event => this.setState({ [event.target.name]: event.target.value})
 
-ExtraInfo.propTypes = {}
+  render() {
+    return <ExtraForm onChange={this.onChange} state={this.state} />
+  }
+}
 
 export default ExtraInfo
