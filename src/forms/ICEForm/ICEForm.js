@@ -12,7 +12,7 @@ import styles from '../styles'
 
 const ICEForm = ({ classes, state, onChange }) => (
   <Fragment>
-    <Typography type="headline">Datos del Tutor</Typography>
+    <Typography type="headline">Contacto de Emergencia</Typography>
     <Grid container spacing={16} className={classes.inputContainer}>
       <Grid item xs={12} sm={6} md={4}>
         <TextField

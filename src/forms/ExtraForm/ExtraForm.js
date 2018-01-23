@@ -11,7 +11,7 @@ import styles from '../styles'
 
 const ExtraForm = ({ classes, state, onChange }) => (
   <Fragment>
-    <Typography type="headline">Datos del Tutor</Typography>
+    <Typography type="headline">Información Adicionale</Typography>
     <Grid container spacing={16} className={classes.inputContainer}>
       <Grid item xs={12}>
         <TextField
