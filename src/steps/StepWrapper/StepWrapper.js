@@ -41,7 +41,7 @@ const StepWrapper = WrapedComponent =>
         <Step key={stepIndex} {...(isSkipped ? { ...props, completed: false } : props)}>
           <StepButton
             onClick={onSelectStep(stepIndex)}
-            optional={stepLabel.optional && <Typography type="caption">Si aplica (opcional)</Typography>}
+            optional={stepLabel.optional && <Typography type="caption" align="left">Si aplica (opcional)</Typography>}
           >
             {stepLabel.label}
           </StepButton>
