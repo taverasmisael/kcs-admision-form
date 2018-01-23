@@ -14,5 +14,5 @@ export default {
   churchName: '',
   pastorName: '',
   churchService: '',
-  isChristian: true
+  isChristian: false
 }

@@ -14,6 +14,7 @@ import withStyles from 'material-ui/styles/withStyles'
 import styles from './styles'
 
 import { AcademicLevels, CivilStatus } from './Data.json'
+import Checkbox from 'material-ui/Checkbox/Checkbox'
 
 const ParentForm = ({ parent, state, classes, onChange }) => {
   return (
@@ -175,13 +176,15 @@ const ParentForm = ({ parent, state, classes, onChange }) => {
         <Grid item xs={12} sm={6} md={3} className={classes.checkbox}>
           <FormControlLabel
             control={
-              <Switch
+              <Checkbox
                 name="isChristian"
                 checked={state.isChristian}
                 onChange={onChange}
-                aria-label="Es usted Cristiano?"
               />
             }
+            classes={{
+              root: classes.switchLabel
+            }}
             label="¿Es usted cristiano?"
           />
         </Grid>

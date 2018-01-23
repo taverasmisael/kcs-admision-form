@@ -13,5 +13,10 @@ export default theme => ({
     display: 'flex',
     alignItems: 'flex-end',
     justifyContent: 'center'
+  },
+  switchLabel: {
+    flexFlow: 'row-reverse',
+    marginLeft: 0,
+    marginRight: '-14px',
   }
 })
