@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
 import Step from 'material-ui/Stepper/Step'
-import StepLabel from 'material-ui/Stepper/StepLabel'
+import StepButton from 'material-ui/Stepper/StepButton'
 import StepContent from 'material-ui/Stepper/StepContent'
 import Typography from 'material-ui/Typography'
 
@@ -11,6 +11,7 @@ import StepActions from '../../components/StepActions'
 const StepWrapper = WrapedComponent =>
   class Enhancer extends PureComponent {
     static propTypes = {
+      stepIndex: PropTypes.number.isRequired,
       stepLabel: PropTypes.shape({
         label: PropTypes.string.isRequired,
         optional: PropTypes.bool.isRequired
@@ -18,17 +19,32 @@ const StepWrapper = WrapedComponent =>
       isLast: PropTypes.bool.isRequired,
       isFirst: PropTypes.bool.isRequired,
       isSkipped: PropTypes.bool.isRequired,
+      onSelectStep: PropTypes.func.isRequired,
       onNext: PropTypes.func.isRequired,
       onPrev: PropTypes.func.isRequired,
       onSkip: PropTypes.func.isRequired
     }
     render() {
-      const { stepLabel, isLast, isFirst, isSkipped, onNext, onPrev, onSkip, ...props } = this.props
+      const {
+        stepIndex,
+        stepLabel,
+        isLast,
+        isFirst,
+        isSkipped,
+        onSelectStep,
+        onNext,
+        onPrev,
+        onSkip,
+        ...props
+      } = this.props
       return (
-        <Step key={0} {...(isSkipped ? { ...props, completed: false } : props)}>
-          <StepLabel optional={stepLabel.optional && <Typography type="caption">Si aplica (opcional)</Typography>}>
+        <Step key={stepIndex} {...(isSkipped ? { ...props, completed: false } : props)}>
+          <StepButton
+            onClick={onSelectStep(stepIndex)}
+            optional={stepLabel.optional && <Typography type="caption">Si aplica (opcional)</Typography>}
+          >
             {stepLabel.label}
-          </StepLabel>
+          </StepButton>
           <StepContent>
             <WrapedComponent />
             <StepActions

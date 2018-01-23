@@ -8,15 +8,15 @@ import { ChildrenInfo, ExtraInfo, FamilyInfo, ICEInfo, TutorInfo, StepWrapper } 
 const LocalStep = ({ index, ...props }) => {
   switch (index) {
     case 0:
-      return <ChildrenInfo {...props} />
+      return <ChildrenInfo stepIndex={index} {...props} />
     case 1:
-      return <FamilyInfo {...props} />
+      return <FamilyInfo stepIndex={index} {...props} />
     case 2:
-      return <TutorInfo {...props} />
+      return <TutorInfo stepIndex={index} {...props} />
     case 3:
-      return <ICEInfo {...props} />
+      return <ICEInfo stepIndex={index} {...props} />
     case 4:
-      return <ExtraInfo {...props} />
+      return <ExtraInfo stepIndex={index} {...props} />
     default:
       return (
         <Typography type="caption" color="error">

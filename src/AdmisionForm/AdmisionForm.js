@@ -14,7 +14,7 @@ import StepsLabels from './StepsLabels.json'
 
 class AdmisionForm extends Component {
   static propTypes = {
-    classes: PropTypes.object.isRequired,
+    classes: PropTypes.object.isRequired
   }
 
   state = {
@@ -29,19 +29,20 @@ class AdmisionForm extends Component {
   mapSteps = stepsLabels =>
     stepsLabels.map((step, index) =>
       LocalStep({
-        key: index,
         index,
+        key: index,
         isFirst: index === 0,
         isLast: index === stepsLabels.length - 1,
         isSkipped: this.isStepSkipped(index),
         stepLabel: step,
+        onSelectStep: this.handleSelectStep,
         onNext: this.handleNext,
         onPrev: this.handlePrev,
         onSkip: this.handleSkip
       })
     )
   handleFormSubmit = () => console.log('Finished')
-
+  handleSelectStep = currentStep => () => this.setState({ currentStep })
   handleNext = () => {
     let { skipped, currentStep } = this.state
     if (this.isStepSkipped(currentStep)) {
