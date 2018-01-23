@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
 import ExtraForm from '../../forms/ExtraForm/ExtraForm';
 
 class ExtraInfo extends PureComponent {

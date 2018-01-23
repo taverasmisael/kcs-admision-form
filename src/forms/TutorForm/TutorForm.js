@@ -1,4 +1,4 @@
-import React, { PureComponent, Fragment } from 'react'
+import React, {Fragment } from 'react'
 import PropTypes from 'prop-types'
 
 import TextField from '../../components/TextField/TextField'
@@ -6,7 +6,7 @@ import Grid from 'material-ui/Grid/Grid'
 import MenuItem from 'material-ui/Menu/MenuItem'
 
 import withStyles from 'material-ui/styles/withStyles'
-import styles from '../ParentForm/styles'
+import styles from '../styles'
 
 import { CivilStatus } from '../ParentForm/Data.json'
 import TelField from '../../components/TelField/TelField'

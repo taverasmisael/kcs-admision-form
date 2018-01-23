@@ -8,9 +8,10 @@ import MenuItem from 'material-ui/Menu/MenuItem'
 
 import TextField from '../../components/TextField'
 import TelField from '../../components/TelField'
+import NumberField from '../../components/NumberField'
 
 import withStyles from 'material-ui/styles/withStyles'
-import styles from './styles'
+import styles from '../styles'
 
 import { AcademicLevels, CivilStatus } from './Data.json'
 import Checkbox from 'material-ui/Checkbox/Checkbox'
@@ -160,7 +161,7 @@ const ParentForm = ({ parent, state, classes, onChange }) => {
           />
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
-          <TextField
+          <NumberField
             id={`${parent}WorkPhoneExt`}
             name="workPhoneExt"
             label="Ext."

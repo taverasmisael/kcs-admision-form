@@ -1,5 +1,4 @@
-import React, { Fragment, PureComponent } from 'react'
-import PropTypes from 'prop-types'
+import React, { PureComponent } from 'react'
 import TutorForm from '../../forms/TutorForm/TutorForm'
 
 class TutorInfo extends PureComponent {

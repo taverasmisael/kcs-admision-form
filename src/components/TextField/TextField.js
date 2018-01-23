@@ -1,18 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import DefaultTextField from 'material-ui/TextField'
 
-import withStyles from 'material-ui/styles/withStyles'
-import styles from './styles'
-
-const TextField = ({ classes, ...props }) => {
+const TextField = props => {
   const InputProps = {
-    disableUnderline: true,
-    classes: {
-      root: classes.textFieldRoot,
-      input: classes.textFieldInput
-    }
+    disableUnderline: true
   }
   const InputLabelProps = {
     shrink: true
@@ -23,8 +15,7 @@ const TextField = ({ classes, ...props }) => {
 }
 
 TextField.propTypes = {
-  classes: PropTypes.object.isRequired,
   ...DefaultTextField.propTypes
 }
 
-export default withStyles(styles)(TextField)
+export default TextField

@@ -7,7 +7,7 @@ import Grid from 'material-ui/Grid/Grid'
 import Typography from 'material-ui/Typography/Typography'
 
 import withStyles from 'material-ui/styles/withStyles'
-import styles from '../ParentForm/styles'
+import styles from '../styles'
 
 const ExtraForm = ({ classes, state, onChange }) => (
   <Fragment>

@@ -8,7 +8,7 @@ import TelField from '../../components/TelField/TelField'
 import Typography from 'material-ui/Typography/Typography'
 
 import withStyles from 'material-ui/styles/withStyles'
-import styles from '../ParentForm/styles'
+import styles from '../styles'
 
 const ICEForm = ({ classes, state, onChange }) => (
   <Fragment>

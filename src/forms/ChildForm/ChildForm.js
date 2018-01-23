@@ -9,7 +9,7 @@ import NumberField from '../../components/NumberField'
 import DatePicker from '../../components/DatePicker'
 
 import withStyles from 'material-ui/styles/withStyles'
-import styles from '../ParentForm/styles'
+import styles from '../styles'
 
 import GRADES from './Grades.json'
 import Typography from 'material-ui/Typography/Typography'
@@ -100,7 +100,6 @@ class ChildForm extends PureComponent {
               id="name"
               name="name"
               label="Nombre(s)"
-              margin="normal"
               className={classes.textField}
               value={name}
               onChange={this.onChange}
@@ -111,7 +110,6 @@ class ChildForm extends PureComponent {
               id="grade"
               name="grade"
               label="Grado solicitado"
-              margin="normal"
               className={classes.textField}
               value={grade}
               onChange={this.onChange}
@@ -125,7 +123,6 @@ class ChildForm extends PureComponent {
               id="birthdate"
               name="birthdate"
               label="Fecha de nacimiento"
-              margin="normal"
               className={classes.textField}
               value={birthdate}
               onChange={this.handleDateChange}
@@ -136,7 +133,6 @@ class ChildForm extends PureComponent {
               id="age"
               name="age"
               label="Edad"
-              margin="normal"
               className={classes.textField}
               value={age}
               onChange={this.onChange}
@@ -168,11 +164,9 @@ class ChildForm extends PureComponent {
                 id="otherChildren"
                 name="otherChildren"
                 label="Parentesco"
-                margin="normal"
                 className={classes.textField}
                 value={otherChildren}
                 onChange={this.onChange}
-                disabled
               />
             </Grid>
           ) : null}
