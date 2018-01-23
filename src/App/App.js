@@ -13,7 +13,7 @@ class App extends Component {
       <React.Fragment>
         <Intro />
         <main className={this.props.classes.container}>
-          <FamilyInfo />
+          <AdmisionForm />
         </main>
         <Footer />
       </React.Fragment>

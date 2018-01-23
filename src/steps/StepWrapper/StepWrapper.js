@@ -23,10 +23,9 @@ const StepWrapper = WrapedComponent =>
       onSkip: PropTypes.func.isRequired
     }
     render() {
-      const { stepLabel, isLast, isFirst, isSkipped, onNext, onPrev, onSkip, ...rest } = this.props
-      console.log(isSkipped)
+      const { stepLabel, isLast, isFirst, isSkipped, onNext, onPrev, onSkip, ...props } = this.props
       return (
-        <Step key={0} {...(isSkipped ? { ...rest, completed: false } : rest)}>
+        <Step key={0} {...(isSkipped ? { ...props, completed: false } : props)}>
           <StepLabel optional={stepLabel.optional && <Typography type="caption">Si aplica (opcional)</Typography>}>
             {stepLabel.label}
           </StepLabel>

@@ -8,7 +8,7 @@ import LocalStep from './LocalStep'
 import AdmisionFinished from '../components/AdmisionFinished'
 
 import withStyles from 'material-ui/styles/withStyles'
-import styles from './styles'
+import styles from '../App/styles'
 
 import StepsLabels from './StepsLabels.json'
 
@@ -73,10 +73,9 @@ class AdmisionForm extends Component {
     })
   }
   render() {
-    const { classes } = this.props
     const { currentStep } = this.state
     return (
-      <main className={classes.container}>
+      <main>
         <Stepper orientation="vertical" activeStep={currentStep}>
           {this.mapSteps(StepsLabels)}
         </Stepper>

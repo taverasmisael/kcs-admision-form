@@ -1,6 +1,8 @@
 export default theme => ({
   container: {
-    maxWidth: '80%',
-    margin: `0 auto ${theme.spacing.unit * 1.5}px auto`
+    margin: `0 auto ${theme.spacing.unit * 1.5}px auto`,
+    '@media (min-width: 960px)': {
+      maxWidth: '80%'
+    }
   }
 })
