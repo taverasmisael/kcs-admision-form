@@ -12,7 +12,6 @@ export default theme => ({
   checkbox: {
     display: 'flex',
     alignItems: 'flex-end',
-    marginLeft: theme.spacing.unit
   },
   switchLabel: {
     flexFlow: 'row-reverse',
