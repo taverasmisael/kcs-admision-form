@@ -1,8 +1,23 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
-const ICEInfo = () => <h1>ICEInfo</h1>
+import ICEForm from '../../forms/ICEForm'
 
-ICEInfo.propTypes = {}
+class ICEInfo extends PureComponent {
+  static propTypes = {}
+  state = {
+    name: '',
+    email: '',
+    relationship: '',
+    phone: '',
+    cellphone: '',
+    workPhone: ''
+  }
+  onChange = event => this.setState({ [event.target.name]: event.target.value })
+
+  render() {
+    return <ICEForm state={this.state} onChange={this.onChange} />
+  }
+}
 
 export default ICEInfo
