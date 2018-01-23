@@ -19,7 +19,9 @@ export default theme => ({
     marginRight: '-14px'
   },
   inputContainer: {
-    width: '100%'
+    width: '100%',
+    margin: 0,
+    marginBottom: theme.spacing.unit
   },
   textarea: {
     minHeight: `${theme.spacing.unit / 2}rem`
