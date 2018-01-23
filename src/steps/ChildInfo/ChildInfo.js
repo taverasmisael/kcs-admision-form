@@ -9,6 +9,8 @@ import ChildForm from '../../forms/ChildForm'
 import MedicalForm from '../../forms/MedicalForm'
 import TabContainer from '../../components/TabContainer/TabContainer'
 
+import DiseasesList from '../../forms/MedicalForm/DiseasesList.json'
+
 class ChildInfo extends PureComponent {
   static propTypes = {}
   state = {
@@ -26,8 +28,12 @@ class ChildInfo extends PureComponent {
       otherChildren: ''
     },
     medicalCondition: {
-      fullName: ''
-    }
+      fullName: '',
+      bloodType: '',
+      doctorName: '',
+      doctorPhone: ''
+    },
+    diseasesList: DiseasesList
   }
 
   onChange = slice => ({ target }) => {
@@ -41,10 +47,17 @@ class ChildInfo extends PureComponent {
       }
     })
   }
+
+  onToggleDesiese = ({ target }) => {
+    const diseasesList = this.state.diseasesList.map(
+      disease => (disease.label === target.name ? { ...disease, checked: target.checked } : disease)
+    )
+    this.setState({ diseasesList })
+  }
   handleDateChange = birthdate => {
     const age = new Date().getFullYear() - birthdate.year()
     const prevState = this.state.personalInfo
-    this.setState({ personalInfo: {...prevState, birthdate, age} })
+    this.setState({ personalInfo: { ...prevState, birthdate, age } })
   }
 
   selectTab = (e, selectedTab) => {
@@ -52,21 +65,39 @@ class ChildInfo extends PureComponent {
   }
 
   render() {
-    const { selectedTab, personalInfo, medicalCondition } = this.state
+    const { selectedTab, personalInfo, medicalCondition, diseasesList } = this.state
     return (
       <Fragment>
         <AppBar color="default" position="static">
-          <Tabs indicatorColor="primary" textColor="primary" fullWidth scrollable scrollButtons="on" value={selectedTab} onChange={this.selectTab}>
+          <Tabs
+            indicatorColor="primary"
+            textColor="primary"
+            fullWidth
+            scrollable
+            scrollButtons="on"
+            value={selectedTab}
+            onChange={this.selectTab}
+          >
             <Tab label="Información Personal" />
             <Tab label="Condicion Medica" />
           </Tabs>
         </AppBar>
         <SwipeableViews index={selectedTab} onChangeIndex={this.selectTab}>
           <TabContainer>
-            <ChildForm state={personalInfo} onChange={this.onChange('personalInfo')} onDateChange={this.handleDateChange}/>
+            <ChildForm
+              state={personalInfo}
+              onChange={this.onChange('personalInfo')}
+              onDateChange={this.handleDateChange}
+            />
           </TabContainer>
           <TabContainer>
-            <MedicalForm state={medicalCondition} grade={personalInfo.grade} onChange={this.onChange('medicalCondition')}/>
+            <MedicalForm
+              state={medicalCondition}
+              grade={personalInfo.grade}
+              diseases={diseasesList}
+              onChange={this.onChange('medicalCondition')}
+              onToggleDesiese={this.onToggleDesiese}
+            />
           </TabContainer>
         </SwipeableViews>
       </Fragment>
