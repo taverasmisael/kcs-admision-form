@@ -17,5 +17,8 @@ export default theme => ({
     flexFlow: 'row-reverse',
     marginLeft: 0,
     marginRight: '-14px'
+  },
+  inputContainer: {
+    width: '100%'
   }
 })

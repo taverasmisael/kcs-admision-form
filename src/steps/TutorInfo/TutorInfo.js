@@ -1,8 +1,24 @@
-import React from 'react'
+import React, { Fragment, PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import TutorForm from '../../forms/TutorForm/TutorForm'
 
-const TutorInfo = () => <h1>TutorInfo</h1>
+class TutorInfo extends PureComponent {
+  state = {
+    name: '',
+    realtionship: '',
+    civilStatus: '',
+    phone: '',
+    cellphone: '',
+    email: '',
+    address: '',
+    workAddress: '',
+    workPhone: ''
+  }
 
-TutorInfo.propTypes = {}
+  onChange = event => this.setState({ [event.target.name]: event.target.value })
+  render() {
+    return <TutorForm state={this.state} onChange={this.onChange} />
+  }
+}
 
 export default TutorInfo

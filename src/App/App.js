@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import Intro from '../components/Intro'
 import Footer from '../components/Footer'
 import AdmisionForm from '../AdmisionForm'
+import TutorInfo from '../steps/TutorInfo'
 import FamilyInfo from '../steps/FamilyInfo'
 
 import withStyles from 'material-ui/styles/withStyles'
@@ -13,7 +14,7 @@ class App extends Component {
       <React.Fragment>
         <Intro />
         <main className={this.props.classes.container}>
-          <AdmisionForm />
+          <TutorInfo />
         </main>
         <Footer />
       </React.Fragment>
