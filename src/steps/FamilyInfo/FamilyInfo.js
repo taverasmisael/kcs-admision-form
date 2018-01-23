@@ -6,7 +6,7 @@ import AppBar from 'material-ui/AppBar/AppBar'
 import Tabs from 'material-ui/Tabs/Tabs'
 import Tab from 'material-ui/Tabs/Tab'
 
-import ParentForm, { ParentModel } from '../../components/ParentForm'
+import ParentForm, { ParentModel } from '../../forms/ParentForm'
 import TabContainer from '../../components/TabContainer'
 
 import withStyles from 'material-ui/styles/withStyles'

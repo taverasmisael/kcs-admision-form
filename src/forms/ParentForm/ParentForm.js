@@ -4,11 +4,10 @@ import PropTypes from 'prop-types'
 import Typography from 'material-ui/Typography'
 import Grid from 'material-ui/Grid'
 import FormControlLabel from 'material-ui/Form/FormControlLabel'
-import Switch from 'material-ui/Switch'
 import MenuItem from 'material-ui/Menu/MenuItem'
 
-import TextField from '../TextField'
-import TelField from '../TelField'
+import TextField from '../../components/TextField'
+import TelField from '../../components/TelField'
 
 import withStyles from 'material-ui/styles/withStyles'
 import styles from './styles'
