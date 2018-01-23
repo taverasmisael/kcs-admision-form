@@ -8,7 +8,7 @@ import InputLabel from 'material-ui/Input/InputLabel'
 import NumberMask from './NumberMask'
 
 const NumberField = ({ value, label, name, id, onChange, className, ...props }) => (
-  <FormControl margin="dense" className={className}>
+  <FormControl margin="normal" className={className}>
     <InputLabel htmlFor={id} shrink>
       {props.required ? <Fragment>{label}&thinsp;*</Fragment> : label}
     </InputLabel>
