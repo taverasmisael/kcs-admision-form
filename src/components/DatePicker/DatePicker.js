@@ -23,6 +23,7 @@ const DatePicker = ({ onChange, disableFuture = true, value, ...props }) => (
     leftArrowIcon={<KeyboardArrowLeft />}
     rightArrowIcon={<KeyboardArrowRight />}
     keyboardIcon={<Event />}
+    margin="normal"
     {...props}
   />
 )
