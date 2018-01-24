@@ -10,7 +10,10 @@ import AdmisionFinished from '../components/AdmisionFinished'
 import withStyles from 'material-ui/styles/withStyles'
 import styles from '../App/styles'
 
+import { throttle } from '../utilities'
+
 import StepsLabels from './StepsLabels.json'
+import { ParentModel } from '../forms/ParentForm/index'
 
 class AdmisionForm extends Component {
   static propTypes = {
@@ -19,8 +22,11 @@ class AdmisionForm extends Component {
 
   state = {
     currentStep: 0,
-    skipped: new Set()
+    skipped: new Set(),
+    fatherInfo: ParentModel,
+    motherInfo: ParentModel
   }
+
   isStepperComplete = () => this.state.currentStep === StepsLabels.length
 
   isStepOptional = step => StepsLabels[step].optional
@@ -30,11 +36,13 @@ class AdmisionForm extends Component {
     stepsLabels.map((step, index) =>
       LocalStep({
         index,
+        states: this.state,
         key: index,
         isFirst: index === 0,
         isLast: index === stepsLabels.length - 1,
         isSkipped: this.isStepSkipped(index),
         stepLabel: step,
+        onChange: this.handleChanges,
         onSelectStep: this.handleSelectStep,
         onNext: this.handleNext,
         onPrev: this.handlePrev,
@@ -54,6 +62,20 @@ class AdmisionForm extends Component {
       skipped
     })
   }
+
+  handleChanges = slice =>
+    throttle(({ target }) => {
+      const { name, value: v } = target
+      const value = target.type === 'checkbox' ? target.checked : v
+      console.log('changin')
+      const prevState = this.state[slice]
+      this.setState({
+        [slice]: {
+          ...prevState,
+          [name]: value
+        }
+      })
+    }, 2000)
 
   handlePrev = () => {
     this.setState({

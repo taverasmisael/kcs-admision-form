@@ -97,6 +97,7 @@ class ChildInfo extends PureComponent {
               diseases={diseasesList}
               onChange={this.onChange('medicalCondition')}
               onToggleDesiese={this.onToggleDesiese}
+              onChangeVaccine={this.onToggleDesiese}
             />
           </TabContainer>
         </SwipeableViews>

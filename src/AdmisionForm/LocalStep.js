@@ -5,12 +5,23 @@ import Typography from 'material-ui/Typography'
 
 import { ChildInfo, ExtraInfo, FamilyInfo, ICEInfo, TutorInfo, StepWrapper } from '../steps'
 
-const LocalStep = ({ index, ...props }) => {
+const LocalStep = ({ index, states, onChange, ...props }) => {
   switch (index) {
     case 0:
       return <ChildInfo stepIndex={index} {...props} />
     case 1:
-      return <FamilyInfo stepIndex={index} {...props} />
+      return (
+        <FamilyInfo
+          stepIndex={index}
+          componentProps={{
+            fatherInfo: states.fatherInfo,
+            onFatherChange: onChange('fatherInfo'),
+            motherInfo: states.motherInfo,
+            onMotherChange: onChange('motherInfo')
+          }}
+          {...props}
+        />
+      )
     case 2:
       return <TutorInfo stepIndex={index} {...props} />
     case 3:
@@ -28,6 +39,7 @@ const LocalStep = ({ index, ...props }) => {
 
 LocalStep.propTypes = {
   index: PropTypes.number.isRequired,
+  states: PropTypes.object.isRequired,
   ...StepWrapper().propTypes
 }
 

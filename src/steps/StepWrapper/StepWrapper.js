@@ -11,6 +11,7 @@ import StepActions from '../../components/StepActions'
 const StepWrapper = WrapedComponent =>
   class Enhancer extends PureComponent {
     static propTypes = {
+      componentProps: PropTypes.object,
       stepIndex: PropTypes.number.isRequired,
       stepLabel: PropTypes.shape({
         label: PropTypes.string.isRequired,
@@ -35,18 +36,25 @@ const StepWrapper = WrapedComponent =>
         onNext,
         onPrev,
         onSkip,
+        componentProps,
         ...props
       } = this.props
       return (
         <Step key={stepIndex} {...(isSkipped ? { ...props, completed: false } : props)}>
           <StepButton
             onClick={onSelectStep(stepIndex)}
-            optional={stepLabel.optional && <Typography type="caption" align="left">Si aplica (opcional)</Typography>}
+            optional={
+              stepLabel.optional && (
+                <Typography type="caption" align="left">
+                  Si aplica (opcional)
+                </Typography>
+              )
+            }
           >
             {stepLabel.label}
           </StepButton>
           <StepContent>
-            <WrapedComponent />
+            <WrapedComponent {...componentProps} />
             <StepActions
               isStepOptional={stepLabel.optional}
               isLastStep={isLast}
