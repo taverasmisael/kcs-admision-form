@@ -13,7 +13,8 @@ import styles from '../App/styles'
 import { throttle } from '../utilities'
 
 import StepsLabels from './StepsLabels.json'
-import { ParentModel } from '../forms/ParentForm/index'
+import { ParentModel } from '../forms/ParentForm'
+import { ChildModel } from '../forms/ChildForm'
 
 class AdmisionForm extends Component {
   static propTypes = {
@@ -24,7 +25,8 @@ class AdmisionForm extends Component {
     currentStep: 0,
     skipped: new Set(),
     fatherInfo: ParentModel,
-    motherInfo: ParentModel
+    motherInfo: ParentModel,
+    childInfo: ChildModel
   }
 
   isStepperComplete = () => this.state.currentStep === StepsLabels.length
@@ -67,8 +69,8 @@ class AdmisionForm extends Component {
     throttle(({ target }) => {
       const { name, value: v } = target
       const value = target.type === 'checkbox' ? target.checked : v
-      console.log('changin')
       const prevState = this.state[slice]
+      console.log('changing')
       this.setState({
         [slice]: {
           ...prevState,

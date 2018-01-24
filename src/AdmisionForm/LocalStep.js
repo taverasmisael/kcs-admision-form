@@ -8,7 +8,13 @@ import { ChildInfo, ExtraInfo, FamilyInfo, ICEInfo, TutorInfo, StepWrapper } fro
 const LocalStep = ({ index, states, onChange, ...props }) => {
   switch (index) {
     case 0:
-      return <ChildInfo stepIndex={index} {...props} />
+      return (
+        <ChildInfo
+          stepIndex={index}
+          componentProps={{ onChange: onChange('childInfo'), state: states.childInfo }}
+          {...props}
+        />
+      )
     case 1:
       return (
         <FamilyInfo
