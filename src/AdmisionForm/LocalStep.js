@@ -37,7 +37,13 @@ const LocalStep = ({ index, states, onChange, ...props }) => {
         />
       )
     case 3:
-      return <ICEInfo stepIndex={index} {...props} />
+      return (
+        <ICEInfo
+          stepIndex={index}
+          componentProps={{ onChange: onChange('ICEInfo'), state: states.ICEInfo }}
+          {...props}
+        />
+      )
     case 4:
       return <ExtraInfo stepIndex={index} {...props} />
     default:
