@@ -1,5 +1,4 @@
 import ChildForm from './ChildForm'
-import ChildModel from './model'
 
 export default ChildForm
-export { ChildModel }
+export { default as ChildModel } from './model'

@@ -1,5 +1,5 @@
-import ParentForm from "./ParentForm";
-import ParentModel from './model'
+import ParentForm from './ParentForm'
 
 export default ParentForm
-export { ParentModel }
+
+export { default as ParentModel } from './model'
