@@ -45,7 +45,13 @@ const LocalStep = ({ index, states, onChange, ...props }) => {
         />
       )
     case 4:
-      return <ExtraInfo stepIndex={index} {...props} />
+      return (
+        <ExtraInfo
+          stepIndex={index}
+          componentProps={{ onChange: onChange('extraInfo'), state: states.extraInfo }}
+          {...props}
+        />
+      )
     default:
       return (
         <Typography type="caption" color="error">

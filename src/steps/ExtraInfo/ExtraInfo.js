@@ -1,14 +1,40 @@
 import React, { PureComponent } from 'react'
-import ExtraForm from '../../forms/ExtraForm/ExtraForm';
+import PropTypes from 'prop-types'
 
-class ExtraInfo extends PureComponent {
-  static propTypes = {}
-  state = { aditionalInfo: '' }
-  onChange = event => this.setState({ [event.target.name]: event.target.value})
+import { debounce } from '../../utilities'
+import compare from 'just-compare'
 
+import ExtraForm from '../../forms/ExtraForm'
+
+class ICEInfo extends PureComponent {
+  static propTypes = {
+    state: PropTypes.object.isRequired,
+    onChange: PropTypes.func.isRequired
+  }
+
+  onChange = ({ target }) => {
+    const { name, value: v } = target
+    const value = target.type === 'checkbox' ? target.checked : v
+    this.setState(
+      state => ({
+        ...state,
+        [name]: value
+      }),
+      debounce(this.props.onChange.bind(this, { target: { name, value } }), 2000)
+    )
+  }
+  componentWillMount() {
+    this.setState(this.props.state)
+  }
+  componentWillReceiveProps(nextProps) {
+    const { state } = this
+    if (!compare(state, nextProps.state)) {
+      this.setState(state)
+    }
+  }
   render() {
-    return <ExtraForm onChange={this.onChange} state={this.state} />
+    return <ExtraForm state={this.state} onChange={this.onChange} />
   }
 }
 
-export default ExtraInfo
+export default ICEInfo

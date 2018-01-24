@@ -17,6 +17,7 @@ import { ParentModel } from '../forms/ParentForm'
 import { ChildModel } from '../forms/ChildForm'
 import { TutorModel } from '../forms/TutorForm'
 import { ICEModel } from '../forms/ICEForm'
+import { ExtraModel } from '../forms/ExtraForm'
 
 class AdmisionForm extends Component {
   static propTypes = {
@@ -30,7 +31,8 @@ class AdmisionForm extends Component {
     motherInfo: ParentModel,
     childInfo: ChildModel,
     tutorInfo: TutorModel,
-    ICEInfo: ICEModel
+    ICEInfo: ICEModel,
+    extraInfo: ExtraModel
   }
 
   isStepperComplete = () => this.state.currentStep === StepsLabels.length
