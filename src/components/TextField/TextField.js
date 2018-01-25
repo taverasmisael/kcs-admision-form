@@ -52,8 +52,8 @@ class TextField extends PureComponent {
   validateValue = ({ value, name }) => {
     const { validators, errorMessages } = this.state
     const validation = ValidateValue(value, validators, errorMessages)
-    this.context.onValidationError({ name, value: validation })
     this.setState(validation)
+    if (this.context.onValidationError) this.context.onValidationError({ name, value: validation })
   }
   componentWillMount() {
     let { validators, errorMessages, required, name } = this.props
