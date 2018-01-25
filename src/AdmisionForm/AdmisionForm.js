@@ -92,14 +92,32 @@ class AdmisionForm extends Component {
 
   handleValidations = slice =>
     throttle(({ name, value }) => {
-      console.log('handling', name, value)
       const prevState = this.state[slice]
-      this.setState({
-        [slice]: {
-          ...prevState,
-          [name]: value
+      console.log('handling', name)
+      this.setState(
+        {
+          [slice]: {
+            ...prevState,
+            [name]: value
+          }
+        },
+        () => {
+          const currentState = this.state[slice]
+          const keys = Object.keys(currentState)
+          let isValid = true
+          keys.forEach(k => {
+            const isError = currentState[k].error === undefined ? false : currentState[k].error
+            isValid = isError === isValid ? true : false
+          })
+          isValid = keys.length % 2 ? isValid === false : isValid
+          this.setState({
+            [slice]: {
+              ...currentState,
+              isValid
+            }
+          })
         }
-      })
+      )
     }, 2000)
 
   handlePrev = () => {

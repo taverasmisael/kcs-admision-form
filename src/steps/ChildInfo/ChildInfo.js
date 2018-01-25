@@ -27,7 +27,7 @@ class ChildInfo extends PureComponent {
 
   onValidationError = validation => {
     if (!compare(validation.value, this.props.validations[validation.name]))
-      debounce(this.props.onValidationError.bind(this, validation), 2000)()
+      debounce(this.props.onValidationError.bind(this, validation), 1000)()
   }
 
   componentWillMount() {

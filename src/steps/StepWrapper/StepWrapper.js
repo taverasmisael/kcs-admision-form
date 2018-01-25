@@ -6,6 +6,8 @@ import StepButton from 'material-ui/Stepper/StepButton'
 import StepContent from 'material-ui/Stepper/StepContent'
 import Typography from 'material-ui/Typography'
 
+import compare from 'just-compare'
+
 import StepActions from '../../components/StepActions'
 
 const StepWrapper = WrapedComponent =>
@@ -39,6 +41,7 @@ const StepWrapper = WrapedComponent =>
         componentProps,
         ...props
       } = this.props
+      const isNextDisabled = !(componentProps.validations && componentProps.validations.isValid)
       return (
         <Step key={stepIndex} {...(isSkipped ? { ...props, completed: false } : props)}>
           <StepButton
@@ -57,6 +60,7 @@ const StepWrapper = WrapedComponent =>
             <WrapedComponent {...componentProps} />
             <StepActions
               isStepOptional={stepLabel.optional}
+              isNextDisabled={isNextDisabled}
               isLastStep={isLast}
               isFirstStep={isFirst}
               handleBack={onPrev}
