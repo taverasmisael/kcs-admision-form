@@ -17,6 +17,7 @@ import GRADES from './Grades.json'
 import Typography from 'material-ui/Typography/Typography'
 import FormControlLabel from 'material-ui/Form/FormControlLabel'
 import Checkbox from 'material-ui/Checkbox/Checkbox'
+import FormBoundary from '../FormBoundary/FormBoundary'
 
 class ChildForm extends Component {
   static propTypes = {
@@ -33,18 +34,19 @@ class ChildForm extends Component {
       siblingsAges: PropTypes.string.isRequired,
       otherChildren: PropTypes.string.isRequired
     }).isRequired,
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired,
+    onValidationError: PropTypes.func.isRequired,
   }
 
   shouldComponentUpdate(nextProps) {
     return !compare(this.props.state, nextProps.state)
   }
   render() {
-    const { state, onChange, onDateChange, classes } = this.props
+    const { state, onChange, onDateChange, classes, onValidationError, validations } = this.props
     const { name, grade, birthdate, age, hasSiblings, hasOtherChildren, otherChildren } = state
 
     return (
-      <Fragment>
+      <FormBoundary onValidationError={onValidationError}>
         <Typography type="headline">Información del Niño</Typography>
         <Grid container spacing={16} className={classes.inputContainer}>
           <Grid item xs={12} sm={6} md={3}>
@@ -67,6 +69,7 @@ class ChildForm extends Component {
               value={grade}
               onChange={onChange}
               select
+              required
             >
               {GRADES.map((grade, index) => (
                 <MenuItem key={index} value={grade.value}>
@@ -83,6 +86,7 @@ class ChildForm extends Component {
               className={classes.textField}
               value={birthdate}
               onChange={onDateChange}
+              required
             />
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
@@ -128,7 +132,7 @@ class ChildForm extends Component {
             </Grid>
           ) : null}
         </Grid>
-      </Fragment>
+      </FormBoundary>
     )
   }
 

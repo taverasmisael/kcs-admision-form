@@ -25,6 +25,11 @@ class ChildInfo extends PureComponent {
     )
   }
 
+  onValidationError = validation => {
+    if (!compare(validation.value, this.props.validations[validation.name]))
+      debounce(this.props.onValidationError.bind(this, validation), 2000)()
+  }
+
   componentWillMount() {
     this.setState(this.props.state)
   }
@@ -53,7 +58,12 @@ class ChildInfo extends PureComponent {
   render() {
     return (
       <Fragment>
-        <ChildForm state={this.state} onChange={this.onChange} onDateChange={this.handleDateChange} />
+        <ChildForm
+          state={this.state}
+          onChange={this.onChange}
+          onValidationError={this.onValidationError}
+          onDateChange={this.handleDateChange}
+        />
       </Fragment>
     )
   }

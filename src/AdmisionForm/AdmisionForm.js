@@ -14,7 +14,7 @@ import { throttle } from '../utilities'
 
 import StepsLabels from './StepsLabels.json'
 import { ParentModel } from '../forms/ParentForm'
-import { ChildModel } from '../forms/ChildForm'
+import { ChildModel, ChildValidations } from '../forms/ChildForm'
 import { TutorModel } from '../forms/TutorForm'
 import { ICEModel } from '../forms/ICEForm'
 import { ExtraModel } from '../forms/ExtraForm'
@@ -32,7 +32,11 @@ class AdmisionForm extends Component {
     childInfo: ChildModel,
     tutorInfo: TutorModel,
     ICEInfo: ICEModel,
-    extraInfo: ExtraModel
+    extraInfo: ExtraModel,
+    childValidations: ChildValidations,
+    tutorValidations: {},
+    ICEValidations: {},
+    extraValidations: {}
   }
 
   isStepperComplete = () => this.state.currentStep === StepsLabels.length
@@ -51,6 +55,7 @@ class AdmisionForm extends Component {
         isSkipped: this.isStepSkipped(index),
         stepLabel: step,
         onChange: this.handleChanges,
+        onValidate: this.handleValidations,
         onSelectStep: this.handleSelectStep,
         onNext: this.handleNext,
         onPrev: this.handlePrev,
@@ -77,6 +82,18 @@ class AdmisionForm extends Component {
       const value = target.type === 'checkbox' ? target.checked : v
       const prevState = this.state[slice]
       console.log('changing')
+      this.setState({
+        [slice]: {
+          ...prevState,
+          [name]: value
+        }
+      })
+    }, 2000)
+
+  handleValidations = slice =>
+    throttle(({ name, value }) => {
+      console.log('handling', name, value)
+      const prevState = this.state[slice]
       this.setState({
         [slice]: {
           ...prevState,
