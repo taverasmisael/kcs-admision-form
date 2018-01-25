@@ -1,39 +1,38 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
+import TextField from '../TextField'
 
-import FormControl from 'material-ui/Form/FormControl'
-import Input from 'material-ui/Input/Input'
-import InputLabel from 'material-ui/Input/InputLabel'
+const maxInt = len => Number(new Array(len).fill(9).join(''))
+const minInt = len => Number(new Array(len).fill(1).join(''))
 
-import NumberMask from './NumberMask'
-
-const NumberField = ({ value, label, name, id, onChange, className, ...props }) => (
-  <FormControl margin="normal" className={className}>
-    <InputLabel htmlFor={id} shrink>
-      {props.required ? <Fragment>{label}&thinsp;*</Fragment> : label}
-    </InputLabel>
-    <Input
+const NumberField = ({ maxLength, minLength, ...props }) => {
+  let validators = []
+  let errorMessages = []
+  let validationProps = {}
+  if (maxLength) {
+    validators = [...validators, `maxlength:${maxLength}`]
+    errorMessages = [...errorMessages, `Debe tener máximo ${maxLength} digitos`]
+    validationProps = { ...validationProps, maxLength, length: maxLength, max: maxInt(maxLength) }
+  } else if (minLength) {
+    validators = [...validators, `minlength:${minLength}`]
+    errorMessages = [...errorMessages, `Debe tener máximo ${minLength} digitos`]
+    validationProps = { ...validationProps, minLength, min: minInt(minLength) }
+  }
+  return (
+    <TextField
       {...props}
-      id={id}
-      name={name}
-      value={value}
-      onChange={onChange}
-      inputComponent={NumberMask}
-      inputProps={{
-        length: props.length
-      }}
-      disableUnderline
+      type="number"
+      validators={validators}
+      errorMessages={errorMessages}
+      inputProps={validationProps}
     />
-  </FormControl>
-)
+  )
+}
 
 NumberField.propTypes = {
-  value: PropTypes.any.isRequired,
-  label: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  ...Input.propTypes
+  maxlength: PropTypes.number,
+  minlength: PropTypes.number,
+  ...TextField.propTypes
 }
 
 export default NumberField

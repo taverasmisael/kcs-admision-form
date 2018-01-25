@@ -24,9 +24,17 @@ class TextField extends PureComponent {
   }
 
   onChange = event => {
-    if (this.state.validators.length) this.validateValue(event.target.value)
     if (this.props.onChange) {
-      this.props.onChange(event)
+      if (
+        !(
+          this.props.inputProps &&
+          this.props.inputProps.length &&
+          event.target.value.length > this.props.inputProps.length
+        )
+      ) {
+        if (this.state.validators.length) this.validateValue(event.target.value)
+        this.props.onChange(event)
+      }
     }
   }
 

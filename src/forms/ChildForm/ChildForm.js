@@ -139,7 +139,7 @@ class ChildForm extends Component {
           id="sonNumber"
           name="sonNumber"
           label="El/ella es el hijo numero?"
-          length={2}
+          maxLength={2}
           className={this.props.classes.textField}
           value={this.props.state.sonNumber}
           onChange={this.props.onChange}
@@ -151,7 +151,7 @@ class ChildForm extends Component {
           id="siblings"
           name="siblings"
           label="Cuantos hermanos/as tiene?"
-          length={2}
+          maxLength={2}
           className={this.props.classes.textField}
           value={this.props.state.siblings}
           onChange={this.props.onChange}

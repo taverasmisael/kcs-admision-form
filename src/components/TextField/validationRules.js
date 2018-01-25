@@ -12,3 +12,5 @@ const isEmptyTrimed = value => {
 const negate = fun => (...params) => !fun(...params)
 
 export const required = negate(isEmpty)
+export const maxlength = (val, len) => val.length <= len
+export const minlength = (val, len) => val.length >= len
