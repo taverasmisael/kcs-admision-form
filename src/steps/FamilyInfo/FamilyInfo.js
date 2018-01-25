@@ -53,8 +53,13 @@ export class FamilyInfo extends PureComponent {
     )
   }
 
-  selectTab = (e, selectedTab) => {
-    this.setState({ selectedTab })
+  onMotherValidationError = validation => {
+    if (!compare(validation.value, this.props.motherValidations[validation.name]))
+      debounce(this.props.onMotherValidationError.bind(this, validation), 1000)()
+  }
+  onFatherValidationError = validation => {
+    if (!compare(validation.value, this.props.fatherValidations[validation.name]))
+      debounce(this.props.onFatherValidationError.bind(this, validation), 1000)()
   }
   onMotherChange = event => {
     const { name, value: v } = event.target
@@ -69,6 +74,10 @@ export class FamilyInfo extends PureComponent {
       }),
       debounce(this.props.onMotherChange.bind(this, { target: { name, value } }), 4000)
     )
+  }
+
+  selectTab = (e, selectedTab) => {
+    this.setState({ selectedTab })
   }
 
   componentWillMount() {
@@ -95,10 +104,26 @@ export class FamilyInfo extends PureComponent {
         </AppBar>
         <SwipeableViews index={selectedTab} onChangeIndex={this.selectTab}>
           <TabContainer>
-            {selectedTab === 0 ? <ParentForm parent="Padre" state={fatherInfo} onChange={onFatherChange} /> : null}
+            {selectedTab === 0 ? (
+              <ParentForm
+                parent="Padre"
+                state={fatherInfo}
+                onChange={onFatherChange}
+                validations={this.props.fatherValidations}
+                onValidationError={this.onFatherValidationError}
+              />
+            ) : null}
           </TabContainer>
           <TabContainer>
-            {selectedTab === 1 ? <ParentForm parent="Madre" state={motherInfo} onChange={onMotherChange} /> : null}
+            {selectedTab === 1 ? (
+              <ParentForm
+                parent="Madre"
+                state={motherInfo}
+                onChange={onMotherChange}
+                validations={this.props.motherValidations}
+                onValidationError={this.onMotherValidationError}
+              />
+            ) : null}
           </TabContainer>
         </SwipeableViews>
       </Fragment>

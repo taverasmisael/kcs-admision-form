@@ -16,14 +16,15 @@ import styles from '../styles'
 import { AcademicLevels, CivilStatus } from './Data.json'
 import Checkbox from 'material-ui/Checkbox/Checkbox'
 import compare from 'just-compare'
+import FormBoundary from '../FormBoundary'
 class ParentForm extends Component {
   shouldComponentUpdate(nextProps) {
     return !compare(this.props.state, nextProps.state)
   }
   render() {
-    const { parent, state, classes, onChange } = this.props
+    const { parent, state, classes, onChange, onValidationError, validations } = this.props
     return (
-      <Fragment>
+      <FormBoundary onValidationError={onValidationError} validations={validations}>
         <Typography type="headline">{parent}</Typography>
         <Grid container spacing={16} className={classes.inputContainer}>
           <Grid item xs={12} sm={6} md={3}>
@@ -189,7 +190,7 @@ class ParentForm extends Component {
           </Grid>
           {state.isChristian ? christianInfo(parent, state, onChange, classes) : null}
         </Grid>
-      </Fragment>
+      </FormBoundary>
     )
   }
 }

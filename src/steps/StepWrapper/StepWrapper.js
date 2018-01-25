@@ -41,7 +41,13 @@ const StepWrapper = WrapedComponent =>
         componentProps,
         ...props
       } = this.props
-      const isNextDisabled = !(componentProps.validations && componentProps.validations.isValid)
+      let isNextDisabled = false
+      if(componentProps.validations) {
+        isNextDisabled = !(componentProps.validations && componentProps.validations.isValid)
+      } else if(componentProps.fatherValidations && componentProps.motherValidations) {
+        isNextDisabled = !(componentProps.fatherValidations.isValid && componentProps.motherValidations.isValid)
+      }
+        
       return (
         <Step key={stepIndex} {...(isSkipped ? { ...props, completed: false } : props)}>
           <StepButton

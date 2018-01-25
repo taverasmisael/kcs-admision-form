@@ -13,6 +13,7 @@ import TelField from '../../components/TelField/TelField'
 import Typography from 'material-ui/Typography/Typography'
 
 import compare from 'just-compare'
+import FormBoundary from '../FormBoundary'
 
 class TutorForm extends Component {
   shouldComponentUpdate(nextProps) {
@@ -35,9 +36,9 @@ class TutorForm extends Component {
     onChange: PropTypes.func.isRequired
   }
   render() {
-    const { classes, state, onChange } = this.props
+    const { classes, state, validations, onChange, onValidationError } = this.props
     return (
-      <Fragment>
+      <FormBoundary onValidationError={onValidationError} validations={validations}>
         <Typography type="headline">Datos del Tutor</Typography>
         <Grid container spacing={16} className={classes.inputContainer}>
           <Grid item xs={12} md={4}>
@@ -149,7 +150,7 @@ class TutorForm extends Component {
             />
           </Grid>
         </Grid>
-      </Fragment>
+      </FormBoundary>
     )
   }
 }

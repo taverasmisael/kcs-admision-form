@@ -7,7 +7,8 @@ import ValidateValue from './validator'
 class TextField extends PureComponent {
   state = {
     error: false,
-    errorText: ''
+    errorText: '',
+    validators: []
   }
   static propTypes = {
     ...DefaultTextField.propTypes,
@@ -56,19 +57,21 @@ class TextField extends PureComponent {
     if (this.context.onValidationError) this.context.onValidationError({ name, value: validation })
   }
   componentWillMount() {
-    let { validators, errorMessages, required, name } = this.props
-    const needsRequired = required && !(validators.length && validators.indexOf('required') !== -1)
-    let state = {}
-    if (needsRequired) {
-      validators = [...validators, 'required']
-      errorMessages = [...errorMessages, 'Campo requerido']
-      state = { validators, errorMessages }
+    if (!this.props.select) {
+      let { validators, errorMessages, required, name } = this.props
+      const needsRequired = required && !(validators.length && validators.indexOf('required') !== -1)
+      let state = {}
+      if (needsRequired) {
+        validators = [...validators, 'required']
+        errorMessages = [...errorMessages, 'Campo requerido']
+        state = { validators, errorMessages }
+      }
+      if (this.context.validations && this.context.validations[name]) {
+        const { error, errorText } = this.context.validations[name]
+        state = { ...state, error, errorText }
+      }
+      this.setState(state)
     }
-    if (this.context.validations && this.context.validations[name]) {
-      const { error, errorText } = this.context.validations[name]
-      state = { ...state, error, errorText }
-    }
-    this.setState(state)
   }
   render() {
     const { validators, onChange, errorMessages, validateOnBlur, ...props } = this.props

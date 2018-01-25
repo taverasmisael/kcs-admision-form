@@ -13,10 +13,10 @@ import styles from '../App/styles'
 import { throttle } from '../utilities'
 
 import StepsLabels from './StepsLabels.json'
-import { ParentModel } from '../forms/ParentForm'
 import { ChildModel, ChildValidations } from '../forms/ChildForm'
-import { TutorModel } from '../forms/TutorForm'
-import { ICEModel } from '../forms/ICEForm'
+import { ParentModel, ParentValidations } from '../forms/ParentForm'
+import { TutorModel, TutorValidations } from '../forms/TutorForm'
+import { ICEModel, ICEValidations } from '../forms/ICEForm'
 import { ExtraModel } from '../forms/ExtraForm'
 
 class AdmisionForm extends Component {
@@ -27,16 +27,17 @@ class AdmisionForm extends Component {
   state = {
     currentStep: 0,
     skipped: new Set(),
-    fatherInfo: ParentModel,
-    motherInfo: ParentModel,
     childInfo: ChildModel,
-    tutorInfo: TutorModel,
-    ICEInfo: ICEModel,
-    extraInfo: ExtraModel,
     childValidations: ChildValidations,
-    tutorValidations: {},
-    ICEValidations: {},
-    extraValidations: {}
+    fatherInfo: ParentModel,
+    fatherValidations: ParentValidations,
+    motherInfo: ParentModel,
+    motherValidations: ParentValidations,
+    tutorInfo: TutorModel,
+    tutorValidations: TutorValidations,
+    ICEInfo: ICEModel,
+    ICEValidations: ICEValidations,
+    extraInfo: ExtraModel
   }
 
   isStepperComplete = () => this.state.currentStep === StepsLabels.length
@@ -81,7 +82,6 @@ class AdmisionForm extends Component {
       const { name, value: v } = target
       const value = target.type === 'checkbox' ? target.checked : v
       const prevState = this.state[slice]
-      console.log('changing')
       this.setState({
         [slice]: {
           ...prevState,

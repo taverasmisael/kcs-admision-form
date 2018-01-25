@@ -12,6 +12,10 @@ class ICEInfo extends PureComponent {
     onChange: PropTypes.func.isRequired
   }
 
+  onValidationError = validation => {
+    if (!compare(validation.value, this.props.validations[validation.name]))
+      debounce(this.props.onValidationError.bind(this, validation), 1000)()
+  }
   onChange = ({ target }) => {
     const { name, value: v } = target
     const value = target.type === 'checkbox' ? target.checked : v
@@ -33,7 +37,14 @@ class ICEInfo extends PureComponent {
     }
   }
   render() {
-    return <ICEForm state={this.state} onChange={this.onChange} />
+    return (
+      <ICEForm
+        state={this.state}
+        onChange={this.onChange}
+        onValidationError={this.onValidationError}
+        validations={this.props.validations}
+      />
+    )
   }
 }
 

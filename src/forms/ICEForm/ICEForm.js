@@ -11,6 +11,7 @@ import compare from 'just-compare'
 
 import withStyles from 'material-ui/styles/withStyles'
 import styles from '../styles'
+import FormBoundary from '../FormBoundary';
 
 class ICEForm extends Component {
   shouldComponentUpdate(nextProps) {
@@ -30,9 +31,9 @@ class ICEForm extends Component {
     onChange: PropTypes.func.isRequired
   }
   render() {
-    const { classes, state, onChange } = this.props
+    const { classes, state, validations, onChange, onValidationError } = this.props
     return (
-      <Fragment>
+      <FormBoundary onValidationError={onValidationError} validations={validations}>
         <Typography type="headline">Contacto de Emergencia</Typography>
         <Grid container spacing={16} className={classes.inputContainer}>
           <Grid item xs={12} sm={6} md={4}>
@@ -104,7 +105,7 @@ class ICEForm extends Component {
             />
           </Grid>
         </Grid>
-      </Fragment>
+      </FormBoundary>
     )
   }
 }

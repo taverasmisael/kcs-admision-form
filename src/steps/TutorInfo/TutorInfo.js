@@ -15,6 +15,10 @@ class TutorInfo extends PureComponent {
     }
   }
 
+  onValidationError = validation => {
+    if (!compare(validation.value, this.props.validations[validation.name]))
+      debounce(this.props.onValidationError.bind(this, validation), 1000)()
+  }
   onChange = ({ target }) => {
     const { name, value: v } = target
     const value = target.type === 'checkbox' ? target.checked : v
@@ -27,7 +31,14 @@ class TutorInfo extends PureComponent {
     )
   }
   render() {
-    return <TutorForm state={this.state} onChange={this.onChange} />
+    return (
+      <TutorForm
+        state={this.state}
+        onChange={this.onChange}
+        onValidationError={this.onValidationError}
+        validations={this.props.validations}
+      />
+    )
   }
 }
 
