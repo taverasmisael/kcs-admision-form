@@ -20,15 +20,16 @@ export default createMuiTheme({
       dark: Palette.accent[500],
       contrastText: DefaultTheme.palette.getContrastText(Palette.accent[500]),
       ...Palette.accent
-    },
-    error: Palette.error
+    }
   },
   overrides: {
     MuiInput: {
       root: {
-        padding: 0,
+        padding: 0
+      },
+      formControl: {
         'label + &': {
-          marginTop: DefaultTheme.spacing.unit * 3 + 'px!important',
+          marginTop: DefaultTheme.spacing.unit * 3,
           '& > *': {
             height: '100%!important'
           }
@@ -37,8 +38,8 @@ export default createMuiTheme({
       input: {
         borderRadius: DefaultTheme.spacing.unit / 2,
         backgroundColor: DefaultTheme.palette.common.white,
-        border: '1px solid #ced4da',
-        padding: '10px 12px',
+        border: `1px solid ${Palette.primary[100]}`,
+        padding: `${DefaultTheme.spacing.unit + 4}px ${DefaultTheme.spacing.unit}px `,
         width: 'calc(100% - 24px)',
         transition: DefaultTheme.transitions.create(['border-color', 'box-shadow']),
         '&:focus': {
@@ -50,11 +51,23 @@ export default createMuiTheme({
       },
       disabled: {
         '& input': {
-          backgroundColor: 'rgba(191, 191, 191, 0.21)'
+          backgroundColor: 'rgba(191, 191, 191, 0.21)',
+          color: '#383838'
+        }
+      },
+      error: {
+        '&:after': {
+          backgroundColor: 'transparent',
+        },
+        '& input:focus': {
+          borderColor: color(DefaultTheme.palette.error.main)
+            .alpha(0.5)
+            .toString(),
+          boxShadow: `0 0 0 2px ${color(DefaultTheme.palette.error.main).alpha(0.25)}`
         }
       },
       inkbar: {
-        '&:after, &:hover:after': {
+        '&$focused:after': {
           backgroundColor: 'transparent'
         }
       },
