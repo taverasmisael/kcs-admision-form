@@ -18,46 +18,6 @@ import Typography from 'material-ui/Typography/Typography'
 import FormControlLabel from 'material-ui/Form/FormControlLabel'
 import Checkbox from 'material-ui/Checkbox/Checkbox'
 
-const siblingsInfo = (state, onChange, classes) => (
-  <Fragment>
-    <Grid item xs={12} sm={6} md={3}>
-      <NumberField
-        id="sonNumber"
-        name="sonNumber"
-        label="El/ella es el hijo numero?"
-        length={2}
-        className={classes.textField}
-        value={state.sonNumber}
-        onChange={onChange}
-        required
-      />
-    </Grid>
-    <Grid item xs={12} sm={6} md={3}>
-      <NumberField
-        id="siblings"
-        name="siblings"
-        label="Cuantos hermanos/as tiene?"
-        length={2}
-        className={classes.textField}
-        value={state.siblings}
-        onChange={onChange}
-        required
-      />
-    </Grid>
-    <Grid item xs={12} sm={6} md={3}>
-      <TextField
-        id="siblingsAges"
-        name="siblingsAges"
-        label="Edad en de los hermanos"
-        placeholder="En orden. Ej: 12, 10, 8, 5"
-        className={classes.textField}
-        value={state.siblingsAges}
-        onChange={onChange}
-        required
-      />
-    </Grid>
-  </Fragment>
-)
 class ChildForm extends Component {
   static propTypes = {
     classes: PropTypes.object.isRequired,
@@ -95,6 +55,7 @@ class ChildForm extends Component {
               className={classes.textField}
               value={name}
               onChange={onChange}
+              required
             />
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
@@ -144,7 +105,7 @@ class ChildForm extends Component {
               label="¿Tiene hermanos?"
             />
           </Grid>
-          {hasSiblings ? siblingsInfo(state, onChange, classes) : null}
+          {hasSiblings ? <this.siblingsInfo /> : null}
           <Grid item xs={12} sm={6} md={3} className={classes.checkbox}>
             <FormControlLabel
               control={<Checkbox name="hasOtherChildren" checked={hasOtherChildren} onChange={onChange} />}
@@ -170,5 +131,46 @@ class ChildForm extends Component {
       </Fragment>
     )
   }
+
+  siblingsInfo = () => (
+    <Fragment>
+      <Grid item xs={12} sm={6} md={3}>
+        <NumberField
+          id="sonNumber"
+          name="sonNumber"
+          label="El/ella es el hijo numero?"
+          length={2}
+          className={this.props.classes.textField}
+          value={this.props.state.sonNumber}
+          onChange={this.props.onChange}
+          required
+        />
+      </Grid>
+      <Grid item xs={12} sm={6} md={3}>
+        <NumberField
+          id="siblings"
+          name="siblings"
+          label="Cuantos hermanos/as tiene?"
+          length={2}
+          className={this.props.classes.textField}
+          value={this.props.state.siblings}
+          onChange={this.props.onChange}
+          required
+        />
+      </Grid>
+      <Grid item xs={12} sm={6} md={3}>
+        <TextField
+          id="siblingsAges"
+          name="siblingsAges"
+          label="Edad en de los hermanos"
+          placeholder="En orden. Ej: 12, 10, 8, 5"
+          className={this.props.classes.textField}
+          value={this.props.state.siblingsAges}
+          onChange={this.props.onChange}
+          required
+        />
+      </Grid>
+    </Fragment>
+  )
 }
 export default withStyles(styles)(ChildForm)
