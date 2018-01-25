@@ -3,12 +3,14 @@ import PropTypes from 'prop-types'
 
 class FormBoundary extends PureComponent {
   static childContextTypes = {
-    onValidationError: PropTypes.func
+    onValidationError: PropTypes.func,
+    validations: PropTypes.object
   }
 
   getChildContext() {
     return {
-      onValidationError: this.props.onValidationError
+      onValidationError: this.props.onValidationError,
+      validations: this.props.validations
     }
   }
   render() {

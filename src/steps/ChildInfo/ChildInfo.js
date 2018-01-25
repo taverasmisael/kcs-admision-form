@@ -62,6 +62,7 @@ class ChildInfo extends PureComponent {
           state={this.state}
           onChange={this.onChange}
           onValidationError={this.onValidationError}
+          validations={this.props.validations}
           onDateChange={this.handleDateChange}
         />
       </Fragment>

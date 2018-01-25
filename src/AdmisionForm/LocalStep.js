@@ -14,6 +14,7 @@ const LocalStep = ({ index, states, onChange, onValidate, ...props }) => {
           componentProps={{
             onChange: onChange('childInfo'),
             onValidationError: onValidate('childValidations'),
+            validations: states.childValidations,
             state: states.childInfo
           }}
           {...props}
@@ -27,9 +28,11 @@ const LocalStep = ({ index, states, onChange, onValidate, ...props }) => {
             fatherInfo: states.fatherInfo,
             onFatherChange: onChange('fatherInfo'),
             onFatherValidationError: onValidate('fatherValidations'),
+            fatherValidations: states.fatherValidations,
             motherInfo: states.motherInfo,
             onMotherChange: onChange('motherInfo'),
-            onMotherValidationError: onValidate('fatherValidations')
+            onMotherValidationError: onValidate('motherValidations'),
+            motherValidations: states.motherValidations
           }}
           {...props}
         />
@@ -41,6 +44,7 @@ const LocalStep = ({ index, states, onChange, onValidate, ...props }) => {
           componentProps={{
             onChange: onChange('tutorInfo'),
             onValidationError: onValidate('tutorValidations'),
+            validations: states.tutorValidations,
             state: states.tutorInfo
           }}
           {...props}
@@ -53,6 +57,7 @@ const LocalStep = ({ index, states, onChange, onValidate, ...props }) => {
           componentProps={{
             onChange: onChange('ICEInfo'),
             onValidationError: onValidate('ICEValidations'),
+            validations: states.ICEValidations,
             state: states.ICEInfo
           }}
           {...props}
@@ -65,6 +70,7 @@ const LocalStep = ({ index, states, onChange, onValidate, ...props }) => {
           componentProps={{
             onChange: onChange('extraInfo'),
             onValidationError: onValidate('extraValidations'),
+            validations: states.extraValidations,
             state: states.extraInfo
           }}
           {...props}

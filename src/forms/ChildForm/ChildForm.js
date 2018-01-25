@@ -46,7 +46,7 @@ class ChildForm extends Component {
     const { name, grade, birthdate, age, hasSiblings, hasOtherChildren, otherChildren } = state
 
     return (
-      <FormBoundary onValidationError={onValidationError}>
+      <FormBoundary onValidationError={onValidationError} validations={validations}>
         <Typography type="headline">Información del Niño</Typography>
         <Grid container spacing={16} className={classes.inputContainer}>
           <Grid item xs={12} sm={6} md={3}>

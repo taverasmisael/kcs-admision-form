@@ -23,6 +23,11 @@ class TextField extends PureComponent {
     errorMessages: []
   }
 
+  static contextTypes = {
+    onValidationError: PropTypes.func,
+    validations: PropTypes.object
+  }
+
   onChange = event => {
     if (this.props.onChange) {
       if (
@@ -32,39 +37,48 @@ class TextField extends PureComponent {
           event.target.value.length > this.props.inputProps.length
         )
       ) {
-        if (this.state.validators.length) this.validateValue(event.target.value)
+        if (this.state.validators.length) this.validateValue(event.target)
         this.props.onChange(event)
       }
     }
   }
 
   onBlur = event => {
-    if (this.state.validators.length) this.validateValue(event.target.value)
+    if (this.state.validators.length) this.validateValue(event.target)
     if (this.props.onBlur) {
       this.props.onBlur(event)
     }
   }
-  validateValue = value => {
+  validateValue = ({ value, name }) => {
     const { validators, errorMessages } = this.state
-    const valid = ValidateValue(value, validators, errorMessages)
-    this.setState(valid)
+    const validation = ValidateValue(value, validators, errorMessages)
+    this.context.onValidationError({ name, value: validation })
+    this.setState(validation)
   }
   componentWillMount() {
-    let { validators, errorMessages, required } = this.props
+    let { validators, errorMessages, required, name } = this.props
     const needsRequired = required && !(validators.length && validators.indexOf('required') !== -1)
+    let state = {}
     if (needsRequired) {
       validators = [...validators, 'required']
       errorMessages = [...errorMessages, 'Campo requerido']
+      state = { validators, errorMessages }
     }
-    this.setState({ validators, errorMessages })
+    if (this.context.validations && this.context.validations[name]) {
+      const { error, errorText } = this.context.validations[name]
+      state = { ...state, error, errorText }
+    }
+    this.setState(state)
   }
   render() {
     const { validators, onChange, errorMessages, validateOnBlur, ...props } = this.props
     const { error, errorText } = this.state
-    const errorState = {
-      helperText: errorText,
-      error
-    }
+    const errorState = error
+      ? {
+          helperText: errorText,
+          error
+        }
+      : {}
     const InputProps = {
       disableUnderline: true
     }
