@@ -17,9 +17,9 @@ import { AcademicLevels, CivilStatus } from './Data.json'
 import Checkbox from 'material-ui/Checkbox/Checkbox'
 import compare from 'just-compare'
 class ParentForm extends Component {
-shouldComponentUpdate(nextProps){
-  return !compare(this.props.state, nextProps.state)
-}
+  shouldComponentUpdate(nextProps) {
+    return !compare(this.props.state, nextProps.state)
+  }
   render() {
     const { parent, state, classes, onChange } = this.props
     return (
