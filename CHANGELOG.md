@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.2.0"></a>
+# [0.2.0](https://github.com/taverasmisael/kcs-admision-form/compare/v0.1.2...v0.2.0) (2018-01-27)
+
+
+### Bug Fixes
+
+* **styles:** use DefaultTheme 'error' palette ([d874711](https://github.com/taverasmisael/kcs-admision-form/commit/d874711))
+* **TextField:** check if onValidationError exist on the input context before call it ([cf8e678](https://github.com/taverasmisael/kcs-admision-form/commit/cf8e678))
+
+
+### Features
+
+* validate ChildForm and create the standard handler for TextField validation ([34de4a4](https://github.com/taverasmisael/kcs-admision-form/commit/34de4a4))
+* **FormValidation:** apply to all forms and sections ([831cdaf](https://github.com/taverasmisael/kcs-admision-form/commit/831cdaf))
+* **FormValidation:** support for input validations and onValidationError event ([eff74cd](https://github.com/taverasmisael/kcs-admision-form/commit/eff74cd))
+* **NumberField:** update to use native number and add new validators for length ([8449f00](https://github.com/taverasmisael/kcs-admision-form/commit/8449f00))
+* **validation:** push validation state up to root component ([fed2808](https://github.com/taverasmisael/kcs-admision-form/commit/fed2808))
+* **Validator:** create function to validate values dynamically ([7a57fcf](https://github.com/taverasmisael/kcs-admision-form/commit/7a57fcf))
+
+
+
 <a name="0.1.2"></a>
 ## [0.1.2](https://github.com/taverasmisael/kcs-admision-form/compare/v0.1.1...v0.1.2) (2018-01-24)
 
