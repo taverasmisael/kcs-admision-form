@@ -6,8 +6,6 @@ import StepButton from 'material-ui/Stepper/StepButton'
 import StepContent from 'material-ui/Stepper/StepContent'
 import Typography from 'material-ui/Typography'
 
-import compare from 'just-compare'
-
 import StepActions from '../../components/StepActions'
 
 const StepWrapper = WrapedComponent =>

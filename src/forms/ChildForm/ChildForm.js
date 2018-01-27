@@ -5,7 +5,6 @@ import MenuItem from 'material-ui/Menu/MenuItem'
 import Grid from 'material-ui/Grid'
 
 import TextField from '../../components/TextField'
-import NumberField from '../../components/NumberField'
 import DatePicker from '../../components/DatePicker'
 
 import compare from 'just-compare'
@@ -139,7 +138,7 @@ class ChildForm extends Component {
   siblingsInfo = () => (
     <Fragment>
       <Grid item xs={12} sm={6} md={3}>
-        <NumberField
+        <TextField
           id="sonNumber"
           name="sonNumber"
           label="El/ella es el hijo numero?"
@@ -151,7 +150,7 @@ class ChildForm extends Component {
         />
       </Grid>
       <Grid item xs={12} sm={6} md={3}>
-        <NumberField
+        <TextField
           id="siblings"
           name="siblings"
           label="Cuantos hermanos/as tiene?"

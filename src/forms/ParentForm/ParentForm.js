@@ -8,7 +8,6 @@ import MenuItem from 'material-ui/Menu/MenuItem'
 
 import TextField from '../../components/TextField'
 import TelField from '../../components/TelField'
-import NumberField from '../../components/NumberField'
 
 import withStyles from 'material-ui/styles/withStyles'
 import styles from '../styles'
@@ -167,7 +166,7 @@ class ParentForm extends Component {
             />
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
-            <NumberField
+            <TextField
               id={`${parent}WorkPhoneExt`}
               name="workPhoneExt"
               label="Ext."
