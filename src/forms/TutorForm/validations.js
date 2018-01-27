@@ -1,9 +1,9 @@
 export default {
-  name: {},
-  realtionship: {},
-  civilStatus: {},
-  cellphone: {},
-  email: {},
-  address: {},
-  workAddress: {}
+  name: { error: true },
+  realtionship: { error: true },
+  civilStatus: { error: true },
+  email: { error: true },
+  address: { error: true },
+  workAddress: { error: true },
+  isValid: { error: true }
 }

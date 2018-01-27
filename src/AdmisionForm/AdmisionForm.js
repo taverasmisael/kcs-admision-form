@@ -103,17 +103,12 @@ class AdmisionForm extends Component {
         },
         () => {
           const currentState = this.state[slice]
-          const keys = Object.keys(currentState)
-          let isValid = true
-          keys.forEach(k => {
-            const isError = currentState[k].error === undefined ? false : currentState[k].error
-            isValid = isError === isValid ? true : false
-          })
-          isValid = keys.length % 2 ? isValid === false : isValid
+          let isValid = !Object.keys(currentState).find(k => k !== 'isValid' && currentState[k].error)
+          console.log(isValid)
           this.setState({
             [slice]: {
               ...currentState,
-              isValid
+              isValid: { error: !isValid }
             }
           })
         }

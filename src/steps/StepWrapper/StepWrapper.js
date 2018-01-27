@@ -43,9 +43,9 @@ const StepWrapper = WrapedComponent =>
       } = this.props
       let isNextDisabled = false
       if(componentProps.validations) {
-        isNextDisabled = !(componentProps.validations && componentProps.validations.isValid)
+        isNextDisabled = componentProps.validations.isValid.error
       } else if(componentProps.fatherValidations && componentProps.motherValidations) {
-        isNextDisabled = !(componentProps.fatherValidations.isValid && componentProps.motherValidations.isValid)
+        isNextDisabled = componentProps.fatherValidations.isValid.error || componentProps.motherValidations.isValid.error
       }
         
       return (

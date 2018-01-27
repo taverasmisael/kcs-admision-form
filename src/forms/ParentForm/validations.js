@@ -1,15 +1,10 @@
 export default {
-  lastname: {},
-  name: {},
-  civilStatus: {},
-  educativeLevel: {},
-  address: {},
-  sector: {},
-  phone: {},
-  cellphone: {},
-  workName: {},
-  workPosition: {},
-  churchName: {},
-  pastorName: {},
-  churchService: {}
+  lastname: { error: true },
+  name: { error: true },
+  civilStatus: { error: true },
+  educativeLevel: { error: true },
+  address: { error: true },
+  workName: { error: true },
+  workPosition: { error: true },
+  isValid: { error: true }
 }

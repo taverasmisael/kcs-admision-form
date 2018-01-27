@@ -1,7 +1,6 @@
 export default {
-  name: {},
-  email: {},
-  relationship: {},
-  phone: {},
-  cellphone: {},
+  name: { error: true },
+  email: { error: true },
+  relationship: { error: true },
+  isValid: { error: true }
 }

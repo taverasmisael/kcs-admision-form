@@ -45,7 +45,7 @@ class TextField extends PureComponent {
   }
 
   onBlur = event => {
-    if (this.state.validators.length) this.validateValue(event.target)
+    if (this.state.validators.length && !this.props.select) this.validateValue(event.target)
     if (this.props.onBlur) {
       this.props.onBlur(event)
     }
@@ -57,31 +57,30 @@ class TextField extends PureComponent {
     if (this.context.onValidationError) this.context.onValidationError({ name, value: validation })
   }
   componentWillMount() {
-    if (!this.props.select) {
-      let { validators, errorMessages, required, name } = this.props
-      const needsRequired = required && !(validators.length && validators.indexOf('required') !== -1)
-      let state = {}
-      if (needsRequired) {
-        validators = [...validators, 'required']
-        errorMessages = [...errorMessages, 'Campo requerido']
-        state = { validators, errorMessages }
-      }
-      if (this.context.validations && this.context.validations[name]) {
-        const { error, errorText } = this.context.validations[name]
-        state = { ...state, error, errorText }
-      }
-      this.setState(state)
+    let { validators, errorMessages, required, name } = this.props
+    const needsRequired = required && !(validators.length && validators.indexOf('required') !== -1)
+    let state = {}
+    if (needsRequired) {
+      validators = [...validators, 'required']
+      errorMessages = [...errorMessages, 'Campo requerido']
+      state = { validators, errorMessages }
     }
+    if (this.context.validations && this.context.validations[name]) {
+      const { error, errorText } = this.context.validations[name]
+      state = { ...state, error, errorText }
+    }
+    this.setState(state)
   }
   render() {
     const { validators, onChange, errorMessages, validateOnBlur, ...props } = this.props
     const { error, errorText } = this.state
-    const errorState = error
-      ? {
-          helperText: errorText,
-          error
-        }
-      : {}
+    const errorState =
+      error && errorText
+        ? {
+            helperText: errorText,
+            error
+          }
+        : {}
     const InputProps = {
       disableUnderline: true
     }
