@@ -59,11 +59,11 @@ class TextField extends PureComponent {
   componentWillMount() {
     let { validators, errorMessages, required, name } = this.props
     const needsRequired = required && !(validators.length && validators.indexOf('required') !== -1)
-    let state = {}
+    let state = { validators, errorMessages }
     if (needsRequired) {
       validators = [...validators, 'required']
       errorMessages = [...errorMessages, 'Campo requerido']
-      state = { validators, errorMessages }
+      state = { ...state, validators, errorMessages }
     }
     if (this.context.validations && this.context.validations[name]) {
       const { error, errorText } = this.context.validations[name]

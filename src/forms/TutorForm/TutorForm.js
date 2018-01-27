@@ -124,6 +124,8 @@ class TutorForm extends Component {
               className={classes.textField}
               value={state.email}
               onChange={onChange}
+              validators={['required', 'isEmail']}
+              errorMessages={['Campo Requerido', 'Debe ser una dirección de correo valida']}
               required
             />
           </Grid>

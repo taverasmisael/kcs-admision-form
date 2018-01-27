@@ -11,7 +11,7 @@ import compare from 'just-compare'
 
 import withStyles from 'material-ui/styles/withStyles'
 import styles from '../styles'
-import FormBoundary from '../FormBoundary';
+import FormBoundary from '../FormBoundary'
 
 class ICEForm extends Component {
   shouldComponentUpdate(nextProps) {
@@ -67,6 +67,8 @@ class ICEForm extends Component {
               className={classes.textField}
               value={state.email}
               onChange={onChange}
+              validators={['required', 'isEmail']}
+              errorMessages={['Campo Requerido', 'Debe ser una dirección de correo valida']}
               required
             />
           </Grid>
