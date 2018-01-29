@@ -30,19 +30,32 @@ class ChildInfo extends PureComponent {
     selectedTab: 1
   }
 
-  onChange = slice => ({ target }) => {
+  onChangeMedical = ({ target }) => {
     const { name, value: v } = target
     const value = target.type === 'checkbox' ? target.checked : v
-    const onChange = slice === 'childInfo' ? this.props.onChangeChild : this.props.onChangeMedical
+
     this.setState(
-      state => ({
-        ...state,
-        [slice]: {
-          ...state[slice],
+      {
+        medicalInfo: {
+          ...this.state.medicalInfo,
           [name]: value
         }
-      }),
-      debounce(onChange.bind(this, { target: { name, value } }), 2000)
+      },
+      debounce(this.props.onChangeMedical.bind(this, { target: { name, value } }), 2000)
+    )
+  }
+
+  onChangeChild = ({ target }) => {
+    const { name, value: v } = target
+    const value = target.type === 'checkbox' ? target.checked : v
+    this.setState(
+      {
+        childInfo: {
+          ...this.state.childInfo,
+          [name]: value
+        }
+      },
+      debounce(this.props.onChangeChild.bind(this, { target: { name, value } }), 2000)
     )
   }
 
@@ -60,8 +73,8 @@ class ChildInfo extends PureComponent {
         age
       }),
       () => {
-        debounce(this.props.onChange.bind(this, { target: { name: 'birthdate', value: birthdate } }), 1000)()
-        this.props.onChange({ target: { name: 'age', value: age } })
+        debounce(this.props.onChangeChild.bind(this, { target: { name: 'birthdate', value: birthdate } }), 1000)()
+        this.props.onChangeChild({ target: { name: 'age', value: age } })
         this.props.onValidationError({ value: { error: false, errorText: '' }, name: 'birthdate' })
       }
     )
@@ -77,9 +90,10 @@ class ChildInfo extends PureComponent {
     this.setState({ medicalInfo, childInfo })
   }
   componentWillReceiveProps(nextProps) {
-    const { state } = this
-    if (!compare(state, nextProps.state)) {
-      this.setState(state)
+    const { medicalInfo, childInfo } = nextProps
+    if (!compare(medicalInfo, this.state.medicalInfo) && !compare(childInfo, this.state.childInfo)) {
+      this.setState({ medicalInfo, childInfo })
+      console.log({ medicalInfo, childInfo })
     }
   }
 
@@ -102,7 +116,7 @@ class ChildInfo extends PureComponent {
             {selectedTab === 0 ? (
               <ChildForm
                 state={childInfo}
-                onChange={this.onChange('childInfo')}
+                onChange={this.onChangeChild}
                 onValidationError={this.onValidationError}
                 validations={this.props.validations}
                 onDateChange={this.handleDateChange}
@@ -115,9 +129,11 @@ class ChildInfo extends PureComponent {
                 state={medicalInfo}
                 diseases={this.props.diseases}
                 vaccines={this.props.vaccines}
+                sikness={this.props.sikness}
+                onChange={this.onChangeMedical}
+                onChangeSikness={this.props.onChangeSikness}
                 onChangeVaccine={this.onChangeVaccine}
                 onToggleDesiese={this.props.onToggleDisease}
-                onChange={this.onChange('medicalInfo')}
               />
             ) : null}
           </TabContainer>

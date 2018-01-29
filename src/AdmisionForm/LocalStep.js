@@ -5,7 +5,7 @@ import Typography from 'material-ui/Typography'
 
 import { ChildInfo, ExtraInfo, FamilyInfo, ICEInfo, TutorInfo, StepWrapper } from '../steps'
 
-const LocalStep = ({ index, states, onChange, onValidate, onToggleDisease, ...props }) => {
+const LocalStep = ({ index, states, onChange, onValidate, onChangeSikness, onToggleDisease, ...props }) => {
   switch (index) {
     case 0:
       return (
@@ -16,12 +16,14 @@ const LocalStep = ({ index, states, onChange, onValidate, onToggleDisease, ...pr
             onChangeMedical: onChange('medicalInfo'),
             onChangeVaccine: onChange('vaccines'),
             onValidationError: onValidate('childValidations'),
+            onChangeSikness: onChangeSikness,
             onToggleDisease: onToggleDisease,
             validations: states.childValidations,
             childInfo: states.childInfo,
             medicalInfo: states.medicalInfo,
             diseases: states.diseases,
-            vaccines: states.vaccines
+            vaccines: states.vaccines,
+            sikness: states.sikness
           }}
           {...props}
         />

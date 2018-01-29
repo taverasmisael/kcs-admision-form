@@ -12,7 +12,20 @@ import styles from '../styles'
 import DiseasesBox from './DiseasesBox'
 import VaccineCard from './VaccineCard'
 
-const MedicalForm = ({ state, grade, diseases, vaccines, onChangeVaccine, onToggleDesiese, onChange, classes }) => {
+const MedicalForm = props => {
+  const {
+    state,
+    grade,
+    diseases,
+    vaccines,
+    sikness,
+    onChange,
+    onChangeSikness,
+    onChangeVaccine,
+    onToggleDesiese,
+    classes
+  } = props
+  const lastSikness = sikness[sikness.length - 1]
   return (
     <Fragment>
       <Typography type="headline">Condición Medica</Typography>
@@ -62,7 +75,7 @@ const MedicalForm = ({ state, grade, diseases, vaccines, onChangeVaccine, onTogg
           <TelField
             id="doctorPhone"
             name="doctorPhone"
-            label="Teleéfono del pediatra"
+            label="Teléfono del pediatra"
             className={classes.textField}
             value={state.doctorPhone}
             onChange={onChange}
@@ -75,6 +88,22 @@ const MedicalForm = ({ state, grade, diseases, vaccines, onChangeVaccine, onTogg
       </Grid>
       <Grid container spacing={16} className={classes.inputContainer}>
         <VaccineCard vaccines={vaccines} onChange={onChangeVaccine} />
+      </Grid>
+      <Typography type="title">¿Padece de alguna de estas enfermedades?</Typography>
+      <Grid container spacing={16} className={classes.inputContainer}>
+        <DiseasesBox diseases={sikness} onChange={onChangeSikness} />
+        {lastSikness.checked ? (
+          <Grid item xs={6} sm={9} md={6}>
+            <TextField
+              id="specialSikness"
+              name="specialSikness"
+              label="Por favor especificar"
+              className={classes.textField}
+              value={state.specialSikness}
+              onChange={onChange}
+            />
+          </Grid>
+        ) : null}
       </Grid>
     </Fragment>
   )
@@ -89,6 +118,9 @@ MedicalForm.propTypes = {
   }).isRequired,
   grade: PropTypes.number,
   vaccines: PropTypes.shape({}),
+  sikness: PropTypes.arrayOf(PropTypes.object),
+  diseases: PropTypes.arrayOf(PropTypes.object),
+  onChangeSikness: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   onChangeVaccine: PropTypes.func.isRequired,
   onToggleDesiese: PropTypes.func.isRequired

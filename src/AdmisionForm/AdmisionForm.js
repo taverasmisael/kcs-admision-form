@@ -20,8 +20,9 @@ import { TutorModel, TutorValidations } from '../forms/TutorForm'
 import { ICEModel, ICEValidations } from '../forms/ICEForm'
 import { ExtraModel } from '../forms/ExtraForm'
 
-import Diseases from './DiseasesList.json'
-import VacinesList from './vaccinesList'
+import diseasesList from './DiseasesList.json'
+import siknessList from './sikness'
+import vacinesList from './vaccinesList'
 
 class AdmisionForm extends Component {
   static propTypes = {
@@ -34,8 +35,9 @@ class AdmisionForm extends Component {
     childInfo: ChildModel,
     childValidations: ChildValidations,
     medicalInfo: MedicalModel,
-    diseases: Diseases,
-    vaccines: VacinesList,
+    diseases: diseasesList,
+    sikness: siknessList,
+    vaccines: vacinesList,
     fatherInfo: ParentModel,
     fatherValidations: ParentValidations,
     motherInfo: ParentModel,
@@ -63,6 +65,7 @@ class AdmisionForm extends Component {
         isSkipped: this.isStepSkipped(index),
         stepLabel: step,
         onChange: this.handleChanges,
+        onChangeSikness: this.handleChangeSikness,
         onValidate: this.handleValidations,
         onToggleDisease: this.handleToggleDisease,
         onSelectStep: this.handleSelectStep,
@@ -85,6 +88,19 @@ class AdmisionForm extends Component {
     })
   }
 
+  handleChangeSikness = ({ target, value }) => {
+    const { name, checked } = target
+    let sikness
+    if (name === 'Otro' && checked) {
+      sikness = this.state.sikness.map(s => (s.label !== name ? { ...s, checked: false } : { ...s, checked }))
+    } else {
+      sikness = this.state.sikness.map(
+        s => (s.label === name ? { ...s, checked } : s.label === 'Otro' ? { ...s, checked: false } : s)
+      )
+    }
+    this.setState({ sikness })
+  }
+
   handleToggleDisease = ({ target }) => {
     const { name, checked } = target
     const diseases = this.state.diseases.map(d => (d.label === name ? { ...d, checked } : d))
@@ -94,6 +110,7 @@ class AdmisionForm extends Component {
     throttle(({ target }) => {
       const { name, value: v } = target
       const value = target.type === 'checkbox' ? target.checked : v
+      console.log('Changing', target.name, slice)
       const prevState = this.state[slice]
       this.setState({
         [slice]: {
