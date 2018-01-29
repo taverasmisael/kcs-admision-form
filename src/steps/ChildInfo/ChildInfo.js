@@ -68,13 +68,15 @@ class ChildInfo extends PureComponent {
     const birthdate = momentDate.toISOString()
     this.setState(
       state => ({
-        ...state,
-        birthdate,
-        age
+        childInfo: {
+          ...state.childInfo,
+          birthdate,
+          age
+        }
       }),
       () => {
-        debounce(this.props.onChangeChild.bind(this, { target: { name: 'birthdate', value: birthdate } }), 1000)()
         this.props.onChangeChild({ target: { name: 'age', value: age } })
+        debounce(this.props.onChangeChild.bind(this, { target: { name: 'birthdate', value: birthdate } }), 1000)()
         this.props.onValidationError({ value: { error: false, errorText: '' }, name: 'birthdate' })
       }
     )
