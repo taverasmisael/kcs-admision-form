@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/taverasmisael/kcs-admision-form/compare/v0.2.0...v0.3.0) (2018-01-29)
+
+
+### Bug Fixes
+
+* **birthdate:** update changes in birdthdate and age ([96a2c17](https://github.com/taverasmisael/kcs-admision-form/commit/96a2c17))
+
+
+### Features
+
+* **EmailValidation:** create email Validation rule, use that rule ([44e878b](https://github.com/taverasmisael/kcs-admision-form/commit/44e878b))
+* **MedicalForm:** complete medical form ([fc3b3ad](https://github.com/taverasmisael/kcs-admision-form/commit/fc3b3ad))
+* **MedicalForm:** integrate medicalform to childInfo ([379ec77](https://github.com/taverasmisael/kcs-admision-form/commit/379ec77))
+* **sikness:** create the sikness list ([e6c2bc4](https://github.com/taverasmisael/kcs-admision-form/commit/e6c2bc4))
+* **Vaccines:** create VaccineCard and implement it ([96c5e77](https://github.com/taverasmisael/kcs-admision-form/commit/96c5e77))
+
+
+
 <a name="0.2.0"></a>
 # [0.2.0](https://github.com/taverasmisael/kcs-admision-form/compare/v0.1.2...v0.2.0) (2018-01-27)
 
