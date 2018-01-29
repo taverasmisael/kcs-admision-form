@@ -14,10 +14,16 @@ import { throttle } from '../utilities'
 
 import StepsLabels from './StepsLabels.json'
 import { ChildModel, ChildValidations } from '../forms/ChildForm'
+import { MedicalModel, MedicalValidations } from '../forms/MedicalForm'
 import { ParentModel, ParentValidations } from '../forms/ParentForm'
 import { TutorModel, TutorValidations } from '../forms/TutorForm'
 import { ICEModel, ICEValidations } from '../forms/ICEForm'
 import { ExtraModel } from '../forms/ExtraForm'
+
+import diseasesList from './DiseasesList'
+import siknessList from './siknessList'
+import vaccinesList from './vaccinesList'
+import alergiesList from './alergiesList'
 
 class AdmisionForm extends Component {
   static propTypes = {
@@ -29,6 +35,12 @@ class AdmisionForm extends Component {
     skipped: new Set(),
     childInfo: ChildModel,
     childValidations: ChildValidations,
+    medicalInfo: MedicalModel,
+    medicalValidations: MedicalValidations,
+    diseases: diseasesList,
+    alergies: alergiesList,
+    sikness: siknessList,
+    vaccines: vaccinesList,
     fatherInfo: ParentModel,
     fatherValidations: ParentValidations,
     motherInfo: ParentModel,
@@ -56,7 +68,10 @@ class AdmisionForm extends Component {
         isSkipped: this.isStepSkipped(index),
         stepLabel: step,
         onChange: this.handleChanges,
+        onChangeSikness: this.handleChangeSikness,
+        onChangeAlergies: this.handleChangeAlergies,
         onValidate: this.handleValidations,
+        onToggleDisease: this.handleToggleDisease,
         onSelectStep: this.handleSelectStep,
         onNext: this.handleNext,
         onPrev: this.handlePrev,
@@ -77,6 +92,36 @@ class AdmisionForm extends Component {
     })
   }
 
+  handleChangeAlergies = ({ target }) => {
+    const { name, checked } = target
+    let alergies = this.state.alergies
+    if (name === 'Otro' && checked) {
+      alergies = alergies.map(s => (s.label !== name ? { ...s, checked: false } : { ...s, checked }))
+    } else {
+      alergies = alergies.map(
+        s => (s.label === name ? { ...s, checked } : s.label === 'Otro' ? { ...s, checked: false } : s)
+      )
+    }
+    this.setState({ alergies })
+  }
+  handleChangeSikness = ({ target }) => {
+    const { name, checked } = target
+    let sikness
+    if (name === 'Otro' && checked) {
+      sikness = this.state.sikness.map(s => (s.label !== name ? { ...s, checked: false } : { ...s, checked }))
+    } else {
+      sikness = this.state.sikness.map(
+        s => (s.label === name ? { ...s, checked } : s.label === 'Otro' ? { ...s, checked: false } : s)
+      )
+    }
+    this.setState({ sikness })
+  }
+
+  handleToggleDisease = ({ target }) => {
+    const { name, checked } = target
+    const diseases = this.state.diseases.map(d => (d.label === name ? { ...d, checked } : d))
+    this.setState({ diseases })
+  }
   handleChanges = slice =>
     throttle(({ target }) => {
       const { name, value: v } = target
@@ -93,7 +138,6 @@ class AdmisionForm extends Component {
   handleValidations = slice =>
     throttle(({ name, value }) => {
       const prevState = this.state[slice]
-      console.log('handling', name)
       this.setState(
         {
           [slice]: {
@@ -104,7 +148,6 @@ class AdmisionForm extends Component {
         () => {
           const currentState = this.state[slice]
           let isValid = !Object.keys(currentState).find(k => k !== 'isValid' && currentState[k].error)
-          console.log(isValid)
           this.setState({
             [slice]: {
               ...currentState,

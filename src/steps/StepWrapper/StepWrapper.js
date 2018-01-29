@@ -44,6 +44,8 @@ const StepWrapper = WrapedComponent =>
         isNextDisabled = componentProps.validations.isValid.error
       } else if(componentProps.fatherValidations && componentProps.motherValidations) {
         isNextDisabled = componentProps.fatherValidations.isValid.error || componentProps.motherValidations.isValid.error
+      } else if(componentProps.childValidations && componentProps.medicalValidations) {
+        isNextDisabled = componentProps.childValidations.isValid.error || componentProps.medicalValidations.isValid.error
       }
         
       return (

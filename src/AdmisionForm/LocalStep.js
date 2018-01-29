@@ -5,17 +5,38 @@ import Typography from 'material-ui/Typography'
 
 import { ChildInfo, ExtraInfo, FamilyInfo, ICEInfo, TutorInfo, StepWrapper } from '../steps'
 
-const LocalStep = ({ index, states, onChange, onValidate, ...props }) => {
+const LocalStep = ({
+  index,
+  states,
+  onChange,
+  onValidate,
+  onChangeSikness,
+  onChangeAlergies,
+  onToggleDisease,
+  ...props
+}) => {
   switch (index) {
     case 0:
       return (
         <ChildInfo
           stepIndex={index}
           componentProps={{
-            onChange: onChange('childInfo'),
-            onValidationError: onValidate('childValidations'),
-            validations: states.childValidations,
-            state: states.childInfo
+            onChangeChild: onChange('childInfo'),
+            onChangeMedical: onChange('medicalInfo'),
+            onChangeVaccine: onChange('vaccines'),
+            onChangeAlergies: onChangeAlergies,
+            onValidationChildError: onValidate('childValidations'),
+            onValidationMedicalError: onValidate('medicalValidations'),
+            onChangeSikness: onChangeSikness,
+            onToggleDisease: onToggleDisease,
+            childValidations: states.childValidations,
+            medicalValidations: states.medicalValidations,
+            childInfo: states.childInfo,
+            medicalInfo: states.medicalInfo,
+            diseases: states.diseases,
+            alergies: states.alergies,
+            vaccines: states.vaccines,
+            sikness: states.sikness
           }}
           {...props}
         />
@@ -88,6 +109,9 @@ const LocalStep = ({ index, states, onChange, onValidate, ...props }) => {
 LocalStep.propTypes = {
   index: PropTypes.number.isRequired,
   states: PropTypes.object.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onValidate: PropTypes.func.isRequired,
+  onToggleDisease: PropTypes.func.isRequired,
   ...StepWrapper().propTypes
 }
 
