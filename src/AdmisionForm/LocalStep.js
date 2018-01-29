@@ -5,17 +5,21 @@ import Typography from 'material-ui/Typography'
 
 import { ChildInfo, ExtraInfo, FamilyInfo, ICEInfo, TutorInfo, StepWrapper } from '../steps'
 
-const LocalStep = ({ index, states, onChange, onValidate, ...props }) => {
+const LocalStep = ({ index, states, onChange, onValidate, onToggleDisease, ...props }) => {
   switch (index) {
     case 0:
       return (
         <ChildInfo
           stepIndex={index}
           componentProps={{
-            onChange: onChange('childInfo'),
+            onChangeChild: onChange('childInfo'),
+            onChangeMedical: onChange('medicalInfo'),
             onValidationError: onValidate('childValidations'),
+            onToggleDisease: onToggleDisease,
             validations: states.childValidations,
-            state: states.childInfo
+            childInfo: states.childInfo,
+            medicalInfo: states.medicalInfo,
+            diseases: states.diseases
           }}
           {...props}
         />
@@ -88,6 +92,9 @@ const LocalStep = ({ index, states, onChange, onValidate, ...props }) => {
 LocalStep.propTypes = {
   index: PropTypes.number.isRequired,
   states: PropTypes.object.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onValidate: PropTypes.func.isRequired,
+  onToggleDisease: PropTypes.func.isRequired,
   ...StepWrapper().propTypes
 }
 

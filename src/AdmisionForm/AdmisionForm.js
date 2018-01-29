@@ -14,10 +14,13 @@ import { throttle } from '../utilities'
 
 import StepsLabels from './StepsLabels.json'
 import { ChildModel, ChildValidations } from '../forms/ChildForm'
+import { MedicalModel } from '../forms/MedicalForm'
 import { ParentModel, ParentValidations } from '../forms/ParentForm'
 import { TutorModel, TutorValidations } from '../forms/TutorForm'
 import { ICEModel, ICEValidations } from '../forms/ICEForm'
 import { ExtraModel } from '../forms/ExtraForm'
+
+import Diseases from './DiseasesList.json'
 
 class AdmisionForm extends Component {
   static propTypes = {
@@ -29,6 +32,8 @@ class AdmisionForm extends Component {
     skipped: new Set(),
     childInfo: ChildModel,
     childValidations: ChildValidations,
+    medicalInfo: MedicalModel,
+    diseases: Diseases,
     fatherInfo: ParentModel,
     fatherValidations: ParentValidations,
     motherInfo: ParentModel,
@@ -57,6 +62,7 @@ class AdmisionForm extends Component {
         stepLabel: step,
         onChange: this.handleChanges,
         onValidate: this.handleValidations,
+        onToggleDisease: this.handleToggleDisease,
         onSelectStep: this.handleSelectStep,
         onNext: this.handleNext,
         onPrev: this.handlePrev,
@@ -77,6 +83,11 @@ class AdmisionForm extends Component {
     })
   }
 
+  handleToggleDisease = ({ target }) => {
+    const { name, checked } = target
+    const diseases = this.state.diseases.map(d => (d.label === name ? { ...d, checked } : d))
+    this.setState({ diseases })
+  }
   handleChanges = slice =>
     throttle(({ target }) => {
       const { name, value: v } = target
