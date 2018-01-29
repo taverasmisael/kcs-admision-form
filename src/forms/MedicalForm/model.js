@@ -3,5 +3,8 @@ export default {
   bloodType: '',
   doctorName: '',
   doctorPhone: '',
-  specialSikness: ''
+  specialSikness: '',
+  operationDate: new Date(),
+  hasOperation: false,
+  medicalExtra: ''
 }

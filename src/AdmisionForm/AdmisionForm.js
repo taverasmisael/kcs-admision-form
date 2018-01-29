@@ -14,15 +14,16 @@ import { throttle } from '../utilities'
 
 import StepsLabels from './StepsLabels.json'
 import { ChildModel, ChildValidations } from '../forms/ChildForm'
-import { MedicalModel } from '../forms/MedicalForm'
+import { MedicalModel, MedicalValidations } from '../forms/MedicalForm'
 import { ParentModel, ParentValidations } from '../forms/ParentForm'
 import { TutorModel, TutorValidations } from '../forms/TutorForm'
 import { ICEModel, ICEValidations } from '../forms/ICEForm'
 import { ExtraModel } from '../forms/ExtraForm'
 
-import diseasesList from './DiseasesList.json'
-import siknessList from './sikness'
-import vacinesList from './vaccinesList'
+import diseasesList from './DiseasesList'
+import siknessList from './siknessList'
+import vaccinesList from './vaccinesList'
+import alergiesList from './alergiesList'
 
 class AdmisionForm extends Component {
   static propTypes = {
@@ -35,9 +36,11 @@ class AdmisionForm extends Component {
     childInfo: ChildModel,
     childValidations: ChildValidations,
     medicalInfo: MedicalModel,
+    medicalValidations: MedicalValidations,
     diseases: diseasesList,
+    alergies: alergiesList,
     sikness: siknessList,
-    vaccines: vacinesList,
+    vaccines: vaccinesList,
     fatherInfo: ParentModel,
     fatherValidations: ParentValidations,
     motherInfo: ParentModel,
@@ -66,6 +69,7 @@ class AdmisionForm extends Component {
         stepLabel: step,
         onChange: this.handleChanges,
         onChangeSikness: this.handleChangeSikness,
+        onChangeAlergies: this.handleChangeAlergies,
         onValidate: this.handleValidations,
         onToggleDisease: this.handleToggleDisease,
         onSelectStep: this.handleSelectStep,
@@ -88,7 +92,19 @@ class AdmisionForm extends Component {
     })
   }
 
-  handleChangeSikness = ({ target, value }) => {
+  handleChangeAlergies = ({ target }) => {
+    const { name, checked } = target
+    let alergies = this.state.alergies
+    if (name === 'Otro' && checked) {
+      alergies = alergies.map(s => (s.label !== name ? { ...s, checked: false } : { ...s, checked }))
+    } else {
+      alergies = alergies.map(
+        s => (s.label === name ? { ...s, checked } : s.label === 'Otro' ? { ...s, checked: false } : s)
+      )
+    }
+    this.setState({ alergies })
+  }
+  handleChangeSikness = ({ target }) => {
     const { name, checked } = target
     let sikness
     if (name === 'Otro' && checked) {
@@ -110,7 +126,6 @@ class AdmisionForm extends Component {
     throttle(({ target }) => {
       const { name, value: v } = target
       const value = target.type === 'checkbox' ? target.checked : v
-      console.log('Changing', target.name, slice)
       const prevState = this.state[slice]
       this.setState({
         [slice]: {
@@ -123,7 +138,6 @@ class AdmisionForm extends Component {
   handleValidations = slice =>
     throttle(({ name, value }) => {
       const prevState = this.state[slice]
-      console.log('handling', name)
       this.setState(
         {
           [slice]: {
@@ -134,7 +148,6 @@ class AdmisionForm extends Component {
         () => {
           const currentState = this.state[slice]
           let isValid = !Object.keys(currentState).find(k => k !== 'isValid' && currentState[k].error)
-          console.log(isValid)
           this.setState({
             [slice]: {
               ...currentState,

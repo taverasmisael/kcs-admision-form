@@ -27,7 +27,7 @@ class ChildInfo extends PureComponent {
     )
   }
   state = {
-    selectedTab: 1
+    selectedTab: 0
   }
 
   onChangeMedical = ({ target }) => {
@@ -82,9 +82,13 @@ class ChildInfo extends PureComponent {
     )
   }
 
-  onValidationError = validation => {
-    if (!compare(validation.value, this.props.validations[validation.name]))
-      debounce(this.props.onValidationError.bind(this, validation), 1000)()
+  onValidateChild = validation => {
+    if (!compare(validation.value, this.props.childValidations[validation.name]))
+      debounce(this.props.onValidationChildError.bind(this, validation), 1000)()
+  }
+  onValidateMedical = validation => {
+    if (!compare(validation.value, this.props.medicalValidations[validation.name]))
+      debounce(this.props.onValidationMedicalError.bind(this, validation), 1000)()
   }
 
   componentWillMount() {
@@ -119,8 +123,8 @@ class ChildInfo extends PureComponent {
               <ChildForm
                 state={childInfo}
                 onChange={this.onChangeChild}
-                onValidationError={this.onValidationError}
-                validations={this.props.validations}
+                onValidationError={this.onValidateChild}
+                validations={this.props.childValidations}
                 onDateChange={this.handleDateChange}
               />
             ) : null}
@@ -130,9 +134,13 @@ class ChildInfo extends PureComponent {
               <MedicalForm
                 state={medicalInfo}
                 diseases={this.props.diseases}
+                alergies={this.props.alergies}
                 vaccines={this.props.vaccines}
                 sikness={this.props.sikness}
+                validations={this.props.medicalValidations}
                 onChange={this.onChangeMedical}
+                onValidationError={this.onValidateMedical}
+                onChangeAlergies={this.props.onChangeAlergies}
                 onChangeSikness={this.props.onChangeSikness}
                 onChangeVaccine={this.onChangeVaccine}
                 onToggleDesiese={this.props.onToggleDisease}
