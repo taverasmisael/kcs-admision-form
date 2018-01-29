@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 
 import Grid from 'material-ui/Grid/Grid'
 import Typography from 'material-ui/Typography/Typography'
-import FormControlLabel from 'material-ui/Form/FormControlLabel'
-import Checkbox from 'material-ui/Checkbox/Checkbox'
 
 import TextField from '../../components/TextField'
 import TelField from '../../components/TelField'
@@ -12,8 +10,9 @@ import TelField from '../../components/TelField'
 import withStyles from 'material-ui/styles/withStyles'
 import styles from '../styles'
 import DiseasesBox from './DiseasesBox'
+import VaccineCard from './VaccineCard'
 
-const MedicalForm = ({ state, grade, diseases, vaccineList, onChangeVaccine, onToggleDesiese, onChange, classes }) => {
+const MedicalForm = ({ state, grade, diseases, vaccines, onChangeVaccine, onToggleDesiese, onChange, classes }) => {
   return (
     <Fragment>
       <Typography type="headline">Condición Medica</Typography>
@@ -70,11 +69,13 @@ const MedicalForm = ({ state, grade, diseases, vaccineList, onChangeVaccine, onT
           />
         </Grid>
       </Grid>
-      <Typography type="headline">Enfermedades que ha tenido</Typography>
+      <Typography type="title">Enfermedades que ha tenido</Typography>
       <Grid container spacing={16} className={classes.inputContainer}>
         <DiseasesBox diseases={diseases} onChange={onToggleDesiese} />
       </Grid>
-      <Typography type="headline">Ficha de Vacunación</Typography>
+      <Grid container spacing={16} className={classes.inputContainer}>
+        <VaccineCard vaccines={vaccines} onChange={onChangeVaccine} />
+      </Grid>
     </Fragment>
   )
 }
@@ -87,14 +88,9 @@ MedicalForm.propTypes = {
     doctorPhone: PropTypes.string.isRequired
   }).isRequired,
   grade: PropTypes.number,
-  vaccineList: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      checked: PropTypes.bool.isRequired
-    })
-  ),
-  onChangeVaccine: PropTypes.func.isRequired,
+  vaccines: PropTypes.shape({}),
   onChange: PropTypes.func.isRequired,
+  onChangeVaccine: PropTypes.func.isRequired,
   onToggleDesiese: PropTypes.func.isRequired
 }
 

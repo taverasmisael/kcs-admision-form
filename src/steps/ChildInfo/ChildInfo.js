@@ -46,6 +46,10 @@ class ChildInfo extends PureComponent {
     )
   }
 
+  onChangeVaccine = ({ target }) => {
+    const { name, value } = target
+    this.props.onChangeVaccine({ target: { name, value: { value } } })
+  }
   handleDateChange = momentDate => {
     const age = new Date().getFullYear() - momentDate.year()
     const birthdate = momentDate.toISOString()
@@ -110,6 +114,8 @@ class ChildInfo extends PureComponent {
               <MedicalForm
                 state={medicalInfo}
                 diseases={this.props.diseases}
+                vaccines={this.props.vaccines}
+                onChangeVaccine={this.onChangeVaccine}
                 onToggleDesiese={this.props.onToggleDisease}
                 onChange={this.onChange('medicalInfo')}
               />

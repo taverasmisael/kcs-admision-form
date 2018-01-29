@@ -11,7 +11,7 @@ export default theme => ({
   },
   checkbox: {
     display: 'flex',
-    alignItems: 'flex-end',
+    alignItems: 'flex-end'
   },
   switchLabel: {
     flexFlow: 'row-reverse',
@@ -25,5 +25,8 @@ export default theme => ({
   },
   textarea: {
     minHeight: `${theme.spacing.unit / 2}rem`
+  },
+  group: {
+    margin: theme.spacing.unit
   }
 })

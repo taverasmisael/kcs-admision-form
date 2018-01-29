@@ -21,6 +21,7 @@ import { ICEModel, ICEValidations } from '../forms/ICEForm'
 import { ExtraModel } from '../forms/ExtraForm'
 
 import Diseases from './DiseasesList.json'
+import VacinesList from './vaccinesList'
 
 class AdmisionForm extends Component {
   static propTypes = {
@@ -34,6 +35,7 @@ class AdmisionForm extends Component {
     childValidations: ChildValidations,
     medicalInfo: MedicalModel,
     diseases: Diseases,
+    vaccines: VacinesList,
     fatherInfo: ParentModel,
     fatherValidations: ParentValidations,
     motherInfo: ParentModel,

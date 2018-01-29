@@ -14,12 +14,14 @@ const LocalStep = ({ index, states, onChange, onValidate, onToggleDisease, ...pr
           componentProps={{
             onChangeChild: onChange('childInfo'),
             onChangeMedical: onChange('medicalInfo'),
+            onChangeVaccine: onChange('vaccines'),
             onValidationError: onValidate('childValidations'),
             onToggleDisease: onToggleDisease,
             validations: states.childValidations,
             childInfo: states.childInfo,
             medicalInfo: states.medicalInfo,
-            diseases: states.diseases
+            diseases: states.diseases,
+            vaccines: states.vaccines
           }}
           {...props}
         />
