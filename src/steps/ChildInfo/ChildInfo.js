@@ -60,7 +60,8 @@ class ChildInfo extends PureComponent {
   }
 
   onChangeVaccine = ({ target }) => {
-    const { name, value } = target
+    const { name, value: v, checked } = target
+    const value = v === 'on' ? checked : v
     this.props.onChangeVaccine({ target: { name, value: { value } } })
   }
   handleDateChange = momentDate => {

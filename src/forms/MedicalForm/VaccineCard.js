@@ -23,7 +23,7 @@ const VaccineCard = ({ vaccines = {}, onChange, classes }) => (
             <Checkbox
               name="tuberculosis"
               title="Tuberculosis"
-              checked={vaccines.tuberculosis.checked}
+              checked={vaccines.tuberculosis.value}
               onChange={onChange}
             />
           }
@@ -33,7 +33,7 @@ const VaccineCard = ({ vaccines = {}, onChange, classes }) => (
       <Grid item xs={12} sm={3}>
         <FormControlLabel
           control={
-            <Checkbox name="hepatitis" title="Hepatitis" checked={vaccines.hepatitis.checked} onChange={onChange} />
+            <Checkbox name="hepatitis" title="Hepatitis" checked={vaccines.hepatitis.value} onChange={onChange} />
           }
           label="Hepatitis"
         />
@@ -41,7 +41,7 @@ const VaccineCard = ({ vaccines = {}, onChange, classes }) => (
       <Grid item xs={12} sm={3}>
         <FormControlLabel
           control={
-            <Checkbox name="varicela" title="Varicela" checked={vaccines.varicela.checked} onChange={onChange} />
+            <Checkbox name="varicela" title="Varicela" checked={vaccines.varicela.value} onChange={onChange} />
           }
           label="Varicela"
         />
@@ -49,7 +49,7 @@ const VaccineCard = ({ vaccines = {}, onChange, classes }) => (
       <Grid item xs={12} sm={3}>
         <FormControlLabel
           control={
-            <Checkbox name="influenza" title="Influenza" checked={vaccines.influenza.checked} onChange={onChange} />
+            <Checkbox name="influenza" title="Influenza" checked={vaccines.influenza.value} onChange={onChange} />
           }
           label="Influenza"
         />
