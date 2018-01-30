@@ -6,7 +6,7 @@ import FormControlLabel from 'material-ui/Form/FormControlLabel'
 import Checkbox from 'material-ui/Checkbox/Checkbox'
 
 import withStyles from 'material-ui/styles/withStyles'
-import styles from '../styles'
+import { FormStyles } from '../../forms'
 
 const DiseasesBox = ({ diseases = [], onChange, classes }) =>
   diseases.map((disease, index) => {
@@ -31,4 +31,4 @@ DiseasesBox.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(DiseasesBox)
+export default withStyles(FormStyles)(DiseasesBox)

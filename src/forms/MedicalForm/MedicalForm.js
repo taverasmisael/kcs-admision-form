@@ -3,19 +3,18 @@ import PropTypes from 'prop-types'
 
 import Grid from 'material-ui/Grid/Grid'
 import Typography from 'material-ui/Typography/Typography'
+import FormControlLabel from 'material-ui/Form/FormControlLabel'
+import Checkbox from 'material-ui/Checkbox/Checkbox'
 
+import FormBoundary from '../FormBoundary/FormBoundary'
 import TextField from '../../components/TextField'
 import TelField from '../../components/TelField'
+import DatePicker from '../../components/DatePicker/DatePicker'
+import DiseasesBox from '../../components/DiseasesBox'
+import VaccineCard from '../../components/VaccineCard'
 
 import withStyles from 'material-ui/styles/withStyles'
 import styles from '../styles'
-import DiseasesBox from './DiseasesBox'
-import VaccineCard from './VaccineCard'
-import FormControlLabel from 'material-ui/Form/FormControlLabel'
-import Checkbox from 'material-ui/Checkbox/Checkbox'
-import DatePicker from '../../components/DatePicker/DatePicker'
-import FormBoundary from '../FormBoundary/FormBoundary'
-
 class MedicalForm extends PureComponent {
   static propTypes = {
     classes: PropTypes.object.isRequired,
