@@ -12,7 +12,7 @@ import compare from 'just-compare'
 import withStyles from 'material-ui/styles/withStyles'
 import styles from '../styles'
 
-import GRADES from './grades'
+import GRADES from '../../lists/grades'
 import Typography from 'material-ui/Typography/Typography'
 import FormControlLabel from 'material-ui/Form/FormControlLabel'
 import Checkbox from 'material-ui/Checkbox/Checkbox'
