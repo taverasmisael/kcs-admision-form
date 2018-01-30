@@ -12,12 +12,9 @@ import ParentForm from '../../forms/ParentForm'
 import TabContainer from '../../components/TabContainer'
 
 import { debounce } from '../../utilities'
-import withStyles from 'material-ui/styles/withStyles'
-import styles from './styles'
 
 export class FamilyInfo extends PureComponent {
   static propTypes = {
-    classes: PropTypes.object.isRequired,
     fatherInfo: PropTypes.object.isRequired,
     motherInfo: PropTypes.object.isRequired,
     onMotherChange: PropTypes.func.isRequired,
@@ -131,4 +128,4 @@ export class FamilyInfo extends PureComponent {
   }
 }
 
-export default withStyles(styles)(FamilyInfo)
+export default FamilyInfo
