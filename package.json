@@ -3,6 +3,7 @@
   "version": "0.3.0",
   "private": true,
   "dependencies": {
+    "change-case": "^3.0.1",
     "color": "^2.0.1",
     "just-compare": "^1.2.1",
     "material-ui": "^1.0.0-beta.29",
@@ -15,7 +16,8 @@
     "react-scripts": "1.1.0",
     "react-swipeable-views": "^0.12.12",
     "react-text-mask": "^5.1.0",
-    "styled-components": "^2.4.0"
+    "styled-components": "^2.4.0",
+    "unfetch": "^3.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -25,5 +27,6 @@
   },
   "devDependencies": {
     "standard-version": "^4.3.0"
-  }
+  },
+  "proxy": "http://localhost:8888"
 }
