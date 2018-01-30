@@ -81,6 +81,7 @@ class AdmisionForm extends Component {
     )
   handleFormSubmit = () => {
     const info = MapInfo(this.state)
+    this.setState({ sendingEmail: true })
     SendEmail(info).then(response => {
       this.setState({ sendingEmail: false })
     })
@@ -190,7 +191,9 @@ class AdmisionForm extends Component {
           {this.mapSteps(StepsLabels)}
         </Stepper>
         <React.Fragment>
-          {this.isStepperComplete() && <AdmisionFinished loading={this.state.sendingEmail} onSubmit={this.handleFormSubmit} />}
+          {this.isStepperComplete() && (
+            <AdmisionFinished loading={this.state.sendingEmail} onSubmit={this.handleFormSubmit} />
+          )}
         </React.Fragment>
       </main>
     )
