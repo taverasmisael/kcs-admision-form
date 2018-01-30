@@ -77,7 +77,7 @@ class ChildInfo extends PureComponent {
       () => {
         this.props.onChangeChild({ target: { name: 'age', value: age } })
         debounce(this.props.onChangeChild.bind(this, { target: { name: 'birthdate', value: birthdate } }), 1000)()
-        this.props.onValidationError({ value: { error: false, errorText: '' }, name: 'birthdate' })
+        this.props.onValidationChildError({ value: { error: false, errorText: '' }, name: 'birthdate' })
       }
     )
   }
