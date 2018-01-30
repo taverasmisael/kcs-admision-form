@@ -38,7 +38,7 @@ const AdmisionFinished = ({ classes, loading, success, error, onSubmit, resetFor
           una vez descargados los archivos.
         </Typography>
         <Button
-          href={`/static/docs/admision${success}.zip`}
+          href={`/docs/admision${success}.zip`}
           download
           raised
           color="accent"

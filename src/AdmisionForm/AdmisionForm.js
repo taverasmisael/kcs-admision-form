@@ -32,7 +32,7 @@ class AdmisionForm extends Component {
   }
 
   state = {
-    currentStep: 6,
+    currentStep: 0,
     sendingEmail: false,
     skipped: new Set(),
     emailSucces: 0,
