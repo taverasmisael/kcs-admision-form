@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import Typography from 'material-ui/Typography'
 
-import { ChildInfo, ExtraInfo, FamilyInfo, ICEInfo, TutorInfo, StepWrapper } from '../../steps'
+import { ChildInfo, ExtraInfo, FamilyInfo, ICEInfo, TutorInfo, StepWrapper, PaymentInfo } from '../../steps'
 
 const LocalStep = ({
   index,
@@ -43,6 +43,19 @@ const LocalStep = ({
       )
     case 1:
       return (
+        <ExtraInfo
+          stepIndex={index}
+          componentProps={{
+            onChange: onChange('extraInfo'),
+            onValidationError: onValidate('extraValidations'),
+            validations: states.extraValidations,
+            state: states.extraInfo
+          }}
+          {...props}
+        />
+      )
+    case 2:
+      return (
         <FamilyInfo
           stepIndex={index}
           componentProps={{
@@ -58,7 +71,7 @@ const LocalStep = ({
           {...props}
         />
       )
-    case 2:
+    case 3:
       return (
         <TutorInfo
           stepIndex={index}
@@ -71,7 +84,7 @@ const LocalStep = ({
           {...props}
         />
       )
-    case 3:
+    case 4:
       return (
         <ICEInfo
           stepIndex={index}
@@ -84,19 +97,8 @@ const LocalStep = ({
           {...props}
         />
       )
-    case 4:
-      return (
-        <ExtraInfo
-          stepIndex={index}
-          componentProps={{
-            onChange: onChange('extraInfo'),
-            onValidationError: onValidate('extraValidations'),
-            validations: states.extraValidations,
-            state: states.extraInfo
-          }}
-          {...props}
-        />
-      )
+    case 5:
+      return <PaymentInfo stepIndex={index} componentProps={{state: states.paymentInfo, onChange: onChange('paymentInfo')}} {...props} />
     default:
       return (
         <Typography type="caption" color="error">

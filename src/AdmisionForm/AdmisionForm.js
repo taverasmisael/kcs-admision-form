@@ -15,6 +15,7 @@ import { ParentModel, ParentValidations } from '../forms/ParentForm'
 import { TutorModel, TutorValidations } from '../forms/TutorForm'
 import { ICEModel, ICEValidations } from '../forms/ICEForm'
 import { ExtraModel } from '../forms/ExtraForm'
+import { PaymentModel } from '../forms/PaymentForm'
 
 import stepsList from '../lists/steps'
 import diseasesList from '../lists/diseases'
@@ -50,7 +51,8 @@ class AdmisionForm extends Component {
     tutorValidations: TutorValidations,
     ICEInfo: ICEModel,
     ICEValidations: ICEValidations,
-    extraInfo: ExtraModel
+    extraInfo: ExtraModel,
+    paymentInfo: PaymentModel
   }
 
   isStepperComplete = () => this.state.currentStep === stepsList.length
