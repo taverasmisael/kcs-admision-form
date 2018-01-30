@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.6.0"></a>
+# [0.6.0](https://github.com/taverasmisael/kcs-admision-form/compare/v0.5.0...v0.6.0) (2018-01-30)
+
+
+### Features
+
+* **AdmisionFinished:** work on UX for finished. Allow new Inscription ([5601978](https://github.com/taverasmisael/kcs-admision-form/commit/5601978))
+* **Intro/Footer:** remove lorem text and add a downloadable document ([8fd270a](https://github.com/taverasmisael/kcs-admision-form/commit/8fd270a))
+* **PaymentInfo:** create and complete payment step ([027d188](https://github.com/taverasmisael/kcs-admision-form/commit/027d188))
+
+
+
 <a name="0.5.0"></a>
 # [0.5.0](https://github.com/taverasmisael/kcs-admision-form/compare/v0.4.1...v0.5.0) (2018-01-30)
 
