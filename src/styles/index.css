@@ -29,3 +29,14 @@ input[type='number']::-webkit-inner-spin-button {
 input[type='number'] {
   -moz-appearance: textfield;
 }
+a {
+  color: #fdae00;
+  text-decoration: none;
+}
+a:active {
+  color: #fec100;
+}
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
