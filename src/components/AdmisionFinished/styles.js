@@ -1,7 +1,10 @@
 export default theme => ({
-  instructions: {
+  container: {
+    padding: theme.spacing.unit * 3,
+    marginLeft: (theme.spacing.unit + 4)
+  },
+  text: {
     marginTop: theme.spacing.unit,
-    marginBottom: theme.spacing.unit
   },
   button: {
     marginRight: theme.spacing.unit

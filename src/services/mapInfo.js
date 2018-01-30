@@ -49,7 +49,8 @@ export default data => {
     ICEInfo: InCaseOfEmergencyInfo,
     extraInfo: ExtraInfo,
     medicalInfo: MedicalInfo,
-    childInfo: ChildInfo
+    childInfo: ChildInfo,
+    paymentInfo: PaymentInfo
   } = infos
 
   let { alergies: Alergies, diseases: Diseases, sikness: Sikness, vaccines: Vaccines } = data
@@ -63,6 +64,7 @@ export default data => {
   ExtraInfo = prepareGeneralInfo(ExtraInfo)
   InCaseOfEmergencyInfo = prepareGeneralInfo(InCaseOfEmergencyInfo)
   TutorInfo = prepareGeneralInfo(TutorInfo)
+  PaymentInfo = prepareGeneralInfo(PaymentInfo)
   MedicalInfo = { ...prepareGeneralInfo(MedicalInfo), Alergies, Diseases, Sikness, Vaccines }
 
   return {
@@ -72,6 +74,7 @@ export default data => {
     TutorInfo,
     ExtraInfo,
     InCaseOfEmergencyInfo,
+    PaymentInfo,
     MedicalInfo
   }
 }

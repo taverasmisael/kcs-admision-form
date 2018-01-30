@@ -32,9 +32,11 @@ class AdmisionForm extends Component {
   }
 
   state = {
-    currentStep: 0,
+    currentStep: 6,
     sendingEmail: false,
     skipped: new Set(),
+    emailSucces: 0,
+    emailError: '',
     childInfo: ChildModel,
     childValidations: ChildValidations,
     medicalInfo: MedicalModel,
@@ -81,12 +83,28 @@ class AdmisionForm extends Component {
         onSkip: this.handleSkip
       })
     )
+
+  handleResetForm = () => {
+    this.setState({
+      childInfo: ChildModel,
+      childValidations: ChildValidations,
+      sendingEmail: false,
+      emailSucces: 0,
+      emailError: '',
+      currentStep: 0
+    })
+  }
   handleFormSubmit = () => {
     const info = MapInfo(this.state)
-    this.setState({ sendingEmail: true })
-    SendEmail(info).then(response => {
-      this.setState({ sendingEmail: false })
-    })
+    const emailSucces = this.state.paymentInfo.admisionPaymentModel !== 'D' ? 1 : 2
+    this.setState({ sendingEmail: true, emailSucces: 0, emailError: '' })
+    SendEmail(info)
+      .then(response => {
+        this.setState({ sendingEmail: false, emailSucces })
+      })
+      .catch(err => {
+        this.setState({ sendingEmail: false, emailError: err.message })
+      })
   }
   handleSelectStep = currentStep => () => this.setState({ currentStep })
   handleNext = () => {
@@ -194,7 +212,13 @@ class AdmisionForm extends Component {
         </Stepper>
         <React.Fragment>
           {this.isStepperComplete() && (
-            <AdmisionFinished loading={this.state.sendingEmail} onSubmit={this.handleFormSubmit} />
+            <AdmisionFinished
+              loading={this.state.sendingEmail}
+              error={this.state.emailError}
+              success={this.state.emailSucces}
+              onSubmit={this.handleFormSubmit}
+              resetForm={this.handleResetForm}
+            />
           )}
         </React.Fragment>
       </main>
