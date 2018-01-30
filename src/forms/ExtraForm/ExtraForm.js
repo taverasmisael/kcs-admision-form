@@ -27,8 +27,8 @@ class ExtraForm extends Component {
         <Grid container spacing={16} className={classes.inputContainer}>
           <Grid item xs={12}>
             <TextField
-              id="iceName"
-              name="name"
+              id="aditionalInfo"
+              name="aditionalInfo"
               label="¿Existe alguna condición conductual o espiritual de alguno de sus hijos que debamos conocer?"
               className={classes.textField + ' ' + classes.textarea}
               inputProps={{ className: classes.textarea }}
