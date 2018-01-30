@@ -12,7 +12,7 @@ const Footer = () => (
     </Grid>
     <Grid item xs={2}>
       <Typography type="caption" gutterBottom>
-        All rights reserved
+        KCS - All rights reserved { (new Date()).getFullYear() } &copy;
       </Typography>
     </Grid>
   </Grid>

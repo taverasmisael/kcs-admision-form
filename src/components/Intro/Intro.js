@@ -17,11 +17,12 @@ const Intro = ({ classes }) => (
     </Grid>
     <Grid item xs={12} sm={10}>
       <Typography gutterBottom type="headline" color="primary">
-        Admision Form
+        Formulario de Admision
       </Typography>
       <Typography paragraph type="subheading" className={classes.subheading}>
-        Welcome to The Place to Learn’s website. We pride ourselves in delivering the best education possible to our
-        students, which is demonstrated through our Outstanding Ofsted inspection
+        La reservación del cupo se realiza con la entrega de todos los documentos requeridos para cada grado, y el Pago
+        del Plan A o la primera cuota de los Planes B y C. Para mas información sobre el proceso{' '}
+        <a href="/static/docs/PROCESO_DE_ADMISION_2018-2019" download>descargue aquí el documento</a> con el proceso detallado
       </Typography>
     </Grid>
     <Grid item xs={12}>
