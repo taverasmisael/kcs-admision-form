@@ -2,14 +2,11 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import Stepper from 'material-ui/Stepper'
-
 import LocalStep from './LocalStep'
-
 import AdmisionFinished from '../components/AdmisionFinished'
 
-import withStyles from 'material-ui/styles/withStyles'
-import styles from '../App/styles'
-
+import { SendEmail } from '../services/api'
+import MapInfo from '../services/mapInfo'
 import { throttle } from '../utilities'
 
 import StepsLabels from './StepsLabels.json'
@@ -25,6 +22,9 @@ import siknessList from './siknessList'
 import vaccinesList from './vaccinesList'
 import alergiesList from './alergiesList'
 
+import withStyles from 'material-ui/styles/withStyles'
+import styles from '../App/styles'
+
 class AdmisionForm extends Component {
   static propTypes = {
     classes: PropTypes.object.isRequired
@@ -32,6 +32,7 @@ class AdmisionForm extends Component {
 
   state = {
     currentStep: 0,
+    sendingEmail: false,
     skipped: new Set(),
     childInfo: ChildModel,
     childValidations: ChildValidations,
@@ -78,7 +79,12 @@ class AdmisionForm extends Component {
         onSkip: this.handleSkip
       })
     )
-  handleFormSubmit = () => console.log('Finished')
+  handleFormSubmit = () => {
+    const info = MapInfo(this.state)
+    SendEmail(info).then(response => {
+      this.setState({ sendingEmail: false })
+    })
+  }
   handleSelectStep = currentStep => () => this.setState({ currentStep })
   handleNext = () => {
     let { skipped, currentStep } = this.state
@@ -184,7 +190,7 @@ class AdmisionForm extends Component {
           {this.mapSteps(StepsLabels)}
         </Stepper>
         <React.Fragment>
-          {this.isStepperComplete() && <AdmisionFinished onSubmit={this.handleFormSubmit} />}
+          {this.isStepperComplete() && <AdmisionFinished loading={this.state.sendingEmail} onSubmit={this.handleFormSubmit} />}
         </React.Fragment>
       </main>
     )
