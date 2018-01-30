@@ -12,7 +12,7 @@ import compare from 'just-compare'
 import withStyles from 'material-ui/styles/withStyles'
 import styles from '../styles'
 
-import GRADES from './Grades.json'
+import GRADES from './grades'
 import Typography from 'material-ui/Typography/Typography'
 import FormControlLabel from 'material-ui/Form/FormControlLabel'
 import Checkbox from 'material-ui/Checkbox/Checkbox'
@@ -24,7 +24,7 @@ class ChildForm extends Component {
     state: PropTypes.shape({
       name: PropTypes.string.isRequired,
       birthdate: PropTypes.string.isRequired,
-      grade: PropTypes.number.isRequired,
+      grade: PropTypes.string.isRequired,
       age: PropTypes.number.isRequired,
       hasSiblings: PropTypes.bool.isRequired,
       hasOtherChildren: PropTypes.bool.isRequired,

@@ -1,7 +1,7 @@
 export default {
   name: '',
   birthdate: '2002-01-01T04:00:00.000Z',
-  grade: 0,
+  grade: '',
   age: 0,
   hasSiblings: false,
   hasOtherChildren: false,

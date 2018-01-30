@@ -25,7 +25,6 @@ class MedicalForm extends PureComponent {
       doctorName: PropTypes.string.isRequired,
       doctorPhone: PropTypes.string.isRequired
     }).isRequired,
-    grade: PropTypes.number,
     vaccines: PropTypes.shape({}),
     sikness: PropTypes.arrayOf(PropTypes.object),
     diseases: PropTypes.arrayOf(PropTypes.object),
@@ -43,7 +42,6 @@ class MedicalForm extends PureComponent {
   render() {
     const {
       state,
-      grade,
       diseases,
       vaccines,
       alergies,
