@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import Typography from 'material-ui/Typography'
 
-import { ChildInfo, ExtraInfo, FamilyInfo, ICEInfo, TutorInfo, StepWrapper } from '../steps'
+import { ChildInfo, ExtraInfo, FamilyInfo, ICEInfo, TutorInfo, StepWrapper } from '../../steps'
 
 const LocalStep = ({
   index,

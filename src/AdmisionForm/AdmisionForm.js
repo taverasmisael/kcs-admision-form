@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import Stepper from 'material-ui/Stepper'
-import LocalStep from './LocalStep'
+import LocalStep from '../components/LocalStep'
 import AdmisionFinished from '../components/AdmisionFinished'
 
+import { throttle } from '../utilities'
 import { SendEmail } from '../services/api'
 import MapInfo from '../services/mapInfo'
-import { throttle } from '../utilities'
 
 import { ChildModel, ChildValidations } from '../forms/ChildForm'
 import { MedicalModel, MedicalValidations } from '../forms/MedicalForm'
@@ -16,7 +16,7 @@ import { TutorModel, TutorValidations } from '../forms/TutorForm'
 import { ICEModel, ICEValidations } from '../forms/ICEForm'
 import { ExtraModel } from '../forms/ExtraForm'
 
-import StepsLabels from './lists/steps'
+import stepsList from './lists/steps'
 import diseasesList from './lists/diseases'
 import siknessList from './lists/sikness'
 import vaccinesList from './lists/vaccines'
@@ -53,9 +53,9 @@ class AdmisionForm extends Component {
     extraInfo: ExtraModel
   }
 
-  isStepperComplete = () => this.state.currentStep === StepsLabels.length
+  isStepperComplete = () => this.state.currentStep === stepsList.length
 
-  isStepOptional = step => StepsLabels[step].optional
+  isStepOptional = step => stepsList[step].optional
 
   isStepSkipped = step => this.state.skipped.has(step)
   mapSteps = stepsLabels =>
@@ -188,7 +188,7 @@ class AdmisionForm extends Component {
     return (
       <main>
         <Stepper orientation="vertical" activeStep={currentStep}>
-          {this.mapSteps(StepsLabels)}
+          {this.mapSteps(stepsList)}
         </Stepper>
         <React.Fragment>
           {this.isStepperComplete() && (
