@@ -76,16 +76,6 @@ class MedicalForm extends PureComponent {
           </Grid>
           <Grid item xs={12} sm={4} md={2}>
             <TextField
-              id="childGrade"
-              name="childGrade"
-              label="Grado"
-              className={classes.textField}
-              value={grade}
-              disabled
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <TextField
               id="bloodType"
               name="bloodType"
               label="Tipo de sangre"
@@ -96,7 +86,7 @@ class MedicalForm extends PureComponent {
               required
             />
           </Grid>
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid item xs={12} sm={6} md={8}>
             <TextField
               id="doctorName"
               name="doctorName"
@@ -107,7 +97,7 @@ class MedicalForm extends PureComponent {
               required
             />
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} sm={6} md={4}>
             <TelField
               id="doctorPhone"
               name="doctorPhone"
