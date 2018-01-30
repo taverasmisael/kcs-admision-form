@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.0"></a>
+# [0.4.0](https://github.com/taverasmisael/kcs-admision-form/compare/v0.3.0...v0.4.0) (2018-01-30)
+
+
+### Bug Fixes
+
+* **ChildInfo:** activate birthdate/age onValidateChildError ([0d4e4dc](https://github.com/taverasmisael/kcs-admision-form/commit/0d4e4dc))
+* **ExtraForm:** use a descriptive name for aditionalInfo ([702676b](https://github.com/taverasmisael/kcs-admision-form/commit/702676b))
+* **uncontrolled:** fix all uncontrolled components ([25d3c33](https://github.com/taverasmisael/kcs-admision-form/commit/25d3c33))
+* **VaccineCard:** update the right value for unique vaccines ([78382f3](https://github.com/taverasmisael/kcs-admision-form/commit/78382f3))
+
+
+### Features
+
+* **lib:** install unfetch and send email via api ([36bf429](https://github.com/taverasmisael/kcs-admision-form/commit/36bf429))
+* **mail:** send email when finish ([b106819](https://github.com/taverasmisael/kcs-admision-form/commit/b106819))
+* **mapInfo:** create mapper for state and send it as a mail ([fced5ce](https://github.com/taverasmisael/kcs-admision-form/commit/fced5ce))
+* **ui:** add visual clue the email is being send ([7de4a34](https://github.com/taverasmisael/kcs-admision-form/commit/7de4a34))
+* **utilities:** create utiitie to transform objects to formData ([81eaf09](https://github.com/taverasmisael/kcs-admision-form/commit/81eaf09))
+
+
+
 <a name="0.3.0"></a>
 # [0.3.0](https://github.com/taverasmisael/kcs-admision-form/compare/v0.2.0...v0.3.0) (2018-01-29)
 
