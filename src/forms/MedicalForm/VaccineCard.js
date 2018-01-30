@@ -40,9 +40,7 @@ const VaccineCard = ({ vaccines = {}, onChange, classes }) => (
       </Grid>
       <Grid item xs={12} sm={3}>
         <FormControlLabel
-          control={
-            <Checkbox name="varicela" title="Varicela" checked={vaccines.varicela.value} onChange={onChange} />
-          }
+          control={<Checkbox name="varicela" title="Varicela" checked={vaccines.varicela.value} onChange={onChange} />}
           label="Varicela"
         />
       </Grid>
@@ -144,19 +142,17 @@ const VaccineCard = ({ vaccines = {}, onChange, classes }) => (
       </Grid>
       <Grid item xs={12} sm={4}>
         <FormControl component="fieldset" required className={classes.formControl}>
-          <FormLabel component="legend">Pentavalente</FormLabel>
+          <FormLabel component="legend">VPH</FormLabel>
           <RadioGroup
             row
-            aria-label="Pentavalente"
-            name="pentavalente"
+            aria-label="VPH"
+            name="vph"
             className={classes.group}
-            value={vaccines.pentavalente.value}
+            value={vaccines.vph.value}
             onChange={onChange}
           >
             <FormControlLabel value="Primera" control={<Radio />} label="1ra" />
             <FormControlLabel value="Segunda" control={<Radio />} label="2da" />
-            <FormControlLabel value="Tercera" control={<Radio />} label="3ra" />
-            <FormControlLabel value="R" control={<Radio />} label="R" />
           </RadioGroup>
         </FormControl>
       </Grid>

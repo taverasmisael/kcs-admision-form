@@ -34,5 +34,8 @@ export default {
   },
   dt: {
     value: ''
+  },
+  vph: {
+    value: ''
   }
 }

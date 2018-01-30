@@ -4,7 +4,10 @@ export default {
   doctorName: '',
   doctorPhone: '',
   specialSikness: '',
+  operationName: '',
   operationDate: new Date(),
   hasOperation: false,
-  medicalExtra: ''
+  medicalExtra: '',
+  medication: '',
+  specialAlergy: ''
 }
