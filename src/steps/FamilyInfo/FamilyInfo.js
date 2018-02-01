@@ -81,12 +81,6 @@ export class FamilyInfo extends PureComponent {
     const { fatherInfo, motherInfo } = this.props
     this.setState({ fatherInfo, motherInfo })
   }
-  componentWillReceiveProps(nextProps) {
-    const { fatherInfo, motherInfo } = nextProps
-    if (!compare(fatherInfo, this.state.fatherInfo) && !compare(motherInfo, this.state.motherInfo)) {
-      this.setState({ fatherInfo, motherInfo })
-    }
-  }
 
   render() {
     const { fatherInfo, motherInfo, selectedTab } = this.state

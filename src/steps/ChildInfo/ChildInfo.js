@@ -96,13 +96,6 @@ class ChildInfo extends PureComponent {
     const { medicalInfo, childInfo } = this.props
     this.setState({ medicalInfo, childInfo })
   }
-  componentWillReceiveProps(nextProps) {
-    const { medicalInfo, childInfo } = nextProps
-    if (!compare(medicalInfo, this.state.medicalInfo) && !compare(childInfo, this.state.childInfo)) {
-      this.setState({ medicalInfo, childInfo })
-      console.log({ medicalInfo, childInfo })
-    }
-  }
 
   selectTab = (e, selectedTab) => {
     this.setState({ selectedTab })
