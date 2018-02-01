@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
 import Button from 'material-ui/Button'
@@ -11,7 +11,7 @@ import CircularProgress from 'material-ui/Progress/CircularProgress'
 const AdmisionFinished = ({ classes, loading, success, error, onSubmit, resetForm }) => (
   <div className={classes.container}>
     {!success && (
-      <div className={classes.wrapper}>
+      <Fragment>
         <Typography paragraph className={classes.text}>
           Ya ha completado el formulario de admisión, al presionar <strong>Enviar</strong> recibiremos su petición.
         </Typography>
@@ -20,15 +20,19 @@ const AdmisionFinished = ({ classes, loading, success, error, onSubmit, resetFor
             {error === '500' ? 'Error Interno del Servidor. Reintentar' : 'Error Inesperado. Reintentar.'}
           </Typography>
         )}
-        <Button raised color="primary" className={classes.button} disabled={loading} onClick={onSubmit}>
-          Enviar
-        </Button>
-        {loading && <CircularProgress size={24} className={classes.buttonProgress} />}
-      </div>
+        <div className={classes.wrapper}>
+          <Button raised color="primary" className={classes.button} disabled={loading} onClick={onSubmit}>
+            {loading ? 'Enviando...' : 'Enviar' }
+          </Button>
+          {loading && <CircularProgress size={24} className={classes.buttonProgress} />}
+        </div>
+      </Fragment>
     )}
     {success !== 0 && (
       <div className={classes.wrapper}>
-        <Typography type="title" color="primary">Formulario Enviado Con Exito</Typography>
+        <Typography type="title" color="primary">
+          Formulario Enviado Con Exito
+        </Typography>
         <Typography paragraph className={classes.text}>
           El siguiente paso es descargar los archivos correspondientes, imprimirlos, llenarlos y depositarlos en
           nuestras oficinas y el proceso estará completo.
