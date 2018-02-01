@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from 'react-snapshot';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Theme from './styles/theme'
@@ -9,7 +9,7 @@ import App from './App'
 
 import registerServiceWorker from './registerServiceWorker'
 
-ReactDOM.render(
+render(
   <MuiThemeProvider theme={Theme}>
     <App />
   </MuiThemeProvider>,
