@@ -8,11 +8,8 @@ class TutorInfo extends PureComponent {
   componentWillMount() {
     this.setState(this.props.state)
   }
-  componentWillReceiveProps(nextProps) {
-    const { state } = this
-    if (!compare(state, nextProps.state)) {
-      this.setState(state)
-    }
+  componentWillUnmount() {
+    this.props.onHardValidate(this.state)
   }
 
   onValidationError = validation => {

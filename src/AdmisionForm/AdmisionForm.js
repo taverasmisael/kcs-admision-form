@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+import compare from 'just-compare'
+
 import Stepper from 'material-ui/Stepper'
 import LocalStep from '../components/LocalStep'
 import AdmisionFinished from '../components/AdmisionFinished'
@@ -72,6 +74,7 @@ class AdmisionForm extends Component {
         isLast: index === stepsLabels.length - 1,
         isSkipped: this.isStepSkipped(index),
         stepLabel: step,
+        onHardStateValidation: this.onUmountValidateState,
         onChange: this.handleChanges,
         onChangeSikness: this.handleChangeSikness,
         onChangeAlergies: this.handleChangeAlergies,
@@ -208,6 +211,12 @@ class AdmisionForm extends Component {
       currentStep: currentStep + 1,
       skipped
     })
+  }
+
+  onUmountValidateState = slice => nextState => {
+    const prevState = this.state[slice]
+    const shouldStateUpdate = !compare(prevState, nextState)
+    if (shouldStateUpdate) this.setState({ [slice]: nextState })
   }
   render() {
     const { currentStep } = this.state

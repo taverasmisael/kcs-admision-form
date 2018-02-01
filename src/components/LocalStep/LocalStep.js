@@ -13,6 +13,7 @@ const LocalStep = ({
   onChangeSikness,
   onChangeAlergies,
   onToggleDisease,
+  onHardStateValidation,
   ...props
 }) => {
   switch (index) {
@@ -22,7 +23,9 @@ const LocalStep = ({
           stepIndex={index}
           componentProps={{
             onChangeChild: onChange('childInfo'),
+            onHardChildValidate: onHardStateValidation('childInfo'),
             onChangeMedical: onChange('medicalInfo'),
+            onHardMedicalValidate: onHardStateValidation('medicalInfo'),
             onChangeVaccine: onChange('vaccines'),
             onChangeAlergies: onChangeAlergies,
             onValidationChildError: onValidate('childValidations'),
@@ -48,6 +51,7 @@ const LocalStep = ({
           componentProps={{
             onChange: onChange('extraInfo'),
             onValidationError: onValidate('extraValidations'),
+            onHardValidate: onHardStateValidation('extraInfo'),
             validations: states.extraValidations,
             state: states.extraInfo
           }}
@@ -63,9 +67,11 @@ const LocalStep = ({
             onFatherChange: onChange('fatherInfo'),
             onFatherValidationError: onValidate('fatherValidations'),
             fatherValidations: states.fatherValidations,
+            onHardFatherValidate: onHardStateValidation('fatherInfo'),
             motherInfo: states.motherInfo,
             onMotherChange: onChange('motherInfo'),
             onMotherValidationError: onValidate('motherValidations'),
+            onHardMotherValidate: onHardStateValidation('motherInfo'),
             motherValidations: states.motherValidations
           }}
           {...props}
@@ -78,6 +84,7 @@ const LocalStep = ({
           componentProps={{
             onChange: onChange('tutorInfo'),
             onValidationError: onValidate('tutorValidations'),
+            onHardValidate: onHardStateValidation('tutorInfo'),
             validations: states.tutorValidations,
             state: states.tutorInfo
           }}
@@ -91,6 +98,7 @@ const LocalStep = ({
           componentProps={{
             onChange: onChange('ICEInfo'),
             onValidationError: onValidate('ICEValidations'),
+            onHardValidate: onHardStateValidation('ICEInfo'),
             validations: states.ICEValidations,
             state: states.ICEInfo
           }}
@@ -98,7 +106,13 @@ const LocalStep = ({
         />
       )
     case 5:
-      return <PaymentInfo stepIndex={index} componentProps={{state: states.paymentInfo, onChange: onChange('paymentInfo')}} {...props} />
+      return (
+        <PaymentInfo
+          stepIndex={index}
+          componentProps={{ state: states.paymentInfo, onChange: onChange('paymentInfo') }}
+          {...props}
+        />
+      )
     default:
       return (
         <Typography type="caption" color="error">
@@ -114,6 +128,7 @@ LocalStep.propTypes = {
   onChange: PropTypes.func.isRequired,
   onValidate: PropTypes.func.isRequired,
   onToggleDisease: PropTypes.func.isRequired,
+  onHardStateValidation: PropTypes.func.isRequired,
   ...StepWrapper().propTypes
 }
 

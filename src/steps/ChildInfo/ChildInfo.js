@@ -24,7 +24,9 @@ class ChildInfo extends PureComponent {
     medicalInfo: PropTypes.object.isRequired,
     diseases: PropTypes.arrayOf(
       PropTypes.shape({ label: PropTypes.string.isRequired, checked: PropTypes.bool.isRequired })
-    )
+    ),
+    onHardChildValidate: PropTypes.func.isRequired,
+    onHardMedicalValidate: PropTypes.func.isRequired
   }
   state = {
     selectedTab: 0
@@ -101,6 +103,10 @@ class ChildInfo extends PureComponent {
     this.setState({ selectedTab })
   }
 
+  componentWillUnmount() {
+    this.props.onHardChildValidate(this.state.childInfo)
+    this.props.onHardMedicalValidate(this.state.medicalInfo)
+  }
   render() {
     const { selectedTab, medicalInfo, childInfo } = this.state
     return (

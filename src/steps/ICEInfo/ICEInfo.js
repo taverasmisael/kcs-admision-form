@@ -9,7 +9,8 @@ import ICEForm from '../../forms/ICEForm'
 class ICEInfo extends PureComponent {
   static propTypes = {
     state: PropTypes.object.isRequired,
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired,
+    onHardValidate: PropTypes.func.isRequired,
   }
 
   onValidationError = validation => {
@@ -30,11 +31,8 @@ class ICEInfo extends PureComponent {
   componentWillMount() {
     this.setState(this.props.state)
   }
-  componentWillReceiveProps(nextProps) {
-    const { state } = this
-    if (!compare(state, nextProps.state)) {
-      this.setState(state)
-    }
+  componentWillUnmount() {
+    this.props.onHardValidate(this.state)
   }
   render() {
     return (

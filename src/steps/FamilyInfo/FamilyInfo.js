@@ -18,7 +18,9 @@ export class FamilyInfo extends PureComponent {
     fatherInfo: PropTypes.object.isRequired,
     motherInfo: PropTypes.object.isRequired,
     onMotherChange: PropTypes.func.isRequired,
-    onFatherChange: PropTypes.func.isRequired
+    onFatherChange: PropTypes.func.isRequired,
+    onHardFatherValidate: PropTypes.func.isRequired,
+    onHardMotherValidate: PropTypes.func.isRequired
   }
 
   state = {
@@ -81,7 +83,10 @@ export class FamilyInfo extends PureComponent {
     const { fatherInfo, motherInfo } = this.props
     this.setState({ fatherInfo, motherInfo })
   }
-
+  componentWillUnmount() {
+    this.props.onHardFatherValidate(this.state.fatherInfo)
+    this.props.onHardMotherValidate(this.state.motherInfo)
+  }
   render() {
     const { fatherInfo, motherInfo, selectedTab } = this.state
     const { onFatherChange, onMotherChange } = this
