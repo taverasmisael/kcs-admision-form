@@ -1,0 +1,12 @@
+{
+    "name": "jose/misa_excel",
+    "authors": [
+        {
+            "name": "Jose Manuel Rodriguez",
+            "email": "jmrv002@gmail.com"
+        }
+    ],
+    "require": {
+    	"phpmailer/phpmailer": "~6.0"
+    }
+}
