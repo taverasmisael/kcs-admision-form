@@ -88,10 +88,16 @@ class AdmisionForm extends Component {
     this.setState({
       childInfo: ChildModel,
       childValidations: ChildValidations,
+      medicalInfo: MedicalModel,
+      medicalValidations: MedicalValidations,
       sendingEmail: false,
       emailSucces: 0,
       emailError: '',
-      currentStep: 0
+      currentStep: 0,
+      diseases: diseasesList,
+      alergies: alergiesList,
+      sikness: siknessList,
+      vaccines: vaccinesList
     })
   }
   handleFormSubmit = () => {
