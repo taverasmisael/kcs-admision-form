@@ -1,0 +1,10 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Misael Taveras -- Frontend Developer -- @taverasmisael
+    Jose Rodriguez -- Backend Developer  --
+# TECHNOLOGY COLOPHON
+    CSS3, HTML5, React, PHP 7, PHP Mailer
+    Apache Server Configs,
