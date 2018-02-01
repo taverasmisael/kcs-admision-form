@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.0"></a>
+# [0.7.0](https://github.com/taverasmisael/kcs-admision-form/compare/v0.6.1...v0.7.0) (2018-02-01)
+
+
+### Bug Fixes
+
+* **MedicalInfo:** reset MedicalInfo and its components when adding a new Child ([7f3ced4](https://github.com/taverasmisael/kcs-admision-form/commit/7f3ced4))
+* **style:** loading wrapper. Change button text when sending ([3b5f36c](https://github.com/taverasmisael/kcs-admision-form/commit/3b5f36c))
+* **TabForms:** remove componentWillRecieveProps to avoid deleting text in inputs ([440b30d](https://github.com/taverasmisael/kcs-admision-form/commit/440b30d))
+
+
+### Features
+
+* **componentWillUnmount:** fix unsync state with this hook ([f680730](https://github.com/taverasmisael/kcs-admision-form/commit/f680730))
+
+
+
 <a name="0.6.1"></a>
 ## [0.6.1](https://github.com/taverasmisael/kcs-admision-form/compare/v0.6.0...v0.6.1) (2018-01-30)
 
