@@ -13,7 +13,7 @@ class PaymentInfo extends PureComponent {
     return (
       <Fragment>
         <Typography type="headline">
-          ¿Cual es el acuerdo de pago de <strong>admision</strong> elegido como familia?
+          ¿Cual es el acuerdo de pago de <strong>admisión</strong> elegido como familia?
         </Typography>
         <PaymentForm state={this.props.state} onChange={this.props.onChange} />
       </Fragment>

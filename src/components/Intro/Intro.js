@@ -17,12 +17,15 @@ const Intro = ({ classes }) => (
     </Grid>
     <Grid item xs={12} sm={10}>
       <Typography gutterBottom type="headline" color="primary">
-        Formulario de Admision
+        Formulario de Admisión
       </Typography>
       <Typography paragraph type="subheading" className={classes.subheading}>
         La reservación del cupo se realiza con la entrega de todos los documentos requeridos para cada grado, y el Pago
         del Plan A o la primera cuota de los Planes B y C. Para mas información sobre el proceso{' '}
-        <a href="/docs/PROCESO_DE_ADMISION_2018-2019.pdf" download>descargue aquí el documento</a> con el proceso detallado
+        <a href="/docs/PROCESO_DE_ADMISION_2018-2019.pdf" download>
+          descargue aquí el documento
+        </a>{' '}
+        con el proceso detallado y los requisitos.
       </Typography>
     </Grid>
     <Grid item xs={12}>

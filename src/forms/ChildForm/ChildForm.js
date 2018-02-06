@@ -115,7 +115,7 @@ class ChildForm extends Component {
               classes={{
                 root: classes.switchLabel
               }}
-              label="¿Viven más ninños? (no hermanos)"
+              label="¿Viven más niños? (no hermanos)"
             />
           </Grid>
           {hasOtherChildren ? (
