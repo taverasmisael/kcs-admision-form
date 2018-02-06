@@ -1,20 +1,20 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import TextField from '../../components/TextField/TextField'
 import Grid from 'material-ui/Grid/Grid'
 import MenuItem from 'material-ui/Menu/MenuItem'
+import Typography from 'material-ui/Typography/Typography'
+
+import compare from 'just-compare'
+
+import FormBoundary from '../FormBoundary'
+import TextField from '../../components/TextField/TextField'
+import TelField from '../../components/TelField/TelField'
 
 import withStyles from 'material-ui/styles/withStyles'
 import styles from '../styles'
 
-import { CivilStatus } from '../ParentForm/Data.json'
-import TelField from '../../components/TelField/TelField'
-import Typography from 'material-ui/Typography/Typography'
-
-import compare from 'just-compare'
-import FormBoundary from '../FormBoundary'
-
+import civilStatus from '../../lists/civilstatus'
 class TutorForm extends Component {
   shouldComponentUpdate(nextProps) {
     return !compare(this.props.state, nextProps.state)
@@ -74,7 +74,7 @@ class TutorForm extends Component {
               select
               required
             >
-              {CivilStatus.map((item, index) => (
+              {civilStatus.map((item, index) => (
                 <MenuItem key={index} value={item.value}>
                   {item.label}
                 </MenuItem>
