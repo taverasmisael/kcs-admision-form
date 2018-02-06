@@ -52,7 +52,7 @@ class ChildForm extends Component {
             <TextField
               id="name"
               name="name"
-              label="Nombre(s)"
+              label="Nombre Completo"
               className={classes.textField}
               value={name}
               onChange={onChange}
