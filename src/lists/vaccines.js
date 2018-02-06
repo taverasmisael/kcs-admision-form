@@ -12,30 +12,30 @@ export default {
     value: false
   },
   pentavalente: {
-    value: 'Primera'
+    value: 'Ninguna'
   },
   polio: {
-    value: 'Primera'
+    value: 'Ninguna'
   },
   neumococo: {
-    value: 'Primera'
+    value: 'Ninguna'
   },
   rotavirus: {
-    value: 'Primera'
+    value: 'Ninguna'
   },
   srp: {
-    value: 'Primera'
+    value: 'Ninguna'
   },
   hepatitisA: {
-    value: 'Primera'
+    value: 'Ninguna'
   },
   dpt: {
-    value: '2R'
+    value: 'Ninguna'
   },
   dt: {
-    value: ''
+    value: 'Ninguna'
   },
   vph: {
-    value: ''
+    value: 'Ninguna'
   }
 }

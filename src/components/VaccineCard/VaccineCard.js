@@ -71,6 +71,7 @@ class VaccineCard extends PureComponent {
                 value={vaccines.pentavalente.value}
                 onChange={onChange}
               >
+                <FormControlLabel value="Ninguna" control={<Radio />} label="Ninguna" />
                 <FormControlLabel value="Primera" control={<Radio />} label="1ra" />
                 <FormControlLabel value="Segunda" control={<Radio />} label="2da" />
                 <FormControlLabel value="Tercera" control={<Radio />} label="3ra" />
@@ -89,6 +90,7 @@ class VaccineCard extends PureComponent {
                 value={vaccines.polio.value}
                 onChange={onChange}
               >
+                <FormControlLabel value="Ninguna" control={<Radio />} label="Ninguna" />
                 <FormControlLabel value="Primera" control={<Radio />} label="1ra" />
                 <FormControlLabel value="Segunda" control={<Radio />} label="2da" />
                 <FormControlLabel value="Tercera" control={<Radio />} label="3ra" />
@@ -108,6 +110,7 @@ class VaccineCard extends PureComponent {
                 value={vaccines.neumococo.value}
                 onChange={onChange}
               >
+                <FormControlLabel value="Ninguna" control={<Radio />} label="Ninguna" />
                 <FormControlLabel value="Primera" control={<Radio />} label="1ra" />
                 <FormControlLabel value="Segunda" control={<Radio />} label="2da" />
                 <FormControlLabel value="Tercera" control={<Radio />} label="3ra" />
@@ -126,6 +129,7 @@ class VaccineCard extends PureComponent {
                 value={vaccines.rotavirus.value}
                 onChange={onChange}
               >
+                <FormControlLabel value="Ninguna" control={<Radio />} label="Ninguna" />
                 <FormControlLabel value="Primera" control={<Radio />} label="1ra" />
                 <FormControlLabel value="Segunda" control={<Radio />} label="2da" />
                 <FormControlLabel value="Tercera" control={<Radio />} label="3ra" />
@@ -143,6 +147,7 @@ class VaccineCard extends PureComponent {
                 value={vaccines.srp.value}
                 onChange={onChange}
               >
+                <FormControlLabel value="Ninguna" control={<Radio />} label="Ninguna" />
                 <FormControlLabel value="Primera" control={<Radio />} label="1ra" />
                 <FormControlLabel value="R" control={<Radio />} label="R" />
               </RadioGroup>
@@ -159,6 +164,7 @@ class VaccineCard extends PureComponent {
                 value={vaccines.vph.value}
                 onChange={onChange}
               >
+                <FormControlLabel value="Ninguna" control={<Radio />} label="Ninguna" />
                 <FormControlLabel value="Primera" control={<Radio />} label="1ra" />
                 <FormControlLabel value="Segunda" control={<Radio />} label="2da" />
               </RadioGroup>
@@ -175,6 +181,7 @@ class VaccineCard extends PureComponent {
                 value={vaccines.hepatitisA.value}
                 onChange={onChange}
               >
+                <FormControlLabel value="Ninguna" control={<Radio />} label="Ninguna" />
                 <FormControlLabel value="Primera" control={<Radio />} label="1ra" />
                 <FormControlLabel value="R" control={<Radio />} label="R" />
               </RadioGroup>
@@ -191,6 +198,7 @@ class VaccineCard extends PureComponent {
                 value={vaccines.dpt.value}
                 onChange={onChange}
               >
+                <FormControlLabel value="Ninguna" control={<Radio />} label="Ninguna" />
                 <FormControlLabel value="2R" control={<Radio />} label="2R" />
                 <FormControlLabel value="3R" control={<Radio />} label="3R" />
               </RadioGroup>
@@ -207,6 +215,7 @@ class VaccineCard extends PureComponent {
                 value={vaccines.dt.value}
                 onChange={onChange}
               >
+                <FormControlLabel value="Ninguna" control={<Radio />} label="Ninguna" />
                 <FormControlLabel value="R" control={<Radio />} label="R" />
               </RadioGroup>
             </FormControl>
