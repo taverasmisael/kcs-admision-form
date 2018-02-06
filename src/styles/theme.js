@@ -30,7 +30,7 @@ export default createMuiTheme({
       formControl: {
         'label + &': {
           marginTop: DefaultTheme.spacing.unit * 3,
-          '& > *': {
+          '& > *:not(input)': {
             height: '100%!important'
           }
         }
