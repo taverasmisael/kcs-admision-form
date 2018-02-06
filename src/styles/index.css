@@ -3,6 +3,9 @@
 *:before {
   box-sizing: border-box;
 }
+html {
+  font-size: 18px;
+}
 body {
   font-family: sans-serif;
   margin: 0;
