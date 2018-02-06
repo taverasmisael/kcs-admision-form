@@ -6,7 +6,8 @@ import Typography from 'material-ui/Typography'
 import {
   ChildInfo,
   ExtraInfo,
-  FamilyInfo,
+  FatherInfo,
+  MotherInfo,
   ICEInfo,
   TutorInfo,
   StepWrapper,
@@ -78,24 +79,33 @@ const LocalStep = ({
       )
     case 3:
       return (
-        <FamilyInfo
+        <FatherInfo
           stepIndex={index}
           componentProps={{
-            fatherInfo: states.fatherInfo,
-            onFatherChange: onChange('fatherInfo'),
-            onFatherValidationError: onValidate('fatherValidations'),
-            fatherValidations: states.fatherValidations,
-            onHardFatherValidate: onHardStateValidation('fatherInfo'),
-            motherInfo: states.motherInfo,
-            onMotherChange: onChange('motherInfo'),
-            onMotherValidationError: onValidate('motherValidations'),
-            onHardMotherValidate: onHardStateValidation('motherInfo'),
-            motherValidations: states.motherValidations
+            state: states.fatherInfo,
+            onChange: onChange('fatherInfo'),
+            onValidationError: onValidate('fatherValidations'),
+            validations: states.fatherValidations,
+            onHardValidate: onHardStateValidation('fatherInfo'),
           }}
           {...props}
         />
       )
     case 4:
+      return (
+        <MotherInfo
+          stepIndex={index}
+          componentProps={{
+            state: states.motherInfo,
+            onChange: onChange('motherInfo'),
+            onValidationError: onValidate('motherValidations'),
+            validations: states.motherValidations,
+            onHardValidate: onHardStateValidation('motherInfo'),
+          }}
+          {...props}
+        />
+      )
+    case 5:
       return (
         <TutorInfo
           stepIndex={index}
@@ -109,7 +119,7 @@ const LocalStep = ({
           {...props}
         />
       )
-    case 5:
+    case 6:
       return (
         <ICEInfo
           stepIndex={index}
@@ -123,7 +133,7 @@ const LocalStep = ({
           {...props}
         />
       )
-    case 6:
+    case 7:
       return (
         <PaymentInfo
           stepIndex={index}

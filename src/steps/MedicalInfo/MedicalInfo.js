@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
 import compare from 'just-compare'
@@ -6,7 +6,7 @@ import { debounce } from '../../utilities'
 
 import MedicalForm from '../../forms/MedicalForm/MedicalForm'
 
-class MedicalInfo extends Component {
+class MedicalInfo extends PureComponent {
   static propTypes = {
     onChange: PropTypes.func.isRequired,
     onChangeVaccine: PropTypes.func.isRequired,
