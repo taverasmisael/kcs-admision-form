@@ -22,7 +22,7 @@ const AdmisionFinished = ({ classes, loading, success, error, onSubmit, resetFor
         )}
         <div className={classes.wrapper}>
           <Button raised color="primary" className={classes.button} disabled={loading} onClick={onSubmit}>
-            {loading ? 'Enviando...' : 'Enviar' }
+            {loading ? 'Enviando...' : 'Enviar'}
           </Button>
           {loading && <CircularProgress size={24} className={classes.buttonProgress} />}
         </div>
@@ -37,10 +37,13 @@ const AdmisionFinished = ({ classes, loading, success, error, onSubmit, resetFor
           El siguiente paso es descargar los archivos correspondientes, imprimirlos, llenarlos y depositarlos en
           nuestras oficinas y el proceso estará completo.
         </Typography>
-        <Typography paragraph type="subheading" className={classes.text}>
-          Si desea inscribir otro niño/a (usando la información anterior) oprima el botón <strong>Otro niño/a</strong>{' '}
-          una vez descargados los archivos.
+        <Typography paragraph className={classes.text}>
+          Si desea inscribir otro niño/a (usando la información anterior) oprima el botón{' '}
+          <strong>Agregar otro niño/a</strong> una vez descargados los archivos.
         </Typography>
+        <Button color="primary" className={classes.button} disabled={loading} onClick={resetForm}>
+          Agregar otro niño/a
+        </Button>
         <Button
           href={`/docs/admision${success}.zip`}
           download
@@ -50,9 +53,6 @@ const AdmisionFinished = ({ classes, loading, success, error, onSubmit, resetFor
           disabled={loading}
         >
           Descargar Archivos
-        </Button>
-        <Button color="primary" className={classes.button} disabled={loading} onClick={resetForm}>
-          Otro niño/a
         </Button>
       </div>
     )}
