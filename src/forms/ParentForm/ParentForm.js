@@ -12,10 +12,11 @@ import TelField from '../../components/TelField'
 import withStyles from 'material-ui/styles/withStyles'
 import styles from '../styles'
 
-import { AcademicLevels, CivilStatus } from './Data.json'
 import Checkbox from 'material-ui/Checkbox/Checkbox'
 import compare from 'just-compare'
 import FormBoundary from '../FormBoundary'
+import academicLevels from '../../lists/academiclevels'
+import civilStatus from '../../lists/civilstatus'
 class ParentForm extends Component {
   shouldComponentUpdate(nextProps) {
     return !compare(this.props.state, nextProps.state)
@@ -59,7 +60,7 @@ class ParentForm extends Component {
               select
               required
             >
-              {CivilStatus.map((item, index) => (
+              {civilStatus.map((item, index) => (
                 <MenuItem key={index} value={item.value}>
                   {item.label}
                 </MenuItem>
@@ -77,7 +78,7 @@ class ParentForm extends Component {
               select
               required
             >
-              {AcademicLevels.map((item, index) => (
+              {academicLevels.map((item, index) => (
                 <MenuItem key={index} value={item.value}>
                   {item.label}
                 </MenuItem>

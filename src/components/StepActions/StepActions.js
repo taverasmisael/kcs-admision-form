@@ -11,7 +11,7 @@ const StepActions = ({ classes, isFirstStep, isStepOptional, isLastStep, isNextD
     </Button>
     {isStepOptional && (
       <Button color="primary" onClick={handleSkip} className={classes.button}>
-        Saltar
+        No aplica
       </Button>
     )}
     <Button raised color="primary" onClick={handleNext} disabled={isNextDisabled}  className={classes.button}>

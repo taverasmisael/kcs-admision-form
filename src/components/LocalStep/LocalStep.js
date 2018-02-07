@@ -3,7 +3,17 @@ import PropTypes from 'prop-types'
 
 import Typography from 'material-ui/Typography'
 
-import { ChildInfo, ExtraInfo, FamilyInfo, ICEInfo, TutorInfo, StepWrapper, PaymentInfo } from '../../steps'
+import {
+  ChildInfo,
+  ExtraInfo,
+  FatherInfo,
+  MotherInfo,
+  ICEInfo,
+  TutorInfo,
+  StepWrapper,
+  PaymentInfo,
+  MedicalInfo
+} from '../../steps'
 
 const LocalStep = ({
   index,
@@ -22,20 +32,29 @@ const LocalStep = ({
         <ChildInfo
           stepIndex={index}
           componentProps={{
-            onChangeChild: onChange('childInfo'),
-            onHardChildValidate: onHardStateValidation('childInfo'),
-            onChangeMedical: onChange('medicalInfo'),
-            onHardMedicalValidate: onHardStateValidation('medicalInfo'),
+            onChange: onChange('childInfo'),
+            onHardValidate: onHardStateValidation('childInfo'),
+            onValidationError: onValidate('childValidations'),
+            validations: states.childValidations,
+            state: states.childInfo
+          }}
+          {...props}
+        />
+      )
+    case 1:
+      return (
+        <MedicalInfo
+          stepIndex={index}
+          componentProps={{
+            onChange: onChange('medicalInfo'),
             onChangeVaccine: onChange('vaccines'),
             onChangeAlergies: onChangeAlergies,
-            onValidationChildError: onValidate('childValidations'),
-            onValidationMedicalError: onValidate('medicalValidations'),
             onChangeSikness: onChangeSikness,
             onToggleDisease: onToggleDisease,
-            childValidations: states.childValidations,
-            medicalValidations: states.medicalValidations,
-            childInfo: states.childInfo,
-            medicalInfo: states.medicalInfo,
+            onHardValidate: onHardStateValidation('medicalInfo'),
+            onValidationError: onValidate('medicalValidations'),
+            validations: states.medicalValidations,
+            state: states.medicalInfo,
             diseases: states.diseases,
             alergies: states.alergies,
             vaccines: states.vaccines,
@@ -44,7 +63,7 @@ const LocalStep = ({
           {...props}
         />
       )
-    case 1:
+    case 2:
       return (
         <ExtraInfo
           stepIndex={index}
@@ -58,26 +77,35 @@ const LocalStep = ({
           {...props}
         />
       )
-    case 2:
+    case 3:
       return (
-        <FamilyInfo
+        <FatherInfo
           stepIndex={index}
           componentProps={{
-            fatherInfo: states.fatherInfo,
-            onFatherChange: onChange('fatherInfo'),
-            onFatherValidationError: onValidate('fatherValidations'),
-            fatherValidations: states.fatherValidations,
-            onHardFatherValidate: onHardStateValidation('fatherInfo'),
-            motherInfo: states.motherInfo,
-            onMotherChange: onChange('motherInfo'),
-            onMotherValidationError: onValidate('motherValidations'),
-            onHardMotherValidate: onHardStateValidation('motherInfo'),
-            motherValidations: states.motherValidations
+            state: states.fatherInfo,
+            onChange: onChange('fatherInfo'),
+            onValidationError: onValidate('fatherValidations'),
+            validations: states.fatherValidations,
+            onHardValidate: onHardStateValidation('fatherInfo'),
           }}
           {...props}
         />
       )
-    case 3:
+    case 4:
+      return (
+        <MotherInfo
+          stepIndex={index}
+          componentProps={{
+            state: states.motherInfo,
+            onChange: onChange('motherInfo'),
+            onValidationError: onValidate('motherValidations'),
+            validations: states.motherValidations,
+            onHardValidate: onHardStateValidation('motherInfo'),
+          }}
+          {...props}
+        />
+      )
+    case 5:
       return (
         <TutorInfo
           stepIndex={index}
@@ -91,7 +119,7 @@ const LocalStep = ({
           {...props}
         />
       )
-    case 4:
+    case 6:
       return (
         <ICEInfo
           stepIndex={index}
@@ -105,7 +133,7 @@ const LocalStep = ({
           {...props}
         />
       )
-    case 5:
+    case 7:
       return (
         <PaymentInfo
           stepIndex={index}

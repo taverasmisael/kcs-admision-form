@@ -52,7 +52,7 @@ class ChildForm extends Component {
             <TextField
               id="name"
               name="name"
-              label="Nombre(s)"
+              label="Nombre Completo"
               className={classes.textField}
               value={name}
               onChange={onChange}
@@ -115,7 +115,7 @@ class ChildForm extends Component {
               classes={{
                 root: classes.switchLabel
               }}
-              label="¿Viven más ninños? (no hermanos)"
+              label="¿Viven más niños? (no hermanos)"
             />
           </Grid>
           {hasOtherChildren ? (

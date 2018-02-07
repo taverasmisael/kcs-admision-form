@@ -28,19 +28,40 @@ class PaymentForm extends Component {
       <Grid container spacing={16}>
         <Grid item xs={12}>
           <FormControl component="fieldset" required className={classes.formControl}>
-            <FormLabel component="legend">Metodo de pago de Admisión</FormLabel>
+            <FormLabel component="legend">
+              Método de pago de <strong>admisión</strong>
+            </FormLabel>
             <RadioGroup
               row
-              aria-label="Metodo de pago de Admisión"
+              aria-label="Método de pago de Admisión"
               name="admisionPaymentModel"
               className={classes.group}
               value={state.admisionPaymentModel}
               onChange={onChange}
             >
-              <FormControlLabel value="A" control={<Radio />} label="Metodo A (1 cuota)" />
-              <FormControlLabel value="B" control={<Radio />} label="Metodo B (2 cuotas)" />
-              <FormControlLabel value="C" control={<Radio />} label="Metodo C (3 cuotas)" />
-              <FormControlLabel value="D" control={<Radio />} label="Metodo D (7 cuotas)" />
+              <FormControlLabel value="A" control={<Radio />} label="Método A (1 cuota)" />
+              <FormControlLabel value="B" control={<Radio />} label="Método B (2 cuotas)" />
+              <FormControlLabel value="C" control={<Radio />} label="Método C (3 cuotas)" />
+            </RadioGroup>
+          </FormControl>
+        </Grid>
+        <Grid item xs={12}>
+          <FormControl component="fieldset" required className={classes.formControl}>
+            <FormLabel component="legend">
+              Método de pago de <strong>escolaridad</strong>
+            </FormLabel>
+            <RadioGroup
+              row
+              aria-label="Método de pago de Escolaridad"
+              name="schoolarshipPaymentModel"
+              className={classes.group}
+              value={state.schoolarshipPaymentModel}
+              onChange={onChange}
+            >
+              <FormControlLabel value="A" control={<Radio />} label="Método A (1 cuota)" />
+              <FormControlLabel value="B" control={<Radio />} label="Método B (2 cuotas)" />
+              <FormControlLabel value="C" control={<Radio />} label="Método C (3 cuotas)" />
+              <FormControlLabel value="D" control={<Radio />} label="Método D (7 cuotas)" />
             </RadioGroup>
           </FormControl>
         </Grid>

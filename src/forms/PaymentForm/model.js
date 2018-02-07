@@ -1,3 +1,4 @@
 export default {
-  admisionPaymentModel: ''
+  admisionPaymentModel: 'A',
+  schoolarshipPaymentModel: 'B'
 }

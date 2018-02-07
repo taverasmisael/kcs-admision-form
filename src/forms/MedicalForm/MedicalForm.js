@@ -19,7 +19,6 @@ class MedicalForm extends PureComponent {
   static propTypes = {
     classes: PropTypes.object.isRequired,
     state: PropTypes.shape({
-      fullName: PropTypes.string.isRequired,
       bloodType: PropTypes.string.isRequired,
       doctorName: PropTypes.string.isRequired,
       doctorPhone: PropTypes.string.isRequired
@@ -60,30 +59,7 @@ class MedicalForm extends PureComponent {
       <FormBoundary onValidationError={onValidationError} validations={validations}>
         <Typography type="headline">Condición Medica</Typography>
         <Grid container spacing={16} className={classes.inputContainer}>
-          <Grid item xs={12} sm={8} md={10}>
-            <TextField
-              id="fullName"
-              name="fullName"
-              label="Nombre Completo"
-              className={classes.textField}
-              value={state.fullName}
-              onChange={onChange}
-              required
-            />
-          </Grid>
-          <Grid item xs={12} sm={4} md={2}>
-            <TextField
-              id="bloodType"
-              name="bloodType"
-              label="Tipo de sangre"
-              length="4"
-              className={classes.textField}
-              value={state.bloodType}
-              onChange={onChange}
-              required
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} md={8}>
+          <Grid item xs={12} sm={6} md={6}>
             <TextField
               id="doctorName"
               name="doctorName"
@@ -101,6 +77,19 @@ class MedicalForm extends PureComponent {
               label="Teléfono del pediatra"
               className={classes.textField}
               value={state.doctorPhone}
+              onChange={onChange}
+              required
+            />
+          </Grid>
+          <Grid item xs={12} sm={4} md={2}>
+            <TextField
+              id="bloodType"
+              name="bloodType"
+              label="Tipo de sangre del niño/a"
+              maxLength={4}
+              minLength={2}
+              className={classes.textField}
+              value={state.bloodType}
               onChange={onChange}
               required
             />
