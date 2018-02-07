@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.9.0"></a>
+# [0.9.0](https://github.com/taverasmisael/kcs-admision-form/compare/v0.8.0...v0.9.0) (2018-02-07)
+
+
+### Bug Fixes
+
+* **styles:** firefox input grow over its contianer flow ([7f22626](https://github.com/taverasmisael/kcs-admision-form/commit/7f22626))
+
+
+### Features
+
+* **ChildMedical:** split child and medical info into 2 steps ([5482385](https://github.com/taverasmisael/kcs-admision-form/commit/5482385))
+* **FamilyInfo:** split parents in separate steps for each ([1bdf123](https://github.com/taverasmisael/kcs-admision-form/commit/1bdf123))
+* **Lists:** move academicLevels and civilstatus to /list folder ([af772f6](https://github.com/taverasmisael/kcs-admision-form/commit/af772f6))
+* **PaymentInfo:** add schoolarship payment ([f23a88d](https://github.com/taverasmisael/kcs-admision-form/commit/f23a88d))
+* **Vaccines:** add 'Ninguna' as an option ([2abe3d8](https://github.com/taverasmisael/kcs-admision-form/commit/2abe3d8))
+
+
+
 <a name="0.8.0"></a>
 # [0.8.0](https://github.com/taverasmisael/kcs-admision-form/compare/v0.7.0...v0.8.0) (2018-02-01)
 
