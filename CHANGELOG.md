@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.10.0"></a>
+# [0.10.0](https://github.com/taverasmisael/kcs-admision-form/compare/v0.9.0...v0.10.0) (2018-02-08)
+
+
+### Bug Fixes
+
+* **ChildInfo:** birthdate and age wasn't reflecting on component. ([b2bb071](https://github.com/taverasmisael/kcs-admision-form/commit/b2bb071))
+
+
+### Features
+
+* **academiclevels:** add academic levels ([3f346ba](https://github.com/taverasmisael/kcs-admision-form/commit/3f346ba))
+
+
+
 <a name="0.9.0"></a>
 # [0.9.0](https://github.com/taverasmisael/kcs-admision-form/compare/v0.8.0...v0.9.0) (2018-02-07)
 
