@@ -3,5 +3,7 @@ export default [
   { value: 'Media', label: 'Media' },
   { value: 'Estudiante Universitario', label: 'Estudiante Universitario' },
   { value: 'Graduado', label: 'Graduado' },
-  { value: 'Doctor', label: 'Doctor' }
+  { value: 'Postgrado', label: 'Postgrado' },
+  { value: 'Master', label: 'Master' },
+  { value: 'Doctor', label: 'Doctorado' }
 ]
