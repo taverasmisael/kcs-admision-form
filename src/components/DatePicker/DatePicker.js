@@ -15,15 +15,16 @@ moment.locale('es-do')
 
 const DatePicker = ({ onChange, disableFuture = true, value, ...props }) => (
   <BaseDatePicker
+    cancelLabel="Cancelar"
+    format="DD MMMM YYYY"
+    margin="normal"
     value={value}
     onChange={onChange}
     disableFuture={disableFuture}
-    cancelLabel="Cancelar"
-    format="DD MMMM YYYY"
     leftArrowIcon={<KeyboardArrowLeft />}
     rightArrowIcon={<KeyboardArrowRight />}
     keyboardIcon={<Event />}
-    margin="normal"
+    keyboard
     {...props}
   />
 )
