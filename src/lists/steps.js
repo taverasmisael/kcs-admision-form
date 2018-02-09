@@ -6,5 +6,5 @@ export default [
   { label: 'Datos de la Madre', optional: false },
   { label: 'Datos del Tutor', optional: true },
   { label: 'En Caso de Emergencia', optional: false },
-  { label: 'Metodo de pago', optional: false }
+  { label: 'Forma de pago', optional: false }
 ]
