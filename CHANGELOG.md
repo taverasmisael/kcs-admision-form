@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.11.0"></a>
+# [0.11.0](https://github.com/taverasmisael/kcs-admision-form/compare/v0.10.0...v0.11.0) (2018-02-09)
+
+
+### Bug Fixes
+
+* **typo:** birthdate->birthday ([1ec8a24](https://github.com/taverasmisael/kcs-admision-form/commit/1ec8a24))
+* **typo:** change 'Metodo'->'Forma' ([cee3746](https://github.com/taverasmisael/kcs-admision-form/commit/cee3746))
+
+
+### Features
+
+* **DatePicker:** allow direct keyboard input ([29b6fc8](https://github.com/taverasmisael/kcs-admision-form/commit/29b6fc8))
+* **lib:** roll back material-ui-pickers to stable version ([aad51db](https://github.com/taverasmisael/kcs-admision-form/commit/aad51db))
+* **lib:** update material-ui-pickers ([0e5b2ce](https://github.com/taverasmisael/kcs-admision-form/commit/0e5b2ce))
+
+
+
 <a name="0.10.0"></a>
 # [0.10.0](https://github.com/taverasmisael/kcs-admision-form/compare/v0.9.0...v0.10.0) (2018-02-08)
 
