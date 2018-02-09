@@ -23,7 +23,7 @@ class ChildForm extends Component {
     classes: PropTypes.object.isRequired,
     state: PropTypes.shape({
       name: PropTypes.string.isRequired,
-      birthdate: PropTypes.string.isRequired,
+      birthday: PropTypes.string.isRequired,
       grade: PropTypes.string.isRequired,
       age: PropTypes.number.isRequired,
       hasSiblings: PropTypes.bool.isRequired,
@@ -42,7 +42,7 @@ class ChildForm extends Component {
   }
   render() {
     const { state, onChange, onDateChange, classes, onValidationError, validations } = this.props
-    const { name, grade, birthdate, age, hasSiblings, hasOtherChildren, otherChildren } = state
+    const { name, grade, birthday, age, hasSiblings, hasOtherChildren, otherChildren } = state
 
     return (
       <FormBoundary onValidationError={onValidationError} validations={validations}>
@@ -79,11 +79,11 @@ class ChildForm extends Component {
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
             <DatePicker
-              id="birthdate"
-              name="birthdate"
+              id="birthday"
+              name="birthday"
               label="Fecha de nacimiento"
               className={classes.textField}
-              value={birthdate}
+              value={birthday}
               onChange={onDateChange}
               required
             />

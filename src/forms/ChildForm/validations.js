@@ -1,6 +1,6 @@
 export default {
   name: { error: true },
-  birthdate: { error: true },
+  birthday: { error: true },
   grade: { error: true },
   isValid: { error: true }
 }

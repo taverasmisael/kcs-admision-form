@@ -23,11 +23,11 @@ class ChildInfo extends PureComponent {
 
   handleDateChange = momentDate => {
     const age = new Date().getFullYear() - momentDate.year()
-    const birthdate = momentDate.toISOString()
-    this.setState({ birthdate, age }, () => {
+    const birthday = momentDate.toISOString()
+    this.setState({ birthday, age }, () => {
       this.props.onChange({ target: { name: 'age', value: age } })
-      debounce(this.props.onChange.bind(this, { target: { name: 'birthdate', value: birthdate } }), 1000)()
-      this.props.onValidationError({ value: { error: false, errorText: '' }, name: 'birthdate' })
+      debounce(this.props.onChange.bind(this, { target: { name: 'birthday', value: birthday } }), 1000)()
+      this.props.onValidationError({ value: { error: false, errorText: '' }, name: 'birthday' })
     })
   }
 
