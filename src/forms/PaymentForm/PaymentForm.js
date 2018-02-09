@@ -33,15 +33,15 @@ class PaymentForm extends Component {
             </FormLabel>
             <RadioGroup
               row
-              aria-label="Método de pago de Admisión"
+              aria-label="Forma de pago de Admisión"
               name="admisionPaymentModel"
               className={classes.group}
               value={state.admisionPaymentModel}
               onChange={onChange}
             >
-              <FormControlLabel value="A" control={<Radio />} label="Método A (1 cuota)" />
-              <FormControlLabel value="B" control={<Radio />} label="Método B (2 cuotas)" />
-              <FormControlLabel value="C" control={<Radio />} label="Método C (3 cuotas)" />
+              <FormControlLabel value="A" control={<Radio />} label="Plan A (1 cuota)" />
+              <FormControlLabel value="B" control={<Radio />} label="Plan B (2 cuotas)" />
+              <FormControlLabel value="C" control={<Radio />} label="Plan C (3 cuotas)" />
             </RadioGroup>
           </FormControl>
         </Grid>
@@ -52,16 +52,16 @@ class PaymentForm extends Component {
             </FormLabel>
             <RadioGroup
               row
-              aria-label="Método de pago de Escolaridad"
+              aria-label="Forma de pago de Escolaridad"
               name="schoolarshipPaymentModel"
               className={classes.group}
               value={state.schoolarshipPaymentModel}
               onChange={onChange}
             >
-              <FormControlLabel value="A" control={<Radio />} label="Método A (1 cuota)" />
-              <FormControlLabel value="B" control={<Radio />} label="Método B (2 cuotas)" />
-              <FormControlLabel value="C" control={<Radio />} label="Método C (3 cuotas)" />
-              <FormControlLabel value="D" control={<Radio />} label="Método D (7 cuotas)" />
+              <FormControlLabel value="A" control={<Radio />} label="Plan A (1 cuota)" />
+              <FormControlLabel value="B" control={<Radio />} label="Plan B (2 cuotas)" />
+              <FormControlLabel value="C" control={<Radio />} label="Plan C (3 cuotas)" />
+              <FormControlLabel value="D" control={<Radio />} label="Plan D (7 cuotas)" />
             </RadioGroup>
           </FormControl>
         </Grid>
