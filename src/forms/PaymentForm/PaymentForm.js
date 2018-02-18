@@ -29,7 +29,7 @@ class PaymentForm extends Component {
         <Grid item xs={12}>
           <FormControl component="fieldset" required className={classes.formControl}>
             <FormLabel component="legend">
-              Método de pago de <strong>admisión</strong>
+              Forma de pago de <strong>admisión</strong>
             </FormLabel>
             <RadioGroup
               row
@@ -48,7 +48,7 @@ class PaymentForm extends Component {
         <Grid item xs={12}>
           <FormControl component="fieldset" required className={classes.formControl}>
             <FormLabel component="legend">
-              Método de pago de <strong>escolaridad</strong>
+              Forma de pago de <strong>escolaridad</strong>
             </FormLabel>
             <RadioGroup
               row

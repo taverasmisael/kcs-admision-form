@@ -76,6 +76,7 @@ class VaccineCard extends PureComponent {
                 <FormControlLabel value="Segunda" control={<Radio />} label="2da" />
                 <FormControlLabel value="Tercera" control={<Radio />} label="3ra" />
                 <FormControlLabel value="R" control={<Radio />} label="R" />
+                <FormControlLabel value="Todas" control={<Radio />} label="Todas" />
               </RadioGroup>
             </FormControl>
           </Grid>
@@ -96,6 +97,7 @@ class VaccineCard extends PureComponent {
                 <FormControlLabel value="Tercera" control={<Radio />} label="3ra" />
                 <FormControlLabel value="R1" control={<Radio />} label="R1" />
                 <FormControlLabel value="R2" control={<Radio />} label="R2" />
+                <FormControlLabel value="Todas" control={<Radio />} label="Todas" />
               </RadioGroup>
             </FormControl>
           </Grid>
@@ -115,6 +117,7 @@ class VaccineCard extends PureComponent {
                 <FormControlLabel value="Segunda" control={<Radio />} label="2da" />
                 <FormControlLabel value="Tercera" control={<Radio />} label="3ra" />
                 <FormControlLabel value="R" control={<Radio />} label="R" />
+                <FormControlLabel value="Todas" control={<Radio />} label="Todas" />
               </RadioGroup>
             </FormControl>
           </Grid>
@@ -133,6 +136,7 @@ class VaccineCard extends PureComponent {
                 <FormControlLabel value="Primera" control={<Radio />} label="1ra" />
                 <FormControlLabel value="Segunda" control={<Radio />} label="2da" />
                 <FormControlLabel value="Tercera" control={<Radio />} label="3ra" />
+                <FormControlLabel value="Todas" control={<Radio />} label="Todas" />
               </RadioGroup>
             </FormControl>
           </Grid>
@@ -150,6 +154,7 @@ class VaccineCard extends PureComponent {
                 <FormControlLabel value="Ninguna" control={<Radio />} label="Ninguna" />
                 <FormControlLabel value="Primera" control={<Radio />} label="1ra" />
                 <FormControlLabel value="R" control={<Radio />} label="R" />
+                <FormControlLabel value="Todas" control={<Radio />} label="Todas" />
               </RadioGroup>
             </FormControl>
           </Grid>
@@ -167,6 +172,7 @@ class VaccineCard extends PureComponent {
                 <FormControlLabel value="Ninguna" control={<Radio />} label="Ninguna" />
                 <FormControlLabel value="Primera" control={<Radio />} label="1ra" />
                 <FormControlLabel value="Segunda" control={<Radio />} label="2da" />
+                <FormControlLabel value="Todas" control={<Radio />} label="Todas" />
               </RadioGroup>
             </FormControl>
           </Grid>
@@ -184,6 +190,7 @@ class VaccineCard extends PureComponent {
                 <FormControlLabel value="Ninguna" control={<Radio />} label="Ninguna" />
                 <FormControlLabel value="Primera" control={<Radio />} label="1ra" />
                 <FormControlLabel value="R" control={<Radio />} label="R" />
+                <FormControlLabel value="Todas" control={<Radio />} label="Todas" />
               </RadioGroup>
             </FormControl>
           </Grid>
@@ -201,6 +208,7 @@ class VaccineCard extends PureComponent {
                 <FormControlLabel value="Ninguna" control={<Radio />} label="Ninguna" />
                 <FormControlLabel value="2R" control={<Radio />} label="2R" />
                 <FormControlLabel value="3R" control={<Radio />} label="3R" />
+                <FormControlLabel value="Todas" control={<Radio />} label="Todas" />
               </RadioGroup>
             </FormControl>
           </Grid>
@@ -217,6 +225,7 @@ class VaccineCard extends PureComponent {
               >
                 <FormControlLabel value="Ninguna" control={<Radio />} label="Ninguna" />
                 <FormControlLabel value="R" control={<Radio />} label="R" />
+                <FormControlLabel value="Todas" control={<Radio />} label="Todas" />
               </RadioGroup>
             </FormControl>
           </Grid>
