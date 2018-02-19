@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.12.0"></a>
+# [0.12.0](https://github.com/taverasmisael/kcs-admision-form/compare/v0.11.0...v0.12.0) (2018-02-19)
+
+
+### Bug Fixes
+
+* **TextFieldValidators:** join multiple error messages with a dash ([ee50e15](https://github.com/taverasmisael/kcs-admision-form/commit/ee50e15))
+
+
+### Features
+
+* **Paren.Email:** add new field to ParentForm ([4ce6dd6](https://github.com/taverasmisael/kcs-admision-form/commit/4ce6dd6))
+
+
+
 <a name="0.11.0"></a>
 # [0.11.0](https://github.com/taverasmisael/kcs-admision-form/compare/v0.10.0...v0.11.0) (2018-02-09)
 
