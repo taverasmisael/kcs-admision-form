@@ -135,6 +135,20 @@ class ParentForm extends Component {
         <Grid container spacing={16} className={classes.inputContainer}>
           <Grid item xs={12} sm={6} md={3}>
             <TextField
+              id={`${parent}email`}
+              name="email"
+              label="Correo Electronico"
+              type="email"
+              className={classes.textField}
+              value={state.email}
+              onChange={onChange}
+              required
+              validators={['isEmail']}
+              errorMessages={['Debe ser una dirección de correo valida']}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
+            <TextField
               id={`${parent}WorkName`}
               name="workName"
               label="Lugar de trabajo"
@@ -155,7 +169,7 @@ class ParentForm extends Component {
               required
             />
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} sm={4} md={2}>
             <TelField
               id={`${parent}WorkPhone`}
               name="workPhone"
@@ -166,7 +180,7 @@ class ParentForm extends Component {
               onChange={onChange}
             />
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} sm={2} md={1}>
             <TextField
               id={`${parent}WorkPhoneExt`}
               name="workPhoneExt"
@@ -246,6 +260,7 @@ ParentForm.propTypes = {
     sector: PropTypes.string.isRequired,
     phone: PropTypes.string.isRequired,
     cellphone: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
     workName: PropTypes.string.isRequired,
     workPosition: PropTypes.string.isRequired,
     workPhone: PropTypes.string.isRequired,

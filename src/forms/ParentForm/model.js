@@ -7,6 +7,7 @@ export default {
   sector: '',
   phone: '',
   cellphone: '',
+  email: '',
   workName: '',
   workPosition: '',
   workPhone: '',

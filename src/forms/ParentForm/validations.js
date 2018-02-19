@@ -6,5 +6,6 @@ export default {
   address: { error: true },
   workName: { error: true },
   workPosition: { error: true },
+  email: { error: true },
   isValid: { error: true }
 }
