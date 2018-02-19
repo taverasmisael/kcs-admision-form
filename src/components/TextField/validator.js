@@ -2,7 +2,7 @@ import * as ValidationRules from './validationRules'
 
 export default (value, validators, messages) => {
   let error = false
-  let errorText = ''
+  let errorText = []
 
   validators.forEach((v, idx) => {
     const [name, param] = v.split(':')
@@ -11,13 +11,13 @@ export default (value, validators, messages) => {
       const isValid = validator(value, param)
       error = error || !isValid
       if (!isValid) {
-        errorText += messages[idx]
+        errorText = [...errorText, messages[idx]]
       }
     }
   })
 
   return {
     error,
-    errorText
+    errorText: errorText.join(' - ')
   }
 }
